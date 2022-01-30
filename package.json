@@ -1,14 +1,14 @@
 {
-  "name": "shacksevo-models",
+  "name": "@danicoco/model-package-shacksevo",
   "version": "1.0.0",
   "description": "Models and its implementation",
   "main": "build/index.js",
-  "repository": "git remote add origin https://github.com/Shacks-Evolution/model-package.git",
+  "repository": "git@github.com:Danicoco/model-package-shacksevo.git",
   "author": "Aderemi Dare",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Shacks-Evolution"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "start": "node build/index.js",

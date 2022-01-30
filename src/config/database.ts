@@ -1,8 +1,8 @@
 import { connect } from 'mongoose';
 
 
-const databaseConnection = (url: string) => {
-    connect(url);
+const databaseConnection = async (url: string) => {
+    await connect(url);
 }
 
 export default databaseConnection;
