@@ -12,6 +12,17 @@ interface DefaultAttributes {
   updatedAt: string;
 }
 
+interface IGameRound extends DefaultAttributes {
+  eventTypes: Array;
+  eventId: string;
+  gameOdd: string;
+  eventRanges: Array;
+  partnerId: ObjectId;
+  partnerName: string;
+  algorithmUsed: string;
+  numberOfBetPlaced: number;
+}
+
 interface IUser extends DefaultAttributes {
   firstName: string;
   lastName: string;

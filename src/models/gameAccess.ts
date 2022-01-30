@@ -24,7 +24,7 @@ const GameAccessSchema: Schema = new Schema<IGameAccess>({
         type: Boolean,
     }
 }, {
-    collection: 'gameAcess',
+    collection: 'gameAccess',
     versionKey: false
 });
 

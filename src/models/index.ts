@@ -7,6 +7,7 @@ import Role from './roles';
 import Wallet from './wallet';
 import Partner from './partner';
 import ErrorMessage from './error';
+import GameRound from './gameRound';
 import GameAccess from './gameAccess';
 import Permission from './permission';
 import Transaction from './transaction';
@@ -20,8 +21,9 @@ export {
   Role,
   Wallet,
   Partner,
-  ErrorMessage,
+  GameRound,
   GameAccess,
   Permission,
-  Transaction
+  Transaction,
+  ErrorMessage,
 }
