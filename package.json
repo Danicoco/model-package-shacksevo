@@ -2,7 +2,7 @@
   "name": "model-package-shacksevo",
   "version": "1.0.7",
   "description": "Models and its implementation",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "author": "Aderemi Dare",
   "license": "MIT",
   "private": false,
