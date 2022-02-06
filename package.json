@@ -1,6 +1,6 @@
 {
   "name": "@danicoco/model-package-shacksevo",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Models and its implementation",
   "main": "build/index.js",
   "repository": "git@github.com:Danicoco/model-package-shacksevo.git",

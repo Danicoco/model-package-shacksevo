@@ -9,9 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.databaseConnection = void 0;
 const mongoose_1 = require("mongoose");
 const databaseConnection = (url) => __awaiter(void 0, void 0, void 0, function* () {
     yield (0, mongoose_1.connect)(url);
 });
-exports.default = databaseConnection;
+exports.databaseConnection = databaseConnection;
 //# sourceMappingURL=database.js.map

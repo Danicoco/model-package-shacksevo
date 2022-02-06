@@ -1,9 +1,9 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { Partner } from '../types';
+import { IPartner } from '../types';
 
 
-const PartnerSchema: Schema = new Schema<Partner>({
+const PartnerSchema: Schema = new Schema<IPartner>({
     name: {
         type: String,
         required: true,
@@ -42,4 +42,4 @@ const PartnerSchema: Schema = new Schema<Partner>({
 
 PartnerSchema.set('timestamps', true);
 
-export default model<Partner>('Partners', PartnerSchema);
+export default model<IPartner>('Partners', PartnerSchema);

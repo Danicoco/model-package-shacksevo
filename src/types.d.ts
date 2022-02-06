@@ -84,7 +84,7 @@ interface IGameAccess extends DefaultAttributes {
 
 type IAMACCESS = 'owner' | 'manager';
 
-interface Partner extends DefaultAttributes {
+interface IPartner extends DefaultAttributes {
   name: string;
   firstName: string;
   lastName: string;

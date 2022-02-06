@@ -22,7 +22,7 @@ const GameAccessSchema = new mongoose_1.Schema({
         type: Boolean,
     }
 }, {
-    collection: 'gameAcess',
+    collection: 'gameAccess',
     versionKey: false
 });
 GameAccessSchema.set('timestamps', true);
