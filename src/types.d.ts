@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { Request } from 'express';
-import { ObjectId } from 'mongoose';
 
 interface AuthenticatedUser extends Request {
   user: Users
@@ -17,7 +16,7 @@ interface IGameRound extends DefaultAttributes {
   eventId: string;
   gameOdd: string;
   eventRanges: Array;
-  partnerId: ObjectId;
+  partnerId: string;
   partnerName: string;
   algorithmUsed: string;
   numberOfBetPlaced: number;
@@ -31,7 +30,7 @@ interface IUser extends DefaultAttributes {
   gameType: string;
   isActive: boolean;
   username: string;
-  partnerId?: ObjectId;
+  partnerId?: string;
   partnerName: string;
 }
 
@@ -41,13 +40,13 @@ interface IAdmin extends DefaultAttributes {
   email: string;
   password: string;
   isActive: boolean;
-  role?: ObjectId;
+  role?: string;
 }
 
 interface IAPI extends DefaultAttributes {
   publicKey: string;
   secretKey: string;
-  partnerId?: ObjectId;
+  partnerId?: string;
   associatedGames: number;
   numOfTimesGenerated: number;
 }
@@ -74,10 +73,10 @@ interface IGame extends DefaultAttributes {
 }
 
 interface IGameAccess extends DefaultAttributes {
-  partnerId?: ObjectId,
+  partnerId?: string,
   partnerName: string;
   partnerEmail: string;
-  gameId?: ObjectId,
+  gameId?: string,
   gameName: string;
   isActive: boolean;
 }
@@ -92,15 +91,15 @@ interface IPartner extends DefaultAttributes {
   password: string;
   isActive: boolean;
   role: string;
-  roleId?: ObjectId;
+  roleId?: string;
   IAM?: IAMACCESS;
 }
 
 interface Role extends DefaultAttributes {
   name: string;
   addedBy: string,
-  permission?: ObjectId,
-  adminId?: ObjectId,
+  permission?: string,
+  adminId?: string,
 }
 
 interface Permission extends DefaultAttributes {
@@ -120,15 +119,15 @@ interface Permission extends DefaultAttributes {
 }
 
 interface Transaction extends DefaultAttributes {
-  userId?: ObjectId;
+  userId?: string;
   amount: string;
   gameType: string;
-  gameId?: ObjectId;
+  gameId?: string;
   gameOutcome: string; // won, lost
 }
 
 interface Wallet extends DefaultAttributes {
-  userId?: ObjectId,
+  userId?: string,
   amount: string;
   lastTransactionDate: string;
 }
@@ -139,7 +138,7 @@ interface IToken {
     email: string;
     isActive: boolean;
     role: string;
-    roleId: ObjectId;
+    roleId: string;
     IAM: string;
   }
   admin: {
@@ -147,7 +146,7 @@ interface IToken {
     username: string;
     email: string;
     isActive: string;
-    roleId: ObjectId;
+    roleId: string;
   }
 }
 
