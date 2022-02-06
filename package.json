@@ -1,15 +1,11 @@
 {
-  "name": "@danicoco/model-package-shacksevo",
+  "name": "model-package-shacksevo",
   "version": "1.0.6",
   "description": "Models and its implementation",
   "main": "src/index.ts",
-  "repository": "git@github.com:Danicoco/model-package-shacksevo.git",
   "author": "Aderemi Dare",
   "license": "MIT",
   "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon src/index.ts",
