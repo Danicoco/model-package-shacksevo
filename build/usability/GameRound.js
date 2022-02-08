@@ -67,12 +67,8 @@ class GameRoundService {
     }
     last() {
         return __awaiter(this, void 0, void 0, function* () {
-            const round = yield models_1.GameRound
-                .findOne({
-                $query: {},
-                $orderby: { $natural: -1 }
-            });
-            return round;
+            const round = yield models_1.GameRound.find().sort({ _id: -1 }).limit(1);
+            return round[0];
         });
     }
 }

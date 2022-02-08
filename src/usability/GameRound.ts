@@ -58,12 +58,8 @@ class GameRoundService {
     }
 
     public async last() {
-        const round = await GameRound
-            .findOne({
-                $query: {}, 
-                $orderby: {$natural : -1}
-            });
-        return round;
+        const round = await GameRound.find().sort({_id:-1}).limit(1);
+        return round[0];
     }
 }
 
