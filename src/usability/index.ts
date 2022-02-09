@@ -1,15 +1,17 @@
 import ApiService from './ApiService'
+import GameService from './GameService'
+import UserService from './UserService';
 import ErrorService from './ErrorService'
 import GameRoundService from './GameRound'
-import GameService from './GameService'
+import WalletService from './WalletService';
 import PartnerService from './PartnerService';
-import UserService from './UserService';
 
 export {
     ApiService,
     GameService,
     UserService,
     ErrorService,
+    WalletService,
     PartnerService,
     GameRoundService,
 }
