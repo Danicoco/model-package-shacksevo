@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const GameAccessSchema = new mongoose_1.Schema({
+var mongoose_1 = require("mongoose");
+var GameAccessSchema = new mongoose_1.Schema({
     partnerId: {
         type: mongoose_1.Types.ObjectId,
         required: true,

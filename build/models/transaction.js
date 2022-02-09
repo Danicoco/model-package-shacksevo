@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const TransactionSchema = new mongoose_1.Schema({
+var mongoose_1 = require("mongoose");
+var TransactionSchema = new mongoose_1.Schema({
     userId: {
         type: mongoose_1.Types.ObjectId,
         ref: 'users',

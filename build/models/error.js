@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const ErrorMessagesSchema = new mongoose_1.Schema({
+var mongoose_1 = require("mongoose");
+var ErrorMessagesSchema = new mongoose_1.Schema({
     message: String,
     code: Number,
     errorPosition: String,

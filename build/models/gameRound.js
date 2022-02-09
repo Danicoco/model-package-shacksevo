@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const GameRoundSchema = new mongoose_1.Schema({
+var mongoose_1 = require("mongoose");
+var GameRoundSchema = new mongoose_1.Schema({
     eventTypes: {
         type: Array,
     },
