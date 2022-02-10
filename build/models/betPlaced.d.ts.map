@@ -1,1 +1,1 @@
-{"version":3,"file":"betPlaced.d.ts","sourceRoot":"","sources":["../../src/models/betPlaced.ts"],"names":[],"mappings":";AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,UAAU,CAAC;;AA4CtC,wBAAgE"}
+{"version":3,"file":"betPlaced.d.ts","sourceRoot":"","sources":["../../src/models/betPlaced.ts"],"names":[],"mappings":";AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,aAAa,CAAC;;AA4CzC,wBAAgE"}

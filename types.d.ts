@@ -107,10 +107,10 @@ interface IPartner extends DefaultAttributes {
   IAM?: IAMACCESS;
 }
 
-interface Role extends DefaultAttributes {
+interface IRole extends DefaultAttributes {
   name: string;
   addedBy: string;
-  permission?: string;
+  // permission?: string;
   adminId?: string;
 }
 

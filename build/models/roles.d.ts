@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { Role } from '../types';
-declare const _default: import("mongoose").Model<Role, {}, {}, {}>;
+import { IRole } from '../../types';
+declare const _default: import("mongoose").Model<IRole, {}, {}, {}>;
 export default _default;
 //# sourceMappingURL=roles.d.ts.map

@@ -1,5 +1,5 @@
 import { ErrorMessage } from '../models';
-import { IErrorMessages } from '../types';
+import { IErrorMessages } from '../../types';
 
 class ErrorService implements IErrorMessages {
     _id = "";

@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IGameRound } from "../types";
+import { IGameRound } from "../../types";
 declare class GameRoundService {
     _id: string;
     eventId: string;

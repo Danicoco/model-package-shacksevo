@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IErrorMessages } from '../types';
+import { IErrorMessages } from '../../types';
 declare class ErrorService implements IErrorMessages {
     _id: string;
     message: string;

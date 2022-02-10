@@ -1,4 +1,4 @@
-import { IBetPlaced } from '../types';
+import { IBetPlaced } from '../../types';
 import { Schema, Types, model } from 'mongoose';
 
 const BetPlacedSchema: Schema = new Schema<IBetPlaced>({

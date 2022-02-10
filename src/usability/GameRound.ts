@@ -1,4 +1,4 @@
-import { IGameRound } from "../types";
+import { IGameRound } from "../../types";
 import { GameRound } from '../models';
 
 class GameRoundService {

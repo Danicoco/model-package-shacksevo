@@ -1,6 +1,6 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { Transaction } from '../types';
+import { Transaction } from '../../types';
 
 
 const TransactionSchema: Schema = new Schema<Transaction>({

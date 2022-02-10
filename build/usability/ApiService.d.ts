@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IAPI } from '../types';
+import { IAPI } from '../../types';
 declare class APIService {
     private partnerId;
     private _id;

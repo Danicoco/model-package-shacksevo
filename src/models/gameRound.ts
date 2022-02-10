@@ -1,6 +1,6 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { IGameRound } from '../types';
+import { IGameRound } from '../../types';
 
 
 const GameRoundSchema: Schema = new Schema<IGameRound>({

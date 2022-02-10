@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IBetPlaced } from '../types';
+import { IBetPlaced } from '../../types';
 declare class BetPlacedService {
     private partnerId;
     private _id;

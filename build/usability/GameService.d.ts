@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IGame } from '../types';
+import { IGame } from '../../types';
 declare class GameService implements IGame {
     _id: string;
     name: string;

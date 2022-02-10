@@ -1,5 +1,5 @@
 import { Partner } from '../models';
-import { IPartner } from '../types';
+import { IPartner } from '../../types';
 
 class PartnerService {
     private _id: string;

@@ -1,5 +1,5 @@
 import { BetPlaced } from '../models';
-import { IBetPlaced } from '../types';
+import { IBetPlaced } from '../../types';
 
 
 class BetPlacedService {

@@ -10,10 +10,10 @@ var RoleSchema = new mongoose_1.Schema({
     addedBy: {
         type: String,
     },
-    permission: {
-        type: mongoose_1.Types.ObjectId,
-        ref: 'permissions',
-    },
+    // permission: {
+    //     type: Types.ObjectId,
+    //     ref: 'permissions',
+    // },
     adminId: {
         type: mongoose_1.Types.ObjectId,
         ref: 'admins',

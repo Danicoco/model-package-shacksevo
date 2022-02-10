@@ -1,6 +1,6 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { IPartner } from '../types';
+import { IPartner } from '../../types';
 
 
 const PartnerSchema: Schema = new Schema<IPartner>({

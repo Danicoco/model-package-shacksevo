@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { Permission } from "../types";
+import { Permission } from "../../types";
 
 const PermissionSchema: Schema = new Schema<Permission>(
   {

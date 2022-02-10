@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IUser } from "../types";
+import { IUser } from "../../types";
 declare class UserService {
     private _id;
     private partnerId;

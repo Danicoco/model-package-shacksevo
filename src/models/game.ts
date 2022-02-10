@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IGame } from '../types';
+import { IGame } from '../../types';
 
 
 const GameSchema: Schema = new Schema<IGame>({

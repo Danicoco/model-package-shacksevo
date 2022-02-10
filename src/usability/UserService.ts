@@ -1,4 +1,4 @@
-import { IUser } from "../types";
+import { IUser } from "../../types";
 import { User } from '../models';
 
 class UserService {

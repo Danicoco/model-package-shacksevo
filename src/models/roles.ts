@@ -1,9 +1,9 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { Role } from '../types';
+import { IRole } from '../../types';
 
 
-const RoleSchema: Schema = new Schema<Role>({
+const RoleSchema: Schema = new Schema<IRole>({
     name: {
         type: String,
         required: true,
@@ -12,10 +12,10 @@ const RoleSchema: Schema = new Schema<Role>({
     addedBy: {
         type: String,
     },
-    permission: {
-        type: Types.ObjectId,
-        ref: 'permissions',
-    },
+    // permission: {
+    //     type: Types.ObjectId,
+    //     ref: 'permissions',
+    // },
     adminId: {
         type: Types.ObjectId,
         ref: 'admins',
@@ -27,4 +27,4 @@ const RoleSchema: Schema = new Schema<Role>({
 
 RoleSchema.set('timestamps', true);
 
-export default model<Role>('Roles', RoleSchema);
+export default model<IRole>('Roles', RoleSchema);

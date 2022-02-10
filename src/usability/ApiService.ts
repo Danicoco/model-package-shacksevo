@@ -1,5 +1,5 @@
 import { API } from '../models';
-import { IAPI} from '../types';
+import { IAPI} from '../../types';
 
 
 class APIService {

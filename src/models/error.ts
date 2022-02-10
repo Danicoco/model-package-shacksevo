@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IErrorMessages } from '../types';
+import { IErrorMessages } from '../../types';
 
 
 const ErrorMessagesSchema: Schema = new Schema<IErrorMessages>({

@@ -1,5 +1,5 @@
 /// <reference types="mongoose" />
-import { IPartner } from '../types';
+import { IPartner } from '../../types';
 declare class PartnerService {
     private _id;
     constructor(_id: string);

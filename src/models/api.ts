@@ -1,5 +1,5 @@
 import { Schema, Types, model } from 'mongoose';
-import { IAPI } from '../types';
+import { IAPI } from '../../types';
 
 const APISchema: Schema = new Schema<IAPI>({
     publicKey: {

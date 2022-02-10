@@ -1,6 +1,6 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { IGameAccess } from '../types';
+import { IGameAccess } from '../../types';
 
 
 const GameAccessSchema: Schema = new Schema<IGameAccess>({

@@ -1,6 +1,6 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { Wallet } from '../types';
+import { Wallet } from '../../types';
 
 
 const WalletSchema: Schema = new Schema<Wallet>({

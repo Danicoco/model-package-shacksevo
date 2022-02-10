@@ -1,5 +1,5 @@
 import { Game } from '../models';
-import { IGame } from '../types';
+import { IGame } from '../../types';
 
 class GameService implements IGame {
     _id = "";
