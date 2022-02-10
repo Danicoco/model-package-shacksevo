@@ -8,6 +8,7 @@ import Wallet from './wallet';
 import Partner from './partner';
 import ErrorMessage from './error';
 import GameRound from './gameRound';
+import BetPlaced from './betPlaced';
 import GameAccess from './gameAccess';
 import Permission from './permission';
 import Transaction from './transaction';
@@ -22,6 +23,7 @@ export {
   Wallet,
   Partner,
   GameRound,
+  BetPlaced,
   GameAccess,
   Permission,
   Transaction,

@@ -4,6 +4,7 @@ import UserService from './UserService';
 import ErrorService from './ErrorService'
 import GameRoundService from './GameRound'
 import WalletService from './WalletService';
+import BetPlacedService from './BetService';
 import PartnerService from './PartnerService';
 
 export {
@@ -13,5 +14,6 @@ export {
     ErrorService,
     WalletService,
     PartnerService,
+    BetPlacedService,
     GameRoundService,
 }
