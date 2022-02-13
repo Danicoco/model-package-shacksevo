@@ -1,9 +1,9 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { Transaction } from '../../types';
+import { ITransaction } from '../../types';
 
 
-const TransactionSchema: Schema = new Schema<Transaction>({
+const TransactionSchema: Schema = new Schema<ITransaction>({
     userId: {
         type: Types.ObjectId,
         ref: 'users',
@@ -29,4 +29,4 @@ const TransactionSchema: Schema = new Schema<Transaction>({
 
 TransactionSchema.set('timestamps', true);
 
-export default model<Transaction>('Transactions', TransactionSchema);
+export default model<ITransaction>('Transactions', TransactionSchema);
