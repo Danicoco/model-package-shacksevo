@@ -12,10 +12,10 @@ interface IWallet extends DefaultAttributes {
 declare class WalletService {
     private userId;
     constructor(userId?: string);
-    create(params: Partial<IWallet>): Promise<import("mongoose").Document<unknown, any, import("../../types").Wallet> & import("../../types").Wallet & {
+    create(params: Partial<IWallet>): Promise<import("mongoose").Document<unknown, any, import("..").Wallet> & import("..").Wallet & {
         _id: string;
     }>;
-    updateOne(params: Partial<IWallet>): Promise<(import("mongoose").Document<unknown, any, import("../../types").Wallet> & import("../../types").Wallet & {
+    updateOne(params: Partial<IWallet>): Promise<(import("mongoose").Document<unknown, any, import("..").Wallet> & import("..").Wallet & {
         _id: string;
     }) | null>;
 }
