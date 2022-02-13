@@ -114,7 +114,7 @@ interface IRole extends DefaultAttributes {
   adminId?: string;
 }
 
-interface Permission extends DefaultAttributes {
+interface IPermission extends DefaultAttributes {
   name: string;
   addAdmin: boolean;
   getAdmin: boolean;
@@ -130,7 +130,7 @@ interface Permission extends DefaultAttributes {
   updateGame: boolean;
 }
 
-interface Transaction extends DefaultAttributes {
+interface ITransaction extends DefaultAttributes {
   userId?: string;
   amount: string;
   gameType: string;
