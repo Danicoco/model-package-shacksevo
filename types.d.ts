@@ -110,7 +110,7 @@ interface IPartner extends DefaultAttributes {
 interface IRole extends DefaultAttributes {
   name: string;
   addedBy: string;
-  // permission?: string;
+  permissionId?: string;
   adminId?: string;
 }
 

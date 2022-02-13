@@ -12,10 +12,10 @@ const RoleSchema: Schema = new Schema<IRole>({
     addedBy: {
         type: String,
     },
-    // permission: {
-    //     type: Types.ObjectId,
-    //     ref: 'permissions',
-    // },
+    permissionId: {
+        type: Types.ObjectId,
+        ref: 'permissions',
+    },
     adminId: {
         type: Types.ObjectId,
         ref: 'admins',
