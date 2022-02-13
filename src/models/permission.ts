@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { Permission } from "../../types";
+import { IPermission } from "../../types";
 
-const PermissionSchema: Schema = new Schema<Permission>(
+const PermissionSchema: Schema = new Schema<IPermission>(
   {
     name: {
       type: String,
@@ -29,7 +29,7 @@ const PermissionSchema: Schema = new Schema<Permission>(
 
 PermissionSchema.set("timestamps", true);
 
-export default model<Permission>(
+export default model<IPermission>(
   "Permissions",
   PermissionSchema
 );
