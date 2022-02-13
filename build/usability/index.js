@@ -3,9 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GameRoundService = exports.BetPlacedService = exports.PartnerService = exports.WalletService = exports.AdminService = exports.ErrorService = exports.RoleService = exports.UserService = exports.GameService = exports.ApiService = void 0;
+exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.GameRoundService = exports.BetPlacedService = exports.PartnerService = exports.WalletService = exports.AdminService = exports.ErrorService = exports.RoleService = exports.UserService = exports.GameService = exports.AppService = exports.ApiService = void 0;
 var ApiService_1 = __importDefault(require("./ApiService"));
 exports.ApiService = ApiService_1.default;
+var AppService_1 = __importDefault(require("./AppService"));
+exports.AppService = AppService_1.default;
 var GameService_1 = __importDefault(require("./GameService"));
 exports.GameService = GameService_1.default;
 var RoleService_1 = __importDefault(require("./RoleService"));
@@ -24,4 +26,10 @@ var BetService_1 = __importDefault(require("./BetService"));
 exports.BetPlacedService = BetService_1.default;
 var PartnerService_1 = __importDefault(require("./PartnerService"));
 exports.PartnerService = PartnerService_1.default;
+var GameAccessService_1 = __importDefault(require("./GameAccessService"));
+exports.GameAccessService = GameAccessService_1.default;
+var PermissionService_1 = __importDefault(require("./PermissionService"));
+exports.PermissionService = PermissionService_1.default;
+var TransactionService_1 = __importDefault(require("./TransactionService"));
+exports.TransactionService = TransactionService_1.default;
 //# sourceMappingURL=index.js.map
