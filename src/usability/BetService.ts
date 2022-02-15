@@ -53,7 +53,7 @@ class BetPlacedService {
         return betPlaced;
     }
 
-    public async updateOne(params: IBetPlaced) {
+    public async updateOne(params: Partial<IBetPlaced>) {
         const betPlaced = await BetPlaced.findOneAndUpdate(
             { _id: this._id },
             { ...params },
