@@ -16,7 +16,7 @@ declare class BetPlacedService {
     deleteOne(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     }) | null>;
-    updateOne(params: IBetPlaced): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
+    updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     }) | null>;
 }
