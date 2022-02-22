@@ -142,7 +142,7 @@ var GameRoundService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.GameRound.find().sort({ _id: -1 }).limit(1)];
                     case 1:
                         round = _a.sent();
-                        return [2 /*return*/, round[0]];
+                        return [2 /*return*/, round];
                 }
             });
         });

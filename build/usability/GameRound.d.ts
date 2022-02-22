@@ -25,9 +25,9 @@ declare class GameRoundService {
     updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     }) | null>;
-    last(): Promise<import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+    last(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
-    }>;
+    })[]>;
 }
 export default GameRoundService;
 //# sourceMappingURL=GameRound.d.ts.map
