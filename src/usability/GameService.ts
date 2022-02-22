@@ -38,7 +38,7 @@ class GameService implements IGame {
             .findOne()
             .where(this._id ? '_id' : 'name')
             .equals(this._id ? this._id : this.name)
-            .catch((e) => { 
+            .catch((e: any) => { 
                 throw new Error(e) 
             });
         return game;
@@ -47,7 +47,7 @@ class GameService implements IGame {
     public async findAll() {
         const games = await Game
             .find()
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return games;
     }
 

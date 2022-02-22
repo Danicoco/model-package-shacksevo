@@ -25,7 +25,7 @@ class UserService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return user;
     }
 
@@ -34,7 +34,7 @@ class UserService {
             .find()
             .where(this.partnerId && "partnerId")
             .equals(this.partnerId && this.partnerId)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return users;
     }
 

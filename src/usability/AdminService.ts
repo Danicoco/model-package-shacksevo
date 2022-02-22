@@ -23,14 +23,14 @@ class AdminService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return admin;
     }
 
     public async findAll() {
         const admins = await Admin
             .find()
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return admins;
     }
 

@@ -33,14 +33,14 @@ class ErrorService implements IErrorMessages {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return error;
     }
 
     public async findAll() {
         const errors = await ErrorMessage
             .find()
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return errors;
 
     }

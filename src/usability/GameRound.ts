@@ -34,7 +34,7 @@ class GameRoundService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return round;
     }
 
@@ -43,7 +43,7 @@ class GameRoundService {
             .find()
             .where(this.partnerId && "partnerId")
             .equals(this.partnerId && this.partnerId)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return rounds;
     }
 
@@ -59,7 +59,7 @@ class GameRoundService {
 
     public async last() {
         const round = await GameRound.find().sort({_id:-1}).limit(1);
-        return round[0];
+        return round;
     }
 }
 

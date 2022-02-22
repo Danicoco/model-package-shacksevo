@@ -26,7 +26,7 @@ class AppService {
             .findOne()
             .where(this._id ? '_id' : 'partnerId')
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return app;
@@ -35,7 +35,7 @@ class AppService {
     public async findAll() {
         const apps = await APP
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return apps;
@@ -46,7 +46,7 @@ class AppService {
             .findOneAndDelete()
             .where(this._id ? "_id": "partnerId")
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 

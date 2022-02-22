@@ -22,7 +22,7 @@ class PartnerService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return partner;
@@ -31,7 +31,7 @@ class PartnerService {
     public async findAll() {
         const partner = await Partner
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return partner;
@@ -42,7 +42,7 @@ class PartnerService {
             .find()
             .where('isActive')
             .equals(true)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return partner;
@@ -53,7 +53,7 @@ class PartnerService {
             .deleteOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return partner;
@@ -62,7 +62,7 @@ class PartnerService {
     public async updateOne(params: Partial<IPartner>) {
         const partner = await Partner
             .updateOne({ _id: this._id }, { ...params }, { new: true })
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return partner;

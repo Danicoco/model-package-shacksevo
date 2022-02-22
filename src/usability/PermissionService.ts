@@ -24,7 +24,7 @@ class PermissionService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return permission;
@@ -33,7 +33,7 @@ class PermissionService {
     public async findAll() {
         const permissions = await Permission
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return permissions;
@@ -44,7 +44,7 @@ class PermissionService {
             .findOneAndDelete()
             .where("_id")
             .equals(this._id)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 

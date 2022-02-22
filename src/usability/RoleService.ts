@@ -23,14 +23,14 @@ class RoleService {
             .findOne()
             .where('_id')
             .equals(this._id)
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return role;
     }
 
     public async findAll() {
         const roles = await Role
             .find()
-            .catch((e) => { throw new Error(e) });
+            .catch((e: any) => { throw new Error(e) });
         return roles;
     }
 

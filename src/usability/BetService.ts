@@ -26,7 +26,7 @@ class BetPlacedService {
             .findOne()
             .where(this._id ? '_id' : 'partnerId')
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return betPlaced;
@@ -35,7 +35,7 @@ class BetPlacedService {
     public async findAll() {
         const betPlaceds = await BetPlaced
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return betPlaceds;
@@ -46,7 +46,7 @@ class BetPlacedService {
             .findOneAndDelete()
             .where(this._id ? "_id": "partnerId")
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 
@@ -58,7 +58,7 @@ class BetPlacedService {
             { _id: this._id },
             { ...params },
             { new: true },
-        ).catch((e) => {
+        ).catch((e: any) => {
             throw new Error(e.message);
         });
         

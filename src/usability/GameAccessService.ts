@@ -26,7 +26,7 @@ class GameAccessService {
             .findOne()
             .where(this._id ? '_id' : 'partnerId')
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return gameAccess;
@@ -35,7 +35,7 @@ class GameAccessService {
     public async findAll() {
         const gameAccesss = await GameAccess
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return gameAccesss;
@@ -46,7 +46,7 @@ class GameAccessService {
             .findOneAndDelete()
             .where(this._id ? "_id": "partnerId")
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 

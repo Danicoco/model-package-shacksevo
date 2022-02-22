@@ -26,7 +26,7 @@ class APIService {
             .findOne()
             .where(this._id ? '_id' : 'partnerId')
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return api;
@@ -35,7 +35,7 @@ class APIService {
     public async findAll() {
         const apis = await API
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return apis;
@@ -46,7 +46,7 @@ class APIService {
             .findOneAndDelete()
             .where(this._id ? "_id": "partnerId")
             .equals(this._id ? this._id : this.partnerId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 

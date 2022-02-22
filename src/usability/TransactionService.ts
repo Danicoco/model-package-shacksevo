@@ -26,7 +26,7 @@ class TransactionService {
             .findOne()
             .where(this._id ? '_id' : 'userId')
             .equals(this._id ? this._id : this.userId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
         return transaction;
@@ -35,7 +35,7 @@ class TransactionService {
     public async findAll() {
         const transactions = await Transaction
             .find()
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message)
             });
         return transactions;
@@ -46,7 +46,7 @@ class TransactionService {
             .findOneAndDelete()
             .where(this._id ? "_id": "userId")
             .equals(this._id ? this._id : this.userId)
-            .catch((e) => {
+            .catch((e: any) => {
                 throw new Error(e.message);
             });
 
