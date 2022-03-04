@@ -2,7 +2,8 @@
 import { IAdmin } from "../../types";
 declare class AdminService {
     private _id;
-    constructor(_id?: string);
+    private email;
+    constructor(_id?: string, email?: string);
     create(params: Partial<IAdmin>): Promise<import("mongoose").Document<unknown, any, IAdmin> & IAdmin & {
         _id: string;
     }>;

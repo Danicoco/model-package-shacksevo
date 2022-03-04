@@ -49,9 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var AdminService = /** @class */ (function () {
-    function AdminService(_id) {
+    function AdminService(_id, email) {
         if (_id === void 0) { _id = ''; }
+        if (email === void 0) { email = ''; }
         this._id = _id;
+        this.email = email;
     }
     AdminService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -80,8 +82,8 @@ var AdminService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.Admin
                             .findOne()
-                            .where('_id')
-                            .equals(this._id)
+                            .where(this._id ? '_id' : 'email')
+                            .equals(this._id ? this._id : this.email)
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         admin = _a.sent();
