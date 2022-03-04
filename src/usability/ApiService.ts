@@ -3,10 +3,10 @@ import { IAPI} from '../../types';
 
 
 class APIService {
-    private partnerId: string | null;
+    private partnerId: any | null;
     private _id: string | null;
 
-    constructor(_id: string | null, partnerId: string | null) {
+    constructor(_id: string | null, partnerId: any | null) {
         this._id = _id;
         this.partnerId = partnerId;
     }
