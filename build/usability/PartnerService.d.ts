@@ -2,7 +2,8 @@
 import { IPartner } from '../../types';
 declare class PartnerService {
     private _id;
-    constructor(_id: string);
+    private email;
+    constructor(_id?: string, email?: string);
     create(params: Partial<IPartner>): Promise<import("mongoose").Document<unknown, any, IPartner> & IPartner & {
         _id: string;
     }>;
