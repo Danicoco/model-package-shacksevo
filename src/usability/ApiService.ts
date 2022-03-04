@@ -24,8 +24,8 @@ class APIService {
     public async findOne() {
         const api = await API
             .findOne()
-            .where(this._id ? '_id' : 'partnerId')
-            .equals(this._id ? this._id : this.partnerId)
+            .where('partnerId')
+            .equals(this.partnerId)
             .catch((e: any) => {
                 throw new Error(e.message);
             });

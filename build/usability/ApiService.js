@@ -80,8 +80,8 @@ var APIService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.API
                             .findOne()
-                            .where(this._id ? '_id' : 'partnerId')
-                            .equals(this._id ? this._id : this.partnerId)
+                            .where('partnerId')
+                            .equals(this.partnerId)
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];
