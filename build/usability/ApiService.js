@@ -49,9 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var APIService = /** @class */ (function () {
-    function APIService(partnerId) {
+    function APIService(partnerId, publicKey) {
         if (partnerId === void 0) { partnerId = ""; }
+        if (publicKey === void 0) { publicKey = ""; }
         this.partnerId = partnerId;
+        this.publicKey = publicKey;
     }
     APIService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -82,6 +84,25 @@ var APIService = /** @class */ (function () {
                             .findOne()
                             .where('partnerId')
                             .equals(this.partnerId)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        api = _a.sent();
+                        return [2 /*return*/, api];
+                }
+            });
+        });
+    };
+    APIService.prototype.findWithPublicKey = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var api;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.API
+                            .findOne()
+                            .where('publicKey')
+                            .equals(this.publicKey)
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];

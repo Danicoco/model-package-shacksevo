@@ -4,9 +4,11 @@ import { IAPI} from '../../types';
 
 class APIService {
     private partnerId: string;
+    private publicKey: string;
 
-    constructor(partnerId = "") {
+    constructor(partnerId = "", publicKey = "") {
         this.partnerId = partnerId;
+        this.publicKey = publicKey;
     }
 
     public async create(params: Partial<IAPI>) {
@@ -24,6 +26,17 @@ class APIService {
             .findOne()
             .where('partnerId')
             .equals(this.partnerId)
+            .catch((e: any) => {
+                throw new Error(e.message);
+            });
+        return api;
+    }
+
+    public async findWithPublicKey() {
+        const api = await API
+            .findOne()
+            .where('publicKey')
+            .equals(this.publicKey)
             .catch((e: any) => {
                 throw new Error(e.message);
             });
