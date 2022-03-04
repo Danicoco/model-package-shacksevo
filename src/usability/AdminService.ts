@@ -3,9 +3,11 @@ import { Admin } from '../models';
 
 class AdminService {
     private _id: string;
+    private email: string;
 
-    constructor(_id = '') {
+    constructor(_id = '', email = '') {
         this._id = _id;
+        this.email = email;
     }
 
     public async create(params: Partial<IAdmin>) {
@@ -21,8 +23,8 @@ class AdminService {
     public async findOne() {
         const admin = await Admin
             .findOne()
-            .where('_id')
-            .equals(this._id)
+            .where(this._id ? '_id' : 'email')
+            .equals(this._id ? this._id : this.email)
             .catch((e: any) => { throw new Error(e) });
         return admin;
     }
