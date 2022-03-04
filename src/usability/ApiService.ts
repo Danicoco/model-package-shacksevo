@@ -3,11 +3,9 @@ import { IAPI} from '../../types';
 
 
 class APIService {
-    private partnerId: any | null;
-    private _id: string | null;
+    private partnerId: string;
 
-    constructor(_id: string | null, partnerId: any | null) {
-        this._id = _id;
+    constructor(partnerId = "") {
         this.partnerId = partnerId;
     }
 
@@ -44,8 +42,8 @@ class APIService {
     public async deleteOne() {
         const api = await API
             .findOneAndDelete()
-            .where(this._id ? "_id": "partnerId")
-            .equals(this._id ? this._id : this.partnerId)
+            .where("partnerId")
+            .equals(this.partnerId)
             .catch((e: any) => {
                 throw new Error(e.message);
             });

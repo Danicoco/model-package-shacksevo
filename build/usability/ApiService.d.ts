@@ -2,8 +2,7 @@
 import { IAPI } from '../../types';
 declare class APIService {
     private partnerId;
-    private _id;
-    constructor(_id: string | null, partnerId: any | null);
+    constructor(partnerId?: string);
     create(params: Partial<IAPI>): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & {
         _id: string;
     }>;

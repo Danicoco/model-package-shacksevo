@@ -49,8 +49,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var APIService = /** @class */ (function () {
-    function APIService(_id, partnerId) {
-        this._id = _id;
+    function APIService(partnerId) {
+        if (partnerId === void 0) { partnerId = ""; }
         this.partnerId = partnerId;
     }
     APIService.prototype.create = function (params) {
@@ -116,8 +116,8 @@ var APIService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.API
                             .findOneAndDelete()
-                            .where(this._id ? "_id" : "partnerId")
-                            .equals(this._id ? this._id : this.partnerId)
+                            .where("partnerId")
+                            .equals(this.partnerId)
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];
