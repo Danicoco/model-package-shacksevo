@@ -85,6 +85,8 @@ class GameRoundService {
     public async findByIsPlayed(params: boolean) {
         const round = await GameRound
             .findOne()
+            .where('partnerId')
+            .equals(this.partnerId)
             .where('isPlayed')
             .equals(params)
             .catch((e: any) => { throw new Error(e) });
