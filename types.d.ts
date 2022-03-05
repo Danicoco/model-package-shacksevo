@@ -12,6 +12,7 @@ interface DefaultAttributes {
 }
 
 interface IGameRound extends DefaultAttributes {
+  day: string;
   season: number;
   gameOdd: string;
   eventId: string;

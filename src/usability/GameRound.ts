@@ -55,7 +55,7 @@ class GameRoundService {
             .where('partnerId')
             .equals(this.partnerId)
             .where('season')
-            .equals(this.year)
+            .equals(Number(this.year))
             .catch((e: any) => { throw new Error(e)});
         return rounds;            
     }
@@ -74,6 +74,23 @@ class GameRoundService {
         const round = await GameRound.find().sort({_id:-1}).limit(1);
         return round;
     }
+
+    public async findOneFirst() {
+        const round = await GameRound
+            .findOne()
+            .catch((e: any) => { throw new Error(e) });
+        return round;
+    }
+
+    public async findByIsPlayed(params: boolean) {
+        const round = await GameRound
+            .findOne()
+            .where('isPlayed')
+            .equals(params)
+            .catch((e: any) => { throw new Error(e) });
+        return round;
+    }
+
 }
 
 export default GameRoundService;

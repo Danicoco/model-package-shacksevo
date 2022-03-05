@@ -132,7 +132,7 @@ var GameRoundService = /** @class */ (function () {
                             .where('partnerId')
                             .equals(this.partnerId)
                             .where('season')
-                            .equals(this.year)
+                            .equals(Number(this.year))
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         rounds = _a.sent();
@@ -161,6 +161,38 @@ var GameRoundService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameRound.find().sort({ _id: -1 }).limit(1)];
+                    case 1:
+                        round = _a.sent();
+                        return [2 /*return*/, round];
+                }
+            });
+        });
+    };
+    GameRoundService.prototype.findOneFirst = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .findOne()
+                            .catch(function (e) { throw new Error(e); })];
+                    case 1:
+                        round = _a.sent();
+                        return [2 /*return*/, round];
+                }
+            });
+        });
+    };
+    GameRoundService.prototype.findByIsPlayed = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .findOne()
+                            .where('isPlayed')
+                            .equals(params)
+                            .catch(function (e) { throw new Error(e); })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];

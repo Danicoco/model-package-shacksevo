@@ -32,6 +32,12 @@ declare class GameRoundService {
     last(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     })[]>;
+    findOneFirst(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+        _id: string;
+    }) | null>;
+    findByIsPlayed(params: boolean): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+        _id: string;
+    }) | null>;
 }
 export default GameRoundService;
 //# sourceMappingURL=GameRound.d.ts.map
