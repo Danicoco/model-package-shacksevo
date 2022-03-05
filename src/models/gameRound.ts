@@ -11,6 +11,12 @@ const GameRoundSchema: Schema = new Schema<IGameRound>({
         type: String,
         required: true,
     },
+    season: {
+        type: Number,
+    },
+    isPlayed: {
+        type: Boolean,
+    },
     gameOdd: {
         type: String,
     },

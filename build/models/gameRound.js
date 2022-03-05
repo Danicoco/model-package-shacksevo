@@ -9,6 +9,12 @@ var GameRoundSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    season: {
+        type: Number,
+    },
+    isPlayed: {
+        type: Boolean,
+    },
     gameOdd: {
         type: String,
     },

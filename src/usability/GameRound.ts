@@ -13,10 +13,12 @@ class GameRoundService {
     algorithmUsed = "";
     partnerId = "";
     numberOfBetPlaced = 0;
+    year: string;
 
-    constructor(_id = '', partnerId = '') {
+    constructor(_id = '', partnerId = '', year = '') {
         this.partnerId = partnerId;
         this._id = _id;
+        this.year = year;
     }
 
     public async create(params: Partial<IGameRound>) {
@@ -45,6 +47,17 @@ class GameRoundService {
             .equals(this.partnerId && this.partnerId)
             .catch((e: any) => { throw new Error(e) });
         return rounds;
+    }
+
+    public async findByYear() {
+        const rounds = await GameRound
+            .find()
+            .where('partnerId')
+            .equals(this.partnerId)
+            .where('season')
+            .equals(this.year)
+            .catch((e: any) => { throw new Error(e)});
+        return rounds;            
     }
 
     public async updateOne(params: Partial<IGameRound>) {

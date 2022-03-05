@@ -49,9 +49,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var GameRoundService = /** @class */ (function () {
-    function GameRoundService(_id, partnerId) {
+    function GameRoundService(_id, partnerId, year) {
         if (_id === void 0) { _id = ''; }
         if (partnerId === void 0) { partnerId = ''; }
+        if (year === void 0) { year = ''; }
         this._id = "";
         this.eventId = "";
         this.gameOdd = "";
@@ -65,6 +66,7 @@ var GameRoundService = /** @class */ (function () {
         this.numberOfBetPlaced = 0;
         this.partnerId = partnerId;
         this._id = _id;
+        this.year = year;
     }
     GameRoundService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -112,6 +114,25 @@ var GameRoundService = /** @class */ (function () {
                             .find()
                             .where(this.partnerId && "partnerId")
                             .equals(this.partnerId && this.partnerId)
+                            .catch(function (e) { throw new Error(e); })];
+                    case 1:
+                        rounds = _a.sent();
+                        return [2 /*return*/, rounds];
+                }
+            });
+        });
+    };
+    GameRoundService.prototype.findByYear = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var rounds;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .find()
+                            .where('partnerId')
+                            .equals(this.partnerId)
+                            .where('season')
+                            .equals(this.year)
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         rounds = _a.sent();

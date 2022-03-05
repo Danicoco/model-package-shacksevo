@@ -12,7 +12,8 @@ declare class GameRoundService {
     algorithmUsed: string;
     partnerId: string;
     numberOfBetPlaced: number;
-    constructor(_id?: string, partnerId?: string);
+    year: string;
+    constructor(_id?: string, partnerId?: string, year?: string);
     create(params: Partial<IGameRound>): Promise<import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     }>;
@@ -20,6 +21,9 @@ declare class GameRoundService {
         _id: string;
     }) | null>;
     findAll(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+        _id: string;
+    })[]>;
+    findByYear(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     })[]>;
     updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
