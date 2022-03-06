@@ -106,6 +106,11 @@ class GameRoundService {
         await GameRound.deleteOne({ _id: this._id }).catch((e: any) => { throw new Error(e)});
         return true;
     }
+
+    public async deleteByPartnerId() {
+        await GameRound.deleteMany({ partnerId: this.partnerId }).catch((e: any) => { throw new Error(e) });
+        return true;
+    }
 }
 
 export default GameRoundService;

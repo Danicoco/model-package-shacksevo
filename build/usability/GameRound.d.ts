@@ -42,6 +42,7 @@ declare class GameRoundService {
         _id: string;
     }) | null>;
     deleteAll(): Promise<boolean>;
+    deleteByPartnerId(): Promise<boolean>;
 }
 export default GameRoundService;
 //# sourceMappingURL=GameRound.d.ts.map
