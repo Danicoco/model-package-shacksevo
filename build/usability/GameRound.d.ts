@@ -38,6 +38,7 @@ declare class GameRoundService {
     findByIsPlayed(params: boolean): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     }) | null>;
+    deleteAll(): Promise<boolean>;
 }
 export default GameRoundService;
 //# sourceMappingURL=GameRound.d.ts.map

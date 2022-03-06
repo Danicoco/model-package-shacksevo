@@ -95,6 +95,10 @@ class GameRoundService {
         return round;
     }
 
+    public async deleteAll() {
+        await GameRound.deleteOne({ _id: this._id }).catch((e: any) => { throw new Error(e)});
+        return true;
+    }
 }
 
 export default GameRoundService;
