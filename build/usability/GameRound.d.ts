@@ -23,6 +23,9 @@ declare class GameRoundService {
     findAll(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     })[]>;
+    findAllAdmin(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+        _id: string;
+    })[]>;
     findByYear(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     })[]>;

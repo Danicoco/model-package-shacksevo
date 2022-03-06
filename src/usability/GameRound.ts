@@ -49,6 +49,13 @@ class GameRoundService {
         return rounds;
     }
 
+    public async findAllAdmin() {
+        const rounds = await GameRound
+            .find()
+            .catch((e: any) => { throw new Error(e) });
+        return rounds;
+    }
+
     public async findByYear() {
         const rounds = await GameRound
             .find()
