@@ -175,6 +175,8 @@ var GameRoundService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameRound
                             .findOne()
+                            .where('partnerId')
+                            .equals(this.partnerId)
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         round = _a.sent();

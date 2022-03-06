@@ -78,6 +78,8 @@ class GameRoundService {
     public async findOneFirst() {
         const round = await GameRound
             .findOne()
+            .where('partnerId')
+            .equals(this.partnerId)
             .catch((e: any) => { throw new Error(e) });
         return round;
     }
