@@ -34,6 +34,9 @@ var GameRoundSchema = new mongoose_1.Schema({
     algorithmUsed: {
         type: String
     },
+    gameType: {
+        type: String,
+    },
     numberOfBetPlaced: {
         type: Number,
         required: true,

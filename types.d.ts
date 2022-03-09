@@ -16,6 +16,7 @@ interface IGameRound extends DefaultAttributes {
   season: number;
   gameOdd: string;
   eventId: string;
+  gameType: string;
   eventTypes: Array;
   isPlayed: boolean;
   eventRanges: Array;

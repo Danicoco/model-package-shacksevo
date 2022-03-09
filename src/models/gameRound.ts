@@ -36,6 +36,9 @@ const GameRoundSchema: Schema = new Schema<IGameRound>({
     algorithmUsed: {
         type: String
     },
+    gameType: {
+        type: String,
+    },
     numberOfBetPlaced: {
         type: Number,
         required: true,
