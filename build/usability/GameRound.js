@@ -88,6 +88,23 @@ var GameRoundService = /** @class */ (function () {
             });
         });
     };
+    GameRoundService.prototype.bulkCreate = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var rounds;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .insertMany(params)
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
+                    case 1:
+                        rounds = _a.sent();
+                        return [2 /*return*/, rounds];
+                }
+            });
+        });
+    };
     GameRoundService.prototype.findOne = function () {
         return __awaiter(this, void 0, void 0, function () {
             var round;

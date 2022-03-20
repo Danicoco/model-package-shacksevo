@@ -17,6 +17,9 @@ declare class GameRoundService {
     create(params: Partial<IGameRound>): Promise<import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     }>;
+    bulkCreate(params: Partial<IGameRound>[]): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
+        _id: string;
+    })[]>;
     findOne(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & {
         _id: string;
     }) | null>;

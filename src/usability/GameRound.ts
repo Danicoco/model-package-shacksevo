@@ -31,6 +31,15 @@ class GameRoundService {
         }
     }
 
+    public async bulkCreate(params: Partial<IGameRound>[]) {
+        const rounds = await GameRound
+            .insertMany(params)
+            .catch((e: any) => { 
+                throw new Error(e) 
+            });
+        return rounds;
+    }
+
     public async findOne() {
         const round = await GameRound
             .findOne()
