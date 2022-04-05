@@ -1,5 +1,3 @@
-/// <reference types="mongoose" />
-import { IUser } from '../../types';
-declare const _default: import("mongoose").Model<IUser, {}, {}, {}>;
+declare const _default: any;
 export default _default;
 //# sourceMappingURL=user.d.ts.map

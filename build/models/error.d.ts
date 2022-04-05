@@ -1,5 +1,3 @@
-/// <reference types="mongoose" />
-import { IErrorMessages } from '../../types';
-declare const _default: import("mongoose").Model<IErrorMessages, {}, {}, {}>;
+declare const _default: any;
 export default _default;
 //# sourceMappingURL=error.d.ts.map

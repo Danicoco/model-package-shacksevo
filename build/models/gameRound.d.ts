@@ -1,5 +1,3 @@
-/// <reference types="mongoose" />
-import { IGameRound } from '../../types';
-declare const _default: import("mongoose").Model<IGameRound, {}, {}, {}>;
+declare const _default: any;
 export default _default;
 //# sourceMappingURL=gameRound.d.ts.map

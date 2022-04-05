@@ -1,23 +1,14 @@
-/// <reference types="mongoose" />
 import { IPartner } from '../../types';
 declare class PartnerService {
     private _id;
     private email;
     constructor(_id?: string, email?: string);
-    create(params: Partial<IPartner>): Promise<import("mongoose").Document<unknown, any, IPartner> & IPartner & {
-        _id: string;
-    }>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & {
-        _id: string;
-    }) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & {
-        _id: string;
-    })[]>;
-    findAllActive(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & {
-        _id: string;
-    })[]>;
-    deleteOne(): Promise<import("mongodb").DeleteResult>;
-    updateOne(params: Partial<IPartner>): Promise<import("mongodb").UpdateResult>;
+    create(params: Partial<IPartner>): Promise<any>;
+    findOne(): Promise<any>;
+    findAll(): Promise<any>;
+    findAllActive(): Promise<any>;
+    deleteOne(): Promise<any>;
+    updateOne(params: Partial<IPartner>): Promise<any>;
 }
 export default PartnerService;
 //# sourceMappingURL=PartnerService.d.ts.map

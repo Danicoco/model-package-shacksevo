@@ -1,5 +1,3 @@
-/// <reference types="mongoose" />
-import { IAdmin } from '../../types';
-declare const _default: import("mongoose").Model<IAdmin, {}, {}, {}>;
+declare const _default: any;
 export default _default;
 //# sourceMappingURL=admin.d.ts.map

@@ -78,9 +78,8 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaced;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced
-                            .findOne()
-                            .where(this._id ? '_id' : 'partnerId')
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOne()
+                            .where(this._id ? "_id" : "partnerId")
                             .equals(this._id ? this._id : this.partnerId)
                             .catch(function (e) {
                             throw new Error(e.message);
@@ -97,9 +96,7 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaceds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced
-                            .find()
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find().catch(function (e) {
                             throw new Error(e.message);
                         })];
                     case 1:
@@ -109,13 +106,54 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.findByType = function (type) {
+        return __awaiter(this, void 0, void 0, function () {
+            var bets;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find()
+                            .where("gameType")
+                            .equals(type)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        bets = _a.sent();
+                        return [2 /*return*/, bets];
+                }
+            });
+        });
+    };
+    BetPlacedService.prototype.singleByType = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var betPlaced;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOne()
+                            .where("gameType")
+                            .equals(params.gameType)
+                            .where('userId')
+                            .equals(params.userId)
+                            .where('partnerId')
+                            .equals(this.partnerId)
+                            .where('username')
+                            .equals(params.username)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        betPlaced = _a.sent();
+                        return [2 /*return*/, betPlaced];
+                }
+            });
+        });
+    };
     BetPlacedService.prototype.deleteOne = function () {
         return __awaiter(this, void 0, void 0, function () {
             var betPlaced;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced
-                            .findOneAndDelete()
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOneAndDelete()
                             .where(this._id ? "_id" : "partnerId")
                             .equals(this._id ? this._id : this.partnerId)
                             .catch(function (e) {

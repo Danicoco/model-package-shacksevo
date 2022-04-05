@@ -1,5 +1,3 @@
-/// <reference types="mongoose" />
-import { IPermission } from "../../types";
-declare const _default: import("mongoose").Model<IPermission, {}, {}, {}>;
+declare const _default: any;
 export default _default;
 //# sourceMappingURL=permission.d.ts.map
