@@ -30,7 +30,19 @@ class BetPlacedService {
     return betPlaced;
   }
 
-  public async findAll() {
+  public async findAll(limit: number) {
+    const betPlaceds = await BetPlaced
+      .find()
+      .where('partnerId')
+      .equals(this.partnerId)
+      .limit(limit)
+      .catch((e: any) => {
+      throw new Error(e.message);
+    });
+    return betPlaceds;
+  }
+
+  public async findAllByAdmin() {
     const betPlaceds = await BetPlaced.find().catch((e: any) => {
       throw new Error(e.message);
     });
