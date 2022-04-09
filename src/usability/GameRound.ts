@@ -49,11 +49,12 @@ class GameRoundService {
         return round;
     }
 
-    public async findAll() {
+    public async findAll(limit: number) {
         const rounds = await GameRound
             .find()
             .where(this.partnerId && "partnerId")
             .equals(this.partnerId && this.partnerId)
+            .limit(limit)
             .catch((e: any) => { throw new Error(e) });
         return rounds;
     }
