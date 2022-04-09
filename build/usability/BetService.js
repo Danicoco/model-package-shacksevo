@@ -91,7 +91,27 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
-    BetPlacedService.prototype.findAll = function () {
+    BetPlacedService.prototype.findAll = function (limit) {
+        return __awaiter(this, void 0, void 0, function () {
+            var betPlaceds;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced
+                            .find()
+                            .where('partnerId')
+                            .equals(this.partnerId)
+                            .limit(limit)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        betPlaceds = _a.sent();
+                        return [2 /*return*/, betPlaceds];
+                }
+            });
+        });
+    };
+    BetPlacedService.prototype.findAllByAdmin = function () {
         return __awaiter(this, void 0, void 0, function () {
             var betPlaceds;
             return __generator(this, function (_a) {
