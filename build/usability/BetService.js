@@ -206,7 +206,7 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaced;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.updateMany({ partnerId: this.partnerId }, __assign({}, params), { new: true })
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.updateMany({ gameRoundId: this.partnerId }, __assign({}, params), { new: true })
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];

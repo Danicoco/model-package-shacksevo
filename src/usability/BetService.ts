@@ -100,7 +100,7 @@ class BetPlacedService {
 
   public async updateAll(params: Partial<IBetPlaced>) {
     const betPlaced = await BetPlaced.updateMany(
-      { partnerId: this.partnerId }, 
+      { gameRoundId: this.partnerId }, 
       { ...params }, 
       { new: true })
       .catch((e) => { 
