@@ -97,6 +97,18 @@ class BetPlacedService {
 
     return betPlaced;
   }
+
+  public async updateAll(params: Partial<IBetPlaced>) {
+    const betPlaced = await BetPlaced.updateMany(
+      { partnerId: this.partnerId }, 
+      { ...params }, 
+      { new: true })
+      .catch((e) => { 
+        throw new Error(e.message); 
+      });
+
+    return betPlaced;
+  }
 }
 
 export default BetPlacedService;

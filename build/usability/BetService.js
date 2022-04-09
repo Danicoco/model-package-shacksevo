@@ -201,6 +201,22 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.updateAll = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var betPlaced;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.updateMany({ partnerId: this.partnerId }, __assign({}, params), { new: true })
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        betPlaced = _a.sent();
+                        return [2 /*return*/, betPlaced];
+                }
+            });
+        });
+    };
     return BetPlacedService;
 }());
 exports.default = BetPlacedService;

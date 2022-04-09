@@ -28,6 +28,7 @@ declare class BetPlacedService {
     updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     }) | null>;
+    updateAll(params: Partial<IBetPlaced>): Promise<import("mongodb").UpdateResult>;
 }
 export default BetPlacedService;
 //# sourceMappingURL=BetService.d.ts.map
