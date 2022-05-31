@@ -74,6 +74,11 @@ interface IApp extends DefaultAttributes {
   partnerName: string;
 }
 
+interface IChat extends DefaultAttributes {
+  message: string;
+  userId: string;
+}
+
 interface IErrorMessages extends DefaultAttributes {
   message: string;
   code: number;
