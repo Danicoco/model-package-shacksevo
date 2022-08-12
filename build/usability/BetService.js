@@ -168,6 +168,26 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.findAllUserBets = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var bets;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find()
+                            .where('userId')
+                            .equals(params.userId)
+                            .where('gameType')
+                            .equals(params.gameType)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        bets = _a.sent();
+                        return [2 /*return*/, bets];
+                }
+            });
+        });
+    };
     BetPlacedService.prototype.deleteOne = function () {
         return __awaiter(this, void 0, void 0, function () {
             var betPlaced;

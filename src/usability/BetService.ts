@@ -75,6 +75,19 @@ class BetPlacedService {
     return betPlaced;
   }
 
+  public async findAllUserBets(params: Partial<IBetPlaced>) {
+    const bets = await BetPlaced.find()
+      .where('userId')
+      .equals(params.userId)
+      .where('gameType')
+      .equals(params.gameType)
+      .catch((e: any) => {
+        throw new Error(e.message);
+      }
+    );
+    return bets;
+  }
+
   public async deleteOne() {
     const betPlaced = await BetPlaced.findOneAndDelete()
       .where(this._id ? "_id" : "partnerId")
@@ -100,11 +113,11 @@ class BetPlacedService {
 
   public async updateAll(params: Partial<IBetPlaced>) {
     const betPlaced = await BetPlaced.updateMany(
-      { gameRoundId: this.partnerId }, 
-      { ...params }, 
+      { gameRoundId: this.partnerId },
+      { ...params },
       { new: true })
-      .catch((e) => { 
-        throw new Error(e.message); 
+      .catch((e) => {
+        throw new Error(e.message);
       });
 
     return betPlaced;

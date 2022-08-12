@@ -22,6 +22,9 @@ declare class BetPlacedService {
     singleByType(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     }) | null>;
+    findAllUserBets(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
+        _id: string;
+    })[]>;
     deleteOne(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     }) | null>;
