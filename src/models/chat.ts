@@ -8,6 +8,9 @@ const ChatSchema: Schema = new Schema<IChat>({
     userId: {
         type: String
     },
+    username: {
+        type: String
+    },
 }, {
     collection: 'chats',
     versionKey: false

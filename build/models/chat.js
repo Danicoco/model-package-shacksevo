@@ -8,6 +8,9 @@ var ChatSchema = new mongoose_1.Schema({
     userId: {
         type: String
     },
+    username: {
+        type: String
+    },
 }, {
     collection: 'chats',
     versionKey: false

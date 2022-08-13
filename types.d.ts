@@ -77,6 +77,7 @@ interface IApp extends DefaultAttributes {
 interface IChat extends DefaultAttributes {
   message: string;
   userId: string;
+  username: string;
 }
 
 interface IErrorMessages extends DefaultAttributes {
