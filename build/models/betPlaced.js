@@ -6,8 +6,7 @@ var BetPlacedSchema = new mongoose_1.Schema({
         type: String,
     },
     userId: {
-        type: mongoose_1.Types.ObjectId,
-        ref: 'users',
+        type: String,
     },
     gameType: {
         type: String,
