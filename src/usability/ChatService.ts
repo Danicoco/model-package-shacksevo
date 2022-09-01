@@ -3,11 +3,11 @@ import { Chat } from '../models';
 
 class ChatService {
     private _id: string;
-    private userId: string;
+    private partnerId: string;
 
-    constructor(_id = '', userId = '') {
+    constructor(_id = '', partnerId = '') {
         this._id = _id;
-        this.userId = userId;
+        this.partnerId = partnerId;
     }
 
     public async create(params: Partial<IChat>) {
@@ -24,7 +24,7 @@ class ChatService {
         const chat = await Chat
             .findOne()
             .where(this._id ? '_id' : 'userId')
-            .equals(this._id ? this._id : this.userId)
+            .equals(this._id ? this._id : this.partnerId)
             .catch((e: any) => { throw new Error(e) });
         return chat;
     }
@@ -33,6 +33,16 @@ class ChatService {
         const chats = await Chat
             .find()
             .catch((e: any) => { throw new Error(e) });
+        return chats;
+    }
+
+    public async findAllPartner() {
+        const chats = await Chat
+                .find()
+                .where('partnerId')
+                .equals(this.partnerId)
+                .catch(e => { throw e; });
+
         return chats;
     }
 

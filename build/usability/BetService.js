@@ -111,6 +111,23 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.findAllGeneric = function (userId, username, gameRoundId, type) {
+        if (userId === void 0) { userId = ''; }
+        if (username === void 0) { username = ''; }
+        if (gameRoundId === void 0) { gameRoundId = ''; }
+        if (type === void 0) { type = ''; }
+        return __awaiter(this, void 0, void 0, function () {
+            var bets;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find(__assign(__assign(__assign(__assign(__assign({}, (userId && { userId: userId })), (username && { username: username })), (type && { gameType: type })), (gameRoundId && { gameRoundId: gameRoundId })), (this.partnerId && { partnerId: this.partnerId }))).catch(function (e) { throw new Error(e.message); })];
+                    case 1:
+                        bets = _a.sent();
+                        return [2 /*return*/, bets];
+                }
+            });
+        });
+    };
     BetPlacedService.prototype.findAllByAdmin = function () {
         return __awaiter(this, void 0, void 0, function () {
             var betPlaceds;

@@ -11,6 +11,9 @@ var ChatSchema = new mongoose_1.Schema({
     username: {
         type: String
     },
+    partnerId: {
+        type: String,
+    },
 }, {
     collection: 'chats',
     versionKey: false

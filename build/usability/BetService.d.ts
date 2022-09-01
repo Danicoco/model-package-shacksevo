@@ -13,6 +13,9 @@ declare class BetPlacedService {
     findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     })[]>;
+    findAllGeneric(userId?: string, username?: string, gameRoundId?: string, type?: string): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
+        _id: string;
+    })[]>;
     findAllByAdmin(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & {
         _id: string;
     })[]>;

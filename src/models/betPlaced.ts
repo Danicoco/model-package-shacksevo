@@ -6,8 +6,7 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
         type: String,
     },
     userId: {
-        type: Types.ObjectId,
-        ref: 'users',
+        type: String,
     },
     gameType: {
         type: String,

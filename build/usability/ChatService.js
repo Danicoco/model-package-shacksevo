@@ -49,11 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var ChatService = /** @class */ (function () {
-    function ChatService(_id, userId) {
+    function ChatService(_id, partnerId) {
         if (_id === void 0) { _id = ''; }
-        if (userId === void 0) { userId = ''; }
+        if (partnerId === void 0) { partnerId = ''; }
         this._id = _id;
-        this.userId = userId;
+        this.partnerId = partnerId;
     }
     ChatService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -83,7 +83,7 @@ var ChatService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.Chat
                             .findOne()
                             .where(this._id ? '_id' : 'userId')
-                            .equals(this._id ? this._id : this.userId)
+                            .equals(this._id ? this._id : this.partnerId)
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         chat = _a.sent();
@@ -100,6 +100,23 @@ var ChatService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.Chat
                             .find()
                             .catch(function (e) { throw new Error(e); })];
+                    case 1:
+                        chats = _a.sent();
+                        return [2 /*return*/, chats];
+                }
+            });
+        });
+    };
+    ChatService.prototype.findAllPartner = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var chats;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.Chat
+                            .find()
+                            .where('partnerId')
+                            .equals(this.partnerId)
+                            .catch(function (e) { throw e; })];
                     case 1:
                         chats = _a.sent();
                         return [2 /*return*/, chats];

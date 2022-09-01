@@ -11,6 +11,9 @@ const ChatSchema: Schema = new Schema<IChat>({
     username: {
         type: String
     },
+    partnerId: {
+        type: String,
+    },
 }, {
     collection: 'chats',
     versionKey: false

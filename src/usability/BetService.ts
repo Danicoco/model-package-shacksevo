@@ -42,6 +42,19 @@ class BetPlacedService {
     return betPlaceds;
   }
 
+  public async findAllGeneric(userId = '', username = '', gameRoundId = '', type = '') {
+    const bets = await BetPlaced.find({
+      ...(userId && { userId }),
+      ...(username && { username }),
+      ...(type && { gameType: type }),
+      ...(gameRoundId && { gameRoundId }),
+      ...(this.partnerId  && { partnerId: this.partnerId }),
+    }).catch(e => { throw new Error(e.message) });
+
+
+    return bets;
+  }
+
   public async findAllByAdmin() {
     const betPlaceds = await BetPlaced.find().catch((e: any) => {
       throw new Error(e.message);
