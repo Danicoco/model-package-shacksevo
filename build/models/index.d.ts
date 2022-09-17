@@ -1,3 +1,4 @@
+import Rtp from './rtp';
 import API from './api';
 import APP from './app';
 import Game from './game';
@@ -13,5 +14,5 @@ import BetPlaced from './betPlaced';
 import GameAccess from './gameAccess';
 import Permission from './permission';
 import Transaction from './transaction';
-export { Admin, API, APP, Game, Chat, User, Role, Wallet, Partner, GameRound, BetPlaced, GameAccess, Permission, Transaction, ErrorMessage, };
+export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Partner, GameRound, BetPlaced, GameAccess, Permission, Transaction, ErrorMessage, };
 //# sourceMappingURL=index.d.ts.map

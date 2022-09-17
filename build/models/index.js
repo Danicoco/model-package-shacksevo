@@ -3,7 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorMessage = exports.Transaction = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Partner = exports.Wallet = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Admin = void 0;
+exports.ErrorMessage = exports.Transaction = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Partner = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
+var rtp_1 = __importDefault(require("./rtp"));
+exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
 exports.API = api_1.default;
 var app_1 = __importDefault(require("./app"));
