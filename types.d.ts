@@ -108,14 +108,20 @@ type IAMACCESS = "owner" | "manager";
 
 interface IPartner extends DefaultAttributes {
   name: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  isActive: boolean;
   role: string;
+  email: string;
   roleId?: string;
   IAM?: IAMACCESS;
+  lastName: string;
+  password: string;
+  firstName: string;
+  isActive: boolean;
+}
+
+interface IRTP extends DefaultAttributes {
+  value: string;
+  gameType: string;
+  partnerId: string;
 }
 
 interface IRole extends DefaultAttributes {

@@ -1,3 +1,4 @@
+import Rtp from './rtp';
 import API from './api';
 import APP from './app';
 import Game from './game';
@@ -15,13 +16,14 @@ import Permission from './permission';
 import Transaction from './transaction';
 
 export {
-  Admin,
+  Rtp,
   API,
   APP,
   Game,
   Chat,
   User,
   Role,
+  Admin,
   Wallet,
   Partner,
   GameRound,

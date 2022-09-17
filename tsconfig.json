@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-      "baseUrl": ".",
       "target": "es5",
       "module": "commonjs",
       "outDir": "./build",
@@ -19,4 +18,3 @@
       "forceConsistentCasingInFileNames": true
     }
   }
-  
