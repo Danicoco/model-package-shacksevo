@@ -1,4 +1,5 @@
 import ApiService from './ApiService'
+import RTPService from './RtpService';
 import AppService from './AppService';
 import GameService from './GameService'
 import RoleService from './RoleService';
@@ -16,6 +17,7 @@ import TransactionService from './TransactionService';
 
 export {
     ApiService,
+    RTPService,
     AppService,
     GameService,
     UserService,

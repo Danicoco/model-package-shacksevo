@@ -3,9 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.GameRoundService = exports.BetPlacedService = exports.PartnerService = exports.WalletService = exports.AdminService = exports.ErrorService = exports.RoleService = exports.ChatService = exports.UserService = exports.GameService = exports.AppService = exports.ApiService = void 0;
+exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.GameRoundService = exports.BetPlacedService = exports.PartnerService = exports.WalletService = exports.AdminService = exports.ErrorService = exports.RoleService = exports.ChatService = exports.UserService = exports.GameService = exports.AppService = exports.RTPService = exports.ApiService = void 0;
 var ApiService_1 = __importDefault(require("./ApiService"));
 exports.ApiService = ApiService_1.default;
+var RtpService_1 = __importDefault(require("./RtpService"));
+exports.RTPService = RtpService_1.default;
 var AppService_1 = __importDefault(require("./AppService"));
 exports.AppService = AppService_1.default;
 var GameService_1 = __importDefault(require("./GameService"));

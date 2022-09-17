@@ -1,4 +1,5 @@
 import ApiService from './ApiService';
+import RTPService from './RtpService';
 import AppService from './AppService';
 import GameService from './GameService';
 import RoleService from './RoleService';
@@ -13,5 +14,5 @@ import PartnerService from './PartnerService';
 import GameAccessService from './GameAccessService';
 import PermissionService from './PermissionService';
 import TransactionService from './TransactionService';
-export { ApiService, AppService, GameService, UserService, ChatService, RoleService, ErrorService, AdminService, WalletService, PartnerService, BetPlacedService, GameRoundService, GameAccessService, PermissionService, TransactionService, };
+export { ApiService, RTPService, AppService, GameService, UserService, ChatService, RoleService, ErrorService, AdminService, WalletService, PartnerService, BetPlacedService, GameRoundService, GameAccessService, PermissionService, TransactionService, };
 //# sourceMappingURL=index.d.ts.map
