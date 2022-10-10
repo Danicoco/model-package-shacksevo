@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IAPI } from '../../types';
+import { IAPI, IPaginator } from '../../types';
 declare class APIService {
     private partnerId;
     private publicKey;
@@ -40,6 +40,20 @@ declare class APIService {
     findAll(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>)[]>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     deleteOne(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>) | null>;

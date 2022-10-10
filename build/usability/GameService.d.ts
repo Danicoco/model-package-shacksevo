@@ -24,18 +24,18 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { IGame, IPaginator } from '../../types';
 import { ObjectId } from 'mongoose';
-declare class GameService implements IGame {
+declare class GameService {
     _id: string;
     name: string;
     code: string;
     demoUrl: string;
-    partnerId: ObjectId;
+    partnerId?: ObjectId;
     accessUrl: string;
     createdAt: string;
     updatedAt: string;
     integrationCount: number;
     documentationUrl: string;
-    constructor(_id: string | undefined, name: string | undefined, partnerId: ObjectId);
+    constructor(_id?: string, name?: string, partnerId?: ObjectId);
     createGame(params: Partial<IGame>): Promise<import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
         _id: string;
     }>>;

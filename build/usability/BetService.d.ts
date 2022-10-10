@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IBetPlaced } from "../../types";
+import { IBetPlaced, IPaginator } from "../../types";
 declare class BetPlacedService {
     private partnerId;
     private _id;
@@ -43,6 +43,20 @@ declare class BetPlacedService {
     findAllByAdmin(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
         _id: string;
     }>)[]>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     findByType(type: string): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
         _id: string;
     }>)[]>;

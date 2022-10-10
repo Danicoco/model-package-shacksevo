@@ -1,5 +1,6 @@
 import { APP } from '../models';
-import { IApp} from '../../types';
+import Pagionation from './Pagination';
+import { IApp, IPaginator} from '../../types';
 
 
 class AppService {
@@ -40,7 +41,33 @@ class AppService {
             });
         return apps;
     }
-    
+
+    public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+        const count = await this.count(condition).catch(e => { throw e; });
+        const apps = await APP
+        .find({
+            ...(condition && condition)
+        })
+        .sort(sort)
+        .limit(limit)
+        .skip(limit * (page - 1))
+        .catch((e) => {
+          throw e;
+        });
+
+        return {
+            data: apps,
+            pagination: Pagionation.builder(apps, count, { page, limit }),
+        }
+    }
+
+    public async count(condition?: any) {
+        const docs = await APP.countDocuments({
+            ...(condition && condition)
+        }).catch(e => { throw e; });
+        return docs;
+    }
+
     public async deleteOne() {
         const app = await APP
             .findOneAndDelete()

@@ -3,7 +3,7 @@ import { IGame, IPaginator } from '../../types';
 import { ObjectId } from 'mongoose';
 import Pagionation from './Pagination';
 
-class GameService implements IGame {
+class GameService {
     _id = "";
 
     name = "";
@@ -12,7 +12,7 @@ class GameService implements IGame {
 
     demoUrl = "";
 
-    partnerId: ObjectId;
+    partnerId?: ObjectId;
 
     accessUrl = "";
 
@@ -24,7 +24,7 @@ class GameService implements IGame {
 
     documentationUrl = "";
 
-    constructor( _id = "", name = "", partnerId: ObjectId) {
+    constructor( _id = "", name = "", partnerId?: ObjectId) {
         this._id = _id;
         this.name = name;
         this.partnerId = partnerId;

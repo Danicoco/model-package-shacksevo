@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IAdmin } from "../../types";
+import { IAdmin, IPaginator } from "../../types";
 declare class AdminService {
     private _id;
     private email;
@@ -37,6 +37,20 @@ declare class AdminService {
     findAll(): Promise<(import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
         _id: string;
     }>)[]>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     updateOne(params: Partial<IAdmin>): Promise<(import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
         _id: string;
     }>) | null>;

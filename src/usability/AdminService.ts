@@ -1,5 +1,6 @@
-import { IAdmin } from "../../types";
+import { IAdmin, IPaginator } from "../../types";
 import { Admin } from '../models';
+import Pagionation from "./Pagination";
 
 class AdminService {
     private _id: string;
@@ -34,6 +35,32 @@ class AdminService {
             .find()
             .catch((e: any) => { throw new Error(e) });
         return admins;
+    }
+
+    public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+        const count = await this.count(condition).catch(e => { throw e; });
+        const admins = await Admin
+        .find({
+            ...(condition && condition)
+        })
+        .sort(sort)
+        .limit(limit)
+        .skip(limit * (page - 1))
+        .catch((e) => {
+          throw e;
+        });
+
+        return {
+            data: admins,
+            pagination: Pagionation.builder(admins, count, { page, limit }),
+        }
+    }
+
+    public async count(condition?: any) {
+        const docs = await Admin.countDocuments({
+            ...(condition && condition)
+        }).catch(e => { throw e; });
+        return docs;
     }
 
     public async updateOne(params: Partial<IAdmin>) {

@@ -1,30 +1,39 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./GameRound"), exports);
-__exportStar(require("./ApiService"), exports);
-__exportStar(require("./RtpService"), exports);
-__exportStar(require("./AppService"), exports);
-__exportStar(require("./GameService"), exports);
-__exportStar(require("./BetService"), exports);
-__exportStar(require("./GameService"), exports);
-__exportStar(require("./RoleService"), exports);
-__exportStar(require("./UserService"), exports);
-__exportStar(require("./ChatService"), exports);
-__exportStar(require("./ErrorService"), exports);
-__exportStar(require("./AdminService"), exports);
-__exportStar(require("./WalletService"), exports);
-__exportStar(require("./PartnerService"), exports);
-__exportStar(require("./GameAccessService"), exports);
-__exportStar(require("./PermissionService"), exports);
-__exportStar(require("./TransactionService"), exports);
+exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.PartnerService = exports.WalletService = exports.GameRoundService = exports.AdminService = exports.ErrorService = exports.ChatService = exports.UserService = exports.RoleService = exports.BetPlacedService = exports.GameService = exports.AppService = exports.RtpService = exports.ApiService = void 0;
+var ApiService_1 = require("./ApiService");
+Object.defineProperty(exports, "ApiService", { enumerable: true, get: function () { return __importDefault(ApiService_1).default; } });
+var RtpService_1 = require("./RtpService");
+Object.defineProperty(exports, "RtpService", { enumerable: true, get: function () { return __importDefault(RtpService_1).default; } });
+var AppService_1 = require("./AppService");
+Object.defineProperty(exports, "AppService", { enumerable: true, get: function () { return __importDefault(AppService_1).default; } });
+var GameService_1 = require("./GameService");
+Object.defineProperty(exports, "GameService", { enumerable: true, get: function () { return __importDefault(GameService_1).default; } });
+var BetService_1 = require("./BetService");
+Object.defineProperty(exports, "BetPlacedService", { enumerable: true, get: function () { return __importDefault(BetService_1).default; } });
+var RoleService_1 = require("./RoleService");
+Object.defineProperty(exports, "RoleService", { enumerable: true, get: function () { return __importDefault(RoleService_1).default; } });
+var UserService_1 = require("./UserService");
+Object.defineProperty(exports, "UserService", { enumerable: true, get: function () { return __importDefault(UserService_1).default; } });
+var ChatService_1 = require("./ChatService");
+Object.defineProperty(exports, "ChatService", { enumerable: true, get: function () { return __importDefault(ChatService_1).default; } });
+var ErrorService_1 = require("./ErrorService");
+Object.defineProperty(exports, "ErrorService", { enumerable: true, get: function () { return __importDefault(ErrorService_1).default; } });
+var AdminService_1 = require("./AdminService");
+Object.defineProperty(exports, "AdminService", { enumerable: true, get: function () { return __importDefault(AdminService_1).default; } });
+var GameRound_1 = require("./GameRound");
+Object.defineProperty(exports, "GameRoundService", { enumerable: true, get: function () { return __importDefault(GameRound_1).default; } });
+var WalletService_1 = require("./WalletService");
+Object.defineProperty(exports, "WalletService", { enumerable: true, get: function () { return __importDefault(WalletService_1).default; } });
+var PartnerService_1 = require("./PartnerService");
+Object.defineProperty(exports, "PartnerService", { enumerable: true, get: function () { return __importDefault(PartnerService_1).default; } });
+var GameAccessService_1 = require("./GameAccessService");
+Object.defineProperty(exports, "GameAccessService", { enumerable: true, get: function () { return __importDefault(GameAccessService_1).default; } });
+var PermissionService_1 = require("./PermissionService");
+Object.defineProperty(exports, "PermissionService", { enumerable: true, get: function () { return __importDefault(PermissionService_1).default; } });
+var TransactionService_1 = require("./TransactionService");
+Object.defineProperty(exports, "TransactionService", { enumerable: true, get: function () { return __importDefault(TransactionService_1).default; } });
 //# sourceMappingURL=index.js.map

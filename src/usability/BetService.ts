@@ -1,5 +1,6 @@
 import { BetPlaced } from "../models";
-import { IBetPlaced } from "../../types";
+import { IBetPlaced, IPaginator } from "../../types";
+import Pagionation from "./Pagination";
 
 class BetPlacedService {
   private partnerId: string | null;
@@ -61,6 +62,32 @@ class BetPlacedService {
     });
     return betPlaceds;
   }
+
+  public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+    const count = await this.count(condition).catch(e => { throw e; });
+    const bets = await BetPlaced
+    .find({
+        ...(condition && condition)
+    })
+    .sort(sort)
+    .limit(limit)
+    .skip(limit * (page - 1))
+    .catch((e) => {
+      throw e;
+    });
+
+    return {
+        data: bets,
+        pagination: Pagionation.builder(bets, count, { page, limit }),
+    }
+}
+
+public async count(condition?: any) {
+    const docs = await BetPlaced.countDocuments({
+        ...(condition && condition)
+    }).catch(e => { throw e; });
+    return docs;
+}
 
   public async findByType(type: string) {
     const bets = await BetPlaced.find()
