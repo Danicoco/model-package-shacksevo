@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 import { IGame } from '../../types';
 
 
@@ -12,6 +12,13 @@ const GameSchema: Schema = new Schema<IGame>({
     accessUrl: {
         type: String,
         required: true,
+    },
+    partnerId: {
+        type: Types.ObjectId,
+        ref: 'partners'
+    },
+    code: {
+        type: String,
     },
     demoUrl: {
         type: String,

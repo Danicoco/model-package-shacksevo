@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Request } from "express";
+import { ObjectId } from "mongoose";
 
 interface AuthenticatedUser extends Request {
   user: Users;
@@ -89,7 +90,9 @@ interface IErrorMessages extends DefaultAttributes {
 
 interface IGame extends DefaultAttributes {
   name: string;
+  code: string;
   demoUrl: string;
+  partnerId: ObjectId,
   accessUrl: string; // live integration
   documentationUrl: string;
   integrationCount: number;
@@ -177,6 +180,13 @@ interface IToken {
     isActive: string;
     roleId: string;
   };
+}
+
+type IPaginator = {
+  sort: string;
+  limit: number;
+  page: number;
+  condition?: any
 }
 
 type CatchErr = (message: string, code?: number, validations?: object) => Error;

@@ -1,26 +1,33 @@
 import { Game } from '../models';
-import { IGame } from '../../types';
+import { IGame, IPaginator } from '../../types';
+import { ObjectId } from 'mongoose';
+import Pagionation from './Pagination';
 
 class GameService implements IGame {
     _id = "";
 
     name = "";
 
-    accessUrl = "";
+    code = '';
 
     demoUrl = "";
 
-    documentationUrl = "";
+    partnerId: ObjectId;
 
-    integrationCount = 0;
+    accessUrl = "";
 
     createdAt = "";
 
     updatedAt = "";
 
-    constructor( _id = "", name = "") {
-        this.name = name;
+    integrationCount = 0;
+
+    documentationUrl = "";
+
+    constructor( _id = "", name = "", partnerId: ObjectId) {
         this._id = _id;
+        this.name = name;
+        this.partnerId = partnerId;
     }
 
     public async createGame(params: Partial<IGame>) {
@@ -38,8 +45,8 @@ class GameService implements IGame {
             .findOne()
             .where(this._id ? '_id' : 'name')
             .equals(this._id ? this._id : this.name)
-            .catch((e: any) => { 
-                throw new Error(e) 
+            .catch((e: any) => {
+                throw new Error(e)
             });
         return game;
     }
@@ -51,11 +58,37 @@ class GameService implements IGame {
         return games;
     }
 
+    public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+        const count = await this.count(condition).catch(e => { throw e; });
+        const games = await Game
+        .find({
+            ...(condition && condition)
+        })
+        .sort(sort)
+        .limit(limit)
+        .skip(limit * (page - 1))
+        .catch((e) => {
+          throw e;
+        });
+
+        return {
+            data: games,
+            pagination: Pagionation.builder(games, count, { page, limit }),
+        }
+    }
+
+    public async count(condition?: any) {
+        const docs = await Game.countDocuments({
+            ...(condition && condition)
+        }).catch(e => { throw e; });
+        return docs;
+    }
+
     public async updateOne(params: Partial<IGame>) {
         const game = await Game
             .findOneAndUpdate(
-                { _id: this._id }, 
-                { ...params }, 
+                { _id: this._id },
+                { ...params },
                 { new: true }
             );
         return game;
