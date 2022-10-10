@@ -1,39 +1,30 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.GameRoundService = exports.BetPlacedService = exports.PartnerService = exports.WalletService = exports.AdminService = exports.ErrorService = exports.RoleService = exports.ChatService = exports.UserService = exports.GameService = exports.AppService = exports.RTPService = exports.ApiService = void 0;
-var ApiService_1 = __importDefault(require("./ApiService"));
-exports.ApiService = ApiService_1.default;
-var RtpService_1 = __importDefault(require("./RtpService"));
-exports.RTPService = RtpService_1.default;
-var AppService_1 = __importDefault(require("./AppService"));
-exports.AppService = AppService_1.default;
-var GameService_1 = __importDefault(require("./GameService"));
-exports.GameService = GameService_1.default;
-var RoleService_1 = __importDefault(require("./RoleService"));
-exports.RoleService = RoleService_1.default;
-var UserService_1 = __importDefault(require("./UserService"));
-exports.UserService = UserService_1.default;
-var ChatService_1 = __importDefault(require("./ChatService"));
-exports.ChatService = ChatService_1.default;
-var ErrorService_1 = __importDefault(require("./ErrorService"));
-exports.ErrorService = ErrorService_1.default;
-var AdminService_1 = __importDefault(require("./AdminService"));
-exports.AdminService = AdminService_1.default;
-var GameRound_1 = __importDefault(require("./GameRound"));
-exports.GameRoundService = GameRound_1.default;
-var WalletService_1 = __importDefault(require("./WalletService"));
-exports.WalletService = WalletService_1.default;
-var BetService_1 = __importDefault(require("./BetService"));
-exports.BetPlacedService = BetService_1.default;
-var PartnerService_1 = __importDefault(require("./PartnerService"));
-exports.PartnerService = PartnerService_1.default;
-var GameAccessService_1 = __importDefault(require("./GameAccessService"));
-exports.GameAccessService = GameAccessService_1.default;
-var PermissionService_1 = __importDefault(require("./PermissionService"));
-exports.PermissionService = PermissionService_1.default;
-var TransactionService_1 = __importDefault(require("./TransactionService"));
-exports.TransactionService = TransactionService_1.default;
+__exportStar(require("./GameRound"), exports);
+__exportStar(require("./ApiService"), exports);
+__exportStar(require("./RtpService"), exports);
+__exportStar(require("./AppService"), exports);
+__exportStar(require("./GameService"), exports);
+__exportStar(require("./BetService"), exports);
+__exportStar(require("./GameService"), exports);
+__exportStar(require("./RoleService"), exports);
+__exportStar(require("./UserService"), exports);
+__exportStar(require("./ChatService"), exports);
+__exportStar(require("./ErrorService"), exports);
+__exportStar(require("./AdminService"), exports);
+__exportStar(require("./WalletService"), exports);
+__exportStar(require("./PartnerService"), exports);
+__exportStar(require("./GameAccessService"), exports);
+__exportStar(require("./PermissionService"), exports);
+__exportStar(require("./TransactionService"), exports);
 //# sourceMappingURL=index.js.map

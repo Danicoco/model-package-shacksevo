@@ -46,22 +46,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
+var Pagination_1 = __importDefault(require("./Pagination"));
 var GameService = /** @class */ (function () {
-    function GameService(_id, name) {
+    function GameService(_id, name, partnerId) {
         if (_id === void 0) { _id = ""; }
         if (name === void 0) { name = ""; }
         this._id = "";
         this.name = "";
-        this.accessUrl = "";
+        this.code = '';
         this.demoUrl = "";
-        this.documentationUrl = "";
-        this.integrationCount = 0;
+        this.accessUrl = "";
         this.createdAt = "";
         this.updatedAt = "";
-        this.name = name;
+        this.integrationCount = 0;
+        this.documentationUrl = "";
         this._id = _id;
+        this.name = name;
+        this.partnerId = partnerId;
     }
     GameService.prototype.createGame = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -109,6 +115,46 @@ var GameService = /** @class */ (function () {
                     case 1:
                         games = _a.sent();
                         return [2 /*return*/, games];
+                }
+            });
+        });
+    };
+    GameService.prototype.findAllPaginated = function (_a) {
+        var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
+        return __awaiter(this, void 0, void 0, function () {
+            var count, games;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) { throw e; })];
+                    case 1:
+                        count = _b.sent();
+                        return [4 /*yield*/, models_1.Game
+                                .find(__assign({}, (condition && condition)))
+                                .sort(sort)
+                                .limit(limit)
+                                .skip(limit * (page - 1))
+                                .catch(function (e) {
+                                throw e;
+                            })];
+                    case 2:
+                        games = _b.sent();
+                        return [2 /*return*/, {
+                                data: games,
+                                pagination: Pagination_1.default.builder(games, count, { page: page, limit: limit }),
+                            }];
+                }
+            });
+        });
+    };
+    GameService.prototype.count = function (condition) {
+        return __awaiter(this, void 0, void 0, function () {
+            var docs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.Game.countDocuments(__assign({}, (condition && condition))).catch(function (e) { throw e; })];
+                    case 1:
+                        docs = _a.sent();
+                        return [2 /*return*/, docs];
                 }
             });
         });

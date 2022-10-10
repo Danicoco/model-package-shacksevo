@@ -12,6 +12,13 @@ var GameSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    partnerId: {
+        type: mongoose_1.Types.ObjectId,
+        ref: 'partners'
+    },
+    code: {
+        type: String,
+    },
     demoUrl: {
         type: String,
         required: true,

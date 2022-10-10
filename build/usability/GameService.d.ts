@@ -21,19 +21,21 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IGame } from '../../types';
+import { IGame, IPaginator } from '../../types';
+import { ObjectId } from 'mongoose';
 declare class GameService implements IGame {
     _id: string;
     name: string;
-    accessUrl: string;
+    code: string;
     demoUrl: string;
-    documentationUrl: string;
-    integrationCount: number;
+    partnerId: ObjectId;
+    accessUrl: string;
     createdAt: string;
     updatedAt: string;
-    constructor(_id?: string, name?: string);
+    integrationCount: number;
+    documentationUrl: string;
+    constructor(_id: string | undefined, name: string | undefined, partnerId: ObjectId);
     createGame(params: Partial<IGame>): Promise<import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
         _id: string;
     }>>;
@@ -43,6 +45,20 @@ declare class GameService implements IGame {
     findAll(): Promise<(import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
         _id: string;
     }>)[]>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     updateOne(params: Partial<IGame>): Promise<(import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
         _id: string;
     }>) | null>;
