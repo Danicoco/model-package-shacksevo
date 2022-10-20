@@ -34,6 +34,7 @@ class BetPlacedService {
   public async findAll(limit: number) {
     const betPlaceds = await BetPlaced
       .find()
+      .sort('-createdAt')
       .where('partnerId')
       .equals(this.partnerId)
       .limit(limit)
@@ -50,14 +51,14 @@ class BetPlacedService {
       ...(type && { gameType: type }),
       ...(gameRoundId && { gameRoundId }),
       ...(this.partnerId  && { partnerId: this.partnerId }),
-    }).catch(e => { throw new Error(e.message) });
+    }).sort('-createdAt').catch(e => { throw new Error(e.message) });
 
 
     return bets;
   }
 
   public async findAllByAdmin() {
-    const betPlaceds = await BetPlaced.find().catch((e: any) => {
+    const betPlaceds = await BetPlaced.find().sort('-createdAt').catch((e: any) => {
       throw new Error(e.message);
     });
     return betPlaceds;
@@ -93,6 +94,7 @@ public async count(condition?: any) {
     const bets = await BetPlaced.find()
       .where("gameType")
       .equals(type)
+      .sort('-createdAt')
       .catch((e: any) => {
         throw new Error(e.message);
       });
@@ -118,6 +120,7 @@ public async count(condition?: any) {
   public async findAllUserBets(params: Partial<IBetPlaced>) {
     const bets = await BetPlaced.find()
       .where('userId')
+      .sort('-createdAt')
       .equals(params.userId)
       .where('gameType')
       .equals(params.gameType)

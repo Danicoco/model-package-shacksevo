@@ -102,6 +102,7 @@ var BetPlacedService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.BetPlaced
                             .find()
+                            .sort('-createdAt')
                             .where('partnerId')
                             .equals(this.partnerId)
                             .limit(limit)
@@ -124,7 +125,7 @@ var BetPlacedService = /** @class */ (function () {
             var bets;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.find(__assign(__assign(__assign(__assign(__assign({}, (userId && { userId: userId })), (username && { username: username })), (type && { gameType: type })), (gameRoundId && { gameRoundId: gameRoundId })), (this.partnerId && { partnerId: this.partnerId }))).catch(function (e) { throw new Error(e.message); })];
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find(__assign(__assign(__assign(__assign(__assign({}, (userId && { userId: userId })), (username && { username: username })), (type && { gameType: type })), (gameRoundId && { gameRoundId: gameRoundId })), (this.partnerId && { partnerId: this.partnerId }))).sort('-createdAt').catch(function (e) { throw new Error(e.message); })];
                     case 1:
                         bets = _a.sent();
                         return [2 /*return*/, bets];
@@ -137,7 +138,7 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaceds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.find().catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find().sort('-createdAt').catch(function (e) {
                             throw new Error(e.message);
                         })];
                     case 1:
@@ -195,6 +196,7 @@ var BetPlacedService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.BetPlaced.find()
                             .where("gameType")
                             .equals(type)
+                            .sort('-createdAt')
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];
@@ -236,6 +238,7 @@ var BetPlacedService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.BetPlaced.find()
                             .where('userId')
+                            .sort('-createdAt')
                             .equals(params.userId)
                             .where('gameType')
                             .equals(params.gameType)
