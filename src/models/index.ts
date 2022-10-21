@@ -14,6 +14,10 @@ import BetPlaced from './betPlaced';
 import GameAccess from './gameAccess';
 import Permission from './permission';
 import Transaction from './transaction';
+import Reward from './reward';
+import Tornament from './tornament';
+import Leaderboard from './leaderboard';
+import TornamentPlayers from './tornamentPlayers'
 
 export {
   Rtp,
@@ -32,4 +36,8 @@ export {
   Permission,
   Transaction,
   ErrorMessage,
+  Reward,
+  Tornament,
+  Leaderboard,
+  TornamentPlayers
 }

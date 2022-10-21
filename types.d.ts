@@ -164,6 +164,73 @@ interface Wallet extends DefaultAttributes {
   lastTransactionDate: string;
 }
 
+
+type rewardType = "loyalty_points" | "reward_multiplier" | "free_rounds";
+type rankType = "rounds_played" | "win_to_bet_ratio" | "sum_of_bets" | "sum_of_wins" | "highest_win_to_bet_ratio" | "success_ratio"
+type tornamentGameType = "crashlite" | "busly"
+
+interface ITornament extends DefaultAttributes {
+  name: string;
+  tornamentGameType: string;
+  partnerId?: string;
+  rankType: string;
+  rewardType: string;
+  duration: string;
+  isActive: boolean;
+}
+
+interface ITornamentPlayers extends DefaultAttributes {
+  tornamentId?: string;
+  username: string;
+  roundsPlayed: number;
+  winToBetRatio: number;
+  sumOfBets: number;
+  sumOfWins: number;
+  winToBetRatio: number;
+  successRatio: number;
+
+}
+
+interface ILeaderboard extends DefaultAttributes{
+  tornamentId?: string;
+  username: string;
+}
+
+interface IReward extends DefaultAttributes{
+  rewardType: string;
+  gameType: string;
+  isActive: boolean;
+  partnerId?: string;
+  freeBetsAmount: number;
+  loyaltyPercentage: number;
+  multiplier: number;
+}
+
+interface LoyaltyPoints extends DefaultAttributes{
+  pointsPercentage: number;
+  minimumNumberOfBets: number;
+}
+
+interface FreeRounds extends DefaultAttributes{
+  pointsPercentage: number;
+  minimumNumberOfBets: number;
+  minimumStakeAmount: number;
+}
+
+interface RewardMultiplier extends DefaultAttributes{
+  pointsPercentage: number;
+  numberOfGamesPlayed: number;
+}
+
+interface IBonus extends DefaultAttributes{
+  username: string;
+  partnerId?: string;
+  gameType: string;
+  freebet: number;
+  loyaltyPoints: number;
+  bonusAmount: number;
+}
+
 interface IToken {
   partner: {
     id: string;
