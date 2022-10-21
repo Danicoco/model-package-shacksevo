@@ -1,10 +1,9 @@
-import { Schema, model, Types } from 'mongoose';
-import { ITornamentPlayers } from '../../types';
-
-
-const TornamentPlayersSchema: Schema = new Schema<ITornamentPlayers>({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mongoose_1 = require("mongoose");
+var TornamentPlayersSchema = new mongoose_1.Schema({
     tornamentId: {
-        type: Types.ObjectId,
+        type: mongoose_1.Types.ObjectId,
         ref: 'partners'
     },
     username: {
@@ -30,7 +29,6 @@ const TornamentPlayersSchema: Schema = new Schema<ITornamentPlayers>({
     collection: 'tornamentPlayers',
     versionKey: false
 });
-
 TornamentPlayersSchema.set('timestamps', true);
-
-export default model<ITornamentPlayers>('tornamentPlayers', TornamentPlayersSchema);
+exports.default = (0, mongoose_1.model)('tornamentPlayers', TornamentPlayersSchema);
+//# sourceMappingURL=tornamentPlayers.js.map

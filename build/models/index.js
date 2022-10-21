@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorMessage = exports.Transaction = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Partner = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
+exports.TornamentPlayers = exports.Leaderboard = exports.Tornament = exports.Reward = exports.ErrorMessage = exports.Transaction = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Partner = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
 var rtp_1 = __importDefault(require("./rtp"));
 exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
@@ -36,4 +36,12 @@ var permission_1 = __importDefault(require("./permission"));
 exports.Permission = permission_1.default;
 var transaction_1 = __importDefault(require("./transaction"));
 exports.Transaction = transaction_1.default;
+var reward_1 = __importDefault(require("./reward"));
+exports.Reward = reward_1.default;
+var tornamentPlayers_1 = __importDefault(require("./tornamentPlayers"));
+exports.Tornament = tornamentPlayers_1.default;
+var leaderboard_1 = __importDefault(require("./leaderboard"));
+exports.Leaderboard = leaderboard_1.default;
+var tornamentPlayers_2 = __importDefault(require("./tornamentPlayers"));
+exports.TornamentPlayers = tornamentPlayers_2.default;
 //# sourceMappingURL=index.js.map

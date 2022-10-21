@@ -75,7 +75,7 @@ class TornamentService {
         .sort(sort)
         .limit(limit)
         .skip(limit * (page - 1))
-        .catch((e) => {
+        .catch((e: any) => {
           throw e;
         });
 
@@ -88,7 +88,7 @@ class TornamentService {
     public async count(condition?: any) {
         const docs = await Tornament.countDocuments({
             ...(condition && condition)
-        }).catch(e => { throw e; });
+        }).catch((e: any) => { throw e; });
         return docs;
     }
 

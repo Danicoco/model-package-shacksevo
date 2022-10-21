@@ -1,5 +1,5 @@
 import { Schema, model, Types } from 'mongoose';
-import { ILeaderboard } from 'model-package-shacksevo/types';
+import { ILeaderboard } from '../../types';
 
 
 const LeaderboardSchema: Schema = new Schema<ILeaderboard>({

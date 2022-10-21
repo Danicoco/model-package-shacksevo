@@ -1,17 +1,16 @@
-import { Schema, model, Types } from 'mongoose';
-import { IBonus } from '../../types';
-
-
-const BonusSchema: Schema = new Schema<IBonus>({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mongoose_1 = require("mongoose");
+var BonusSchema = new mongoose_1.Schema({
     partnerId: {
-        type: Types.ObjectId,
+        type: mongoose_1.Types.ObjectId,
         ref: 'partners'
     },
     username: {
         type: String,
         required: true
     },
-    gameType:{
+    gameType: {
         type: String,
         required: true
     },
@@ -31,7 +30,6 @@ const BonusSchema: Schema = new Schema<IBonus>({
     collection: 'bonuses',
     versionKey: false
 });
-
 BonusSchema.set('timestamps', true);
-
-export default model<IBonus>('bonuses', BonusSchema);
+exports.default = (0, mongoose_1.model)('bonuses', BonusSchema);
+//# sourceMappingURL=bonuses.js.map

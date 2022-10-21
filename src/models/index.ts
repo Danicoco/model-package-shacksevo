@@ -15,7 +15,7 @@ import GameAccess from './gameAccess';
 import Permission from './permission';
 import Transaction from './transaction';
 import Reward from './reward';
-import Tornament from './tornament';
+import Tornament from './tornamentPlayers';
 import Leaderboard from './leaderboard';
 import TornamentPlayers from './tornamentPlayers'
 

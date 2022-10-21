@@ -1,10 +1,9 @@
-import { Schema, model, Types } from 'mongoose';
-import { IReward } from '../../types';
-
-
-const RewardSchema: Schema = new Schema<IReward>({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mongoose_1 = require("mongoose");
+var RewardSchema = new mongoose_1.Schema({
     partnerId: {
-        type: Types.ObjectId,
+        type: mongoose_1.Types.ObjectId,
         ref: 'partners'
     },
     rewardType: {
@@ -16,7 +15,7 @@ const RewardSchema: Schema = new Schema<IReward>({
         default: false,
     },
     freeBetsAmount: {
-        type:Number,
+        type: Number,
         default: 0,
     },
     loyaltyPercentage: {
@@ -24,13 +23,12 @@ const RewardSchema: Schema = new Schema<IReward>({
         default: 0,
     },
     multiplier: {
-        type:Number
+        type: Number
     }
 }, {
     collection: 'rewards',
     versionKey: false
 });
-
 RewardSchema.set('timestamps', true);
-
-export default model<IReward>('rewards', RewardSchema);
+exports.default = (0, mongoose_1.model)('rewards', RewardSchema);
+//# sourceMappingURL=reward.js.map
