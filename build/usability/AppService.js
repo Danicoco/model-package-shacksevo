@@ -53,8 +53,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var Pagination_1 = __importDefault(require("./Pagination"));
 var AppService = /** @class */ (function () {
-    function AppService(_id, partnerId) {
+    function AppService(_id, partnerId, gameType) {
+        if (gameType === void 0) { gameType = ''; }
         this._id = _id;
+        this.gameType = gameType;
         this.partnerId = partnerId;
     }
     AppService.prototype.create = function (params) {
@@ -73,6 +75,24 @@ var AppService = /** @class */ (function () {
                         error_1 = _a.sent();
                         throw new Error(error_1.message);
                     case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AppService.prototype.findOrCreate = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var app, app_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.APP.findOne(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.gameType && { gameType: this.gameType })), (this.partnerId && { partnerId: this.partnerId }))).catch(function (e) { throw e; })];
+                    case 1:
+                        app = _a.sent();
+                        if (!!app) return [3 /*break*/, 3];
+                        return [4 /*yield*/, models_1.APP.create(params).catch(function (e) { throw e; })];
+                    case 2:
+                        app_1 = _a.sent();
+                        return [2 /*return*/, app_1];
+                    case 3: return [2 /*return*/, app];
                 }
             });
         });

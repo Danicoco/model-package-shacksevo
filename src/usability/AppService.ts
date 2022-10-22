@@ -4,11 +4,13 @@ import { IApp, IPaginator} from '../../types';
 
 
 class AppService {
-    private partnerId: string | null;
+    private gameType: string;
     private _id: string | null;
+    private partnerId: string | null;
 
-    constructor(_id: string | null, partnerId: string | null) {
+    constructor(_id: string | null, partnerId: string | null, gameType = '') {
         this._id = _id;
+        this.gameType = gameType;
         this.partnerId = partnerId;
     }
 
@@ -20,6 +22,21 @@ class AppService {
         } catch (error: any) {
             throw new Error(error.message)
         }
+    }
+
+    public async findOrCreate(params?: IApp) {
+        const app = await APP.findOne({
+            ...(this._id && { _id: this._id }),
+            ...(this.gameType && { gameType: this.gameType }),
+            ...(this.partnerId && { partnerId: this.partnerId }),
+        }).catch(e => { throw e; });
+
+        if (!app) {
+            const app = await APP.create(params).catch(e => { throw e; });
+            return app;
+        }
+
+        return app;
     }
 
     public async findOne() {

@@ -25,10 +25,14 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { IApp, IPaginator } from '../../types';
 declare class AppService {
-    private partnerId;
+    private gameType;
     private _id;
-    constructor(_id: string | null, partnerId: string | null);
+    private partnerId;
+    constructor(_id: string | null, partnerId: string | null, gameType?: string);
     create(params: Partial<IApp>): Promise<import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+        _id: string;
+    }>>;
+    findOrCreate(params?: IApp): Promise<import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
         _id: string;
     }>>;
     findOne(): Promise<(import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
