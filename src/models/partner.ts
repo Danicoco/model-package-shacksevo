@@ -4,7 +4,7 @@ import { IPartner } from '../../types';
 
 
 const PartnerSchema: Schema = new Schema<IPartner>({
-    name: {
+    name: { // company name
         type: String,
         required: true,
         trim: true,
@@ -17,6 +17,16 @@ const PartnerSchema: Schema = new Schema<IPartner>({
     },
     email: {
         type: String,
+    },
+    gender: {
+        type: String,
+    },
+    phoneNumber: {
+        type: String,
+        trim: true,
+    },
+    noOfEmployees: {
+        type: Number,
     },
     password: {
         type: String,

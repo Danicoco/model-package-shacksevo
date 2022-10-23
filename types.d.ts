@@ -113,12 +113,15 @@ interface IPartner extends DefaultAttributes {
   name: string;
   role: string;
   email: string;
+  gender: string;
   roleId?: string;
   IAM?: IAMACCESS;
   lastName: string;
   password: string;
   firstName: string;
   isActive: boolean;
+  phoneNumber: string;
+  noOfEmployees: number;
 }
 
 interface IRTP extends DefaultAttributes {

@@ -16,6 +16,16 @@ var PartnerSchema = new mongoose_1.Schema({
     email: {
         type: String,
     },
+    gender: {
+        type: String,
+    },
+    phoneNumber: {
+        type: String,
+        trim: true,
+    },
+    noOfEmployees: {
+        type: Number,
+    },
     password: {
         type: String,
     },
