@@ -124,6 +124,13 @@ interface IPartner extends DefaultAttributes {
   noOfEmployees: number;
 }
 
+type FeedbackTypes = 'games' | 'complaint' | 'feedback' | 'question' | 'concern'
+interface IFeedback extends DefaultAttributes {
+  title: string;
+  message: string;
+  type: FeedbackTypes;
+}
+
 interface IRTP extends DefaultAttributes {
   value: string;
   gameType: string;
