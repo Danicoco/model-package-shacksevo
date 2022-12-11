@@ -32,11 +32,12 @@ interface IBetPlaced extends DefaultAttributes {
   gameType: string;
   username: string;
   partnerId?: string;
+  playerDetails: any;
   gameRoundId?: string;
   amountPlaced: number;
   cashoutAmount: number;
   potentialWinning: number;
-  selectedEventType?: [];
+  selectedEventType?: any[];
 }
 
 interface IUser extends DefaultAttributes {

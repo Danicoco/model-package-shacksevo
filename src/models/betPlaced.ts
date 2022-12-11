@@ -33,6 +33,9 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
     },
     selectedEventType: {
         type: Array
+    },
+    playerDetails: {
+        type: Object
     }
 }, {
     collection: 'betPlaceds',
