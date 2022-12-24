@@ -1,4 +1,4 @@
-import { IGameRound } from "../../types";
+import { IGameRound, IPaginator } from "../../types";
 import { GameRound } from '../models';
 
 class GameRoundService {
@@ -34,8 +34,8 @@ class GameRoundService {
     public async bulkCreate(params: Partial<IGameRound>[]) {
         const rounds = await GameRound
             .insertMany(params)
-            .catch((e: any) => { 
-                throw new Error(e) 
+            .catch((e: any) => {
+                throw new Error(e)
             });
         return rounds;
     }
@@ -59,6 +59,15 @@ class GameRoundService {
         return rounds;
     }
 
+    public async findAllByCondition({ sort, limit, condition }: IPaginator) {
+        const rounds = await GameRound
+            .find(condition)
+            .sort(sort)
+            .limit(limit)
+            .catch((e: any) => { throw new Error(e) });
+        return rounds;
+    }
+
     public async findAllAdmin() {
         const rounds = await GameRound
             .find()
@@ -74,7 +83,7 @@ class GameRoundService {
             .where('season')
             .equals(Number(this.year))
             .catch((e: any) => { throw new Error(e)});
-        return rounds;            
+        return rounds;
     }
 
     public async updateOne(params: Partial<IGameRound>) {

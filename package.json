@@ -1,6 +1,6 @@
 {
   "name": "model-package-shacksevo",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "Models and its implementation",
   "main": "build/index.js",
   "author": "Aderemi Dare",

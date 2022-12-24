@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IGameRound } from "../../types";
+import { IGameRound, IPaginator } from "../../types";
 declare class GameRoundService {
     _id: string;
     eventId: string;
@@ -50,6 +50,9 @@ declare class GameRoundService {
         _id: string;
     }>) | null>;
     findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+        _id: string;
+    }>)[]>;
+    findAllByCondition({ sort, limit, condition }: IPaginator): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
         _id: string;
     }>)[]>;
     findAllAdmin(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
