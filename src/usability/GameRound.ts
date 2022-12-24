@@ -71,6 +71,7 @@ class GameRoundService {
     public async findAllAdmin() {
         const rounds = await GameRound
             .find()
+            .sort('-createdAt')
             .catch((e: any) => { throw new Error(e) });
         return rounds;
     }

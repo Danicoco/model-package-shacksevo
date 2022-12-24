@@ -165,6 +165,7 @@ var GameRoundService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameRound
                             .find()
+                            .sort('-createdAt')
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         rounds = _a.sent();
