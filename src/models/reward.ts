@@ -25,7 +25,14 @@ const RewardSchema: Schema = new Schema<IReward>({
     },
     multiplier: {
         type:Number
-    }
+    },
+    duration: {
+        type: Date,
+    },
+    startDate: {
+        type: Date,
+        default: Date.now()
+    },
 }, {
     collection: 'rewards',
     versionKey: false

@@ -182,7 +182,7 @@ type tornamentGameType = "crashlite" | "busly"
 
 interface ITornament extends DefaultAttributes {
   name: string;
-  tornamentGameType: string;
+  tornamentGameType: string | [];
   partnerId?: string;
   rankType: string;
   rewardType: string;
@@ -205,6 +205,8 @@ interface ITornamentPlayers extends DefaultAttributes {
 interface ILeaderboard extends DefaultAttributes{
   tornamentId?: string;
   username: string;
+  point: number;
+  rank: number;
 }
 
 interface IReward extends DefaultAttributes{
@@ -215,6 +217,8 @@ interface IReward extends DefaultAttributes{
   freeBetsAmount: number;
   loyaltyPercentage: number;
   multiplier: number;
+  duration: Date,
+  startDate: Date,
 }
 
 interface LoyaltyPoints extends DefaultAttributes{
@@ -236,6 +240,7 @@ interface RewardMultiplier extends DefaultAttributes{
 interface IBonus extends DefaultAttributes{
   username: string;
   partnerId?: string;
+  tornamentId?: string;
   gameType: string;
   freebet: number;
   loyaltyPoints: number;

@@ -10,7 +10,10 @@ const LeaderboardSchema: Schema = new Schema<ILeaderboard>({
     username: {
         type: String,
         required: true,
-    }
+    },
+    point: {
+        type: Number,
+    },
 }, {
     collection: 'leaderboard',
     versionKey: false

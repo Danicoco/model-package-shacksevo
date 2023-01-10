@@ -11,6 +11,10 @@ const BonusSchema: Schema = new Schema<IBonus>({
         type: String,
         required: true
     },
+    tornamentId:{
+        type: Types.ObjectId,
+        ref: 'tornaments'
+    },
     gameType:{
         type: String,
         required: true
