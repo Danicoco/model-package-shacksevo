@@ -110,7 +110,7 @@ interface IGameAccess extends DefaultAttributes {
 
 type IAMACCESS = "owner" | "manager";
 type IStatus = 'test' | 'live';
-type IPartnerType = 'aggregator' | 'thirdparty';
+type IPartnerType = 'aggregator' | 'thirdparty' | 'demo';
 
 interface IPartner extends DefaultAttributes {
   name: string;
