@@ -52,6 +52,11 @@ var PartnerSchema = new mongoose_1.Schema({
         type: String,
         default: null,
     },
+    type: {
+        type: String,
+        enum: ['aggregator', 'thirdparty'],
+        default: 'thirdparty',
+    },
 }, {
     collection: 'partners',
     versionKey: false

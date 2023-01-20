@@ -110,6 +110,7 @@ interface IGameAccess extends DefaultAttributes {
 
 type IAMACCESS = "owner" | "manager";
 type IStatus = 'test' | 'live';
+type IPartnerType = 'aggregator' | 'thirdparty';
 
 interface IPartner extends DefaultAttributes {
   name: string;
@@ -123,6 +124,7 @@ interface IPartner extends DefaultAttributes {
   password: string;
   firstName: string;
   isActive: boolean;
+  type: IPartnerType;
   callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
