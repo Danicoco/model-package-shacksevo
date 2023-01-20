@@ -11,19 +11,24 @@ var TornamentPlayersSchema = new mongoose_1.Schema({
         required: true
     },
     roundsPlayed: {
-        type: Number
+        type: Number,
+        lastUpdate: Date,
     },
     sumOfBets: {
-        type: Number
+        type: Number,
+        lastUpdate: Date,
     },
     sumOfWins: {
-        type: Number
+        type: Number,
+        lastUpdate: Date,
     },
     winToBetRatio: {
-        type: Number
+        type: Number,
+        lastUpdate: Date,
     },
     successRatio: {
-        type: Number
+        type: Number,
+        lastUpdate: Date,
     }
 }, {
     collection: 'tornamentPlayers',

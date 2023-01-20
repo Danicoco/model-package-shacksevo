@@ -109,6 +109,7 @@ interface IGameAccess extends DefaultAttributes {
 }
 
 type IAMACCESS = "owner" | "manager";
+type IStatus = 'test' | 'live';
 
 interface IPartner extends DefaultAttributes {
   name: string;
@@ -116,11 +117,13 @@ interface IPartner extends DefaultAttributes {
   email: string;
   gender: string;
   roleId?: string;
+  status: IStatus;
   IAM?: IAMACCESS;
   lastName: string;
   password: string;
   firstName: string;
   isActive: boolean;
+  callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
 }

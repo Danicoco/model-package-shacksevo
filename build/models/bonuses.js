@@ -10,6 +10,10 @@ var BonusSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
+    tornamentId: {
+        type: mongoose_1.Types.ObjectId,
+        ref: 'tornaments'
+    },
     gameType: {
         type: String,
         required: true

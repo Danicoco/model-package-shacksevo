@@ -15,6 +15,7 @@ export { default as GameAccessService } from './GameAccessService';
 export { default as PermissionService } from './PermissionService';
 export { default as TransactionService } from './TransactionService';
 export { default as TornamentService } from './TornamentService';
+export { default as TornamentPlayerService } from './TornamentPlayerService';
 export { default as RewardService } from './RewardService';
 export { default as FeedbackService } from './FeedbackService';
 //# sourceMappingURL=index.d.ts.map

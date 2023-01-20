@@ -44,7 +44,16 @@ const PartnerSchema: Schema = new Schema<IPartner>({
     },
     IAM: {
         type: String,
-    }
+    },
+    status: {
+        type: String,
+        enum: ['test', 'live'],
+        default: 'test'
+    },
+    callbackUrl: {
+        type: String,
+        default: null,
+    },
 }, {
     collection: 'partners',
     versionKey: false
