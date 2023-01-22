@@ -8,6 +8,7 @@ const FeedbackSchema: Schema = new Schema<IFeedback>({
    },
    type: String,
    message: String,
+   details: Object,
 }, {
     collection: 'feedbacks',
     versionKey: false

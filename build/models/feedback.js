@@ -8,6 +8,7 @@ var FeedbackSchema = new mongoose_1.Schema({
     },
     type: String,
     message: String,
+    details: Object,
 }, {
     collection: 'feedbacks',
     versionKey: false

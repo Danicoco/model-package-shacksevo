@@ -134,6 +134,7 @@ type FeedbackTypes = 'games' | 'complaint' | 'feedback' | 'question' | 'concern'
 interface IFeedback extends DefaultAttributes {
   title: string;
   message: string;
+  details: object;
   type: FeedbackTypes;
 }
 
