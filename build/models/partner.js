@@ -54,7 +54,7 @@ var PartnerSchema = new mongoose_1.Schema({
     },
     type: {
         type: String,
-        enum: ['aggregator', 'thirdparty'],
+        enum: ['aggregator', 'thirdparty', 'demo'],
         default: 'thirdparty',
     },
 }, {

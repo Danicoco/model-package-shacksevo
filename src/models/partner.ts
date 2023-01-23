@@ -56,7 +56,7 @@ const PartnerSchema: Schema = new Schema<IPartner>({
     },
     type: {
         type: String,
-        enum: ['aggregator', 'thirdparty'],
+        enum: ['aggregator', 'thirdparty', 'demo'],
         default: 'thirdparty',
     },
 }, {
