@@ -52,6 +52,10 @@ var PartnerSchema = new mongoose_1.Schema({
         type: String,
         default: null,
     },
+    webhookUrl: {
+        type: String,
+        default: null,
+    },
     type: {
         type: String,
         enum: ['aggregator', 'thirdparty', 'demo'],

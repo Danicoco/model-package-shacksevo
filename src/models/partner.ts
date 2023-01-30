@@ -54,6 +54,10 @@ const PartnerSchema: Schema = new Schema<IPartner>({
         type: String,
         default: null,
     },
+    webhookUrl: {
+        type: String,
+        default: null,
+    },
     type: {
         type: String,
         enum: ['aggregator', 'thirdparty', 'demo'],

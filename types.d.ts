@@ -125,6 +125,7 @@ interface IPartner extends DefaultAttributes {
   firstName: string;
   isActive: boolean;
   type: IPartnerType;
+  webhookUrl: string;
   callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
