@@ -22,12 +22,38 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IReward } from '../../types';
-import { ObjectId } from 'mongoose';
+import { IPaginator, IReward } from "../../types";
+import { ObjectId } from "mongoose";
 declare class RewardService {
-    _id: string;
-    partnerId?: ObjectId;
-    constructor(_id?: string, partnerId?: ObjectId);
+    private model;
+    private _id;
+    private userId;
+    private partnerId?;
+    constructor(_id?: string, partnerId?: ObjectId, userId?: string);
+    private finder;
+    create(params: Partial<IReward>): Promise<import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+        _id: string;
+    }>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+        _id: string;
+    }>) | null>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+        _id: string;
+    }>) | null>;
     setReward(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
         _id: string;
     }>)[]>;

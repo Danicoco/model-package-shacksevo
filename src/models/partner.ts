@@ -1,7 +1,18 @@
 
 import { Schema, Types, model } from 'mongoose';
-import { IPartner } from '../../types';
+import { IPartner, UsageCustomization } from '../../types';
 
+const customizationSchema: Schema = new Schema<UsageCustomization>({
+    isActive: { type: Boolean, required: true, default: true },
+    showAbout: { type: Boolean, default: true },
+    promoAmount: { type: Number, default: 0 },
+    showBalance: { type: Boolean, default: true },
+    showHistory: { type: Boolean, default: true },
+    stakePercentage: { type: Number, default: 0 },
+    numberOfBetPlaced: { type: Number, default: 0 },
+    numberOfTimesPerDay: { type: Number, default: 0 },
+    showBetAmountOption: { type: Boolean, default: true },
+});
 
 const PartnerSchema: Schema = new Schema<IPartner>({
     name: { // company name
@@ -63,6 +74,7 @@ const PartnerSchema: Schema = new Schema<IPartner>({
         enum: ['aggregator', 'thirdparty', 'demo'],
         default: 'thirdparty',
     },
+    customization: [customizationSchema]
 }, {
     collection: 'partners',
     versionKey: false

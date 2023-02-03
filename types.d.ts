@@ -112,6 +112,19 @@ type IAMACCESS = "owner" | "manager";
 type IStatus = 'test' | 'live';
 type IPartnerType = 'aggregator' | 'thirdparty' | 'demo';
 
+type UsageCustomization = {
+  type: string;
+  isActive: boolean;
+  showAbout: boolean;
+  promoAmount: number;
+  showBalance: boolean;
+  showHistory: boolean;
+  stakePercentage: number;
+  numberOfBetPlaced: number;
+  numberOfTimesPerDay: number;
+  showBetAmountOption: boolean;
+}
+
 interface IPartner extends DefaultAttributes {
   name: string;
   role: string;
@@ -129,6 +142,7 @@ interface IPartner extends DefaultAttributes {
   callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
+  customization: Partial<UsageCustomization>;
 }
 
 type FeedbackTypes = 'games' | 'complaint' | 'feedback' | 'question' | 'concern'
@@ -218,6 +232,9 @@ interface ILeaderboard extends DefaultAttributes{
 
 interface IReward extends DefaultAttributes{
   rewardType: string;
+  userId: string;
+  amount: number;
+  cashoutAmount: number;
   gameType: string;
   isActive: boolean;
   partnerId?: string;
@@ -226,6 +243,7 @@ interface IReward extends DefaultAttributes{
   multiplier: number;
   duration: Date,
   startDate: Date,
+  endDate: Date,
 }
 
 interface LoyaltyPoints extends DefaultAttributes{

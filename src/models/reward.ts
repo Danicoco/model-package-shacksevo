@@ -1,43 +1,60 @@
-import { Schema, model, Types } from 'mongoose';
-import { IReward } from '../../types';
+import { Schema, model, Types } from "mongoose";
+import { IReward } from "../../types";
 
-
-const RewardSchema: Schema = new Schema<IReward>({
+const RewardSchema: Schema = new Schema<IReward>(
+  {
     partnerId: {
-        type: Types.ObjectId,
-        ref: 'partners'
+      type: Types.ObjectId,
+      ref: "partners",
+    },
+    userId: {
+      type: String,
+    },
+    amount: {
+        type: Number,
+        default: 0
+    },
+    cashoutAmount: {
+        type: Number,
+        default: 0
     },
     rewardType: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     isActive: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     freeBetsAmount: {
-        type:Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
     loyaltyPercentage: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
     multiplier: {
-        type:Number
+      type: Number,
     },
     duration: {
-        type: Date,
+      type: Date,
     },
     startDate: {
-        type: Date,
-        default: Date.now()
+      type: Date,
+      default: Date.now(),
     },
-}, {
-    collection: 'rewards',
-    versionKey: false
-});
+    endDate: {
+      type: Date,
+      default: Date.now(),
+    },
+  },
+  {
+    collection: "rewards",
+    versionKey: false,
+  }
+);
 
-RewardSchema.set('timestamps', true);
+RewardSchema.set("timestamps", true);
 
-export default model<IReward>('rewards', RewardSchema);
+export default model<IReward>("rewards", RewardSchema);

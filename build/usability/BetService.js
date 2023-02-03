@@ -100,10 +100,9 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaceds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced
-                            .find()
-                            .sort('-createdAt')
-                            .where('partnerId')
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find()
+                            .sort("-createdAt")
+                            .where("partnerId")
                             .equals(this.partnerId)
                             .limit(limit)
                             .catch(function (e) {
@@ -117,15 +116,19 @@ var BetPlacedService = /** @class */ (function () {
         });
     };
     BetPlacedService.prototype.findAllGeneric = function (userId, username, gameRoundId, type) {
-        if (userId === void 0) { userId = ''; }
-        if (username === void 0) { username = ''; }
-        if (gameRoundId === void 0) { gameRoundId = ''; }
-        if (type === void 0) { type = ''; }
+        if (userId === void 0) { userId = ""; }
+        if (username === void 0) { username = ""; }
+        if (gameRoundId === void 0) { gameRoundId = ""; }
+        if (type === void 0) { type = ""; }
         return __awaiter(this, void 0, void 0, function () {
             var bets;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.find(__assign(__assign(__assign(__assign(__assign({}, (userId && { userId: userId })), (username && { username: username })), (type && { gameType: type })), (gameRoundId && { gameRoundId: gameRoundId })), (this.partnerId && { partnerId: this.partnerId }))).sort('-createdAt').catch(function (e) { throw new Error(e.message); })];
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find(__assign(__assign(__assign(__assign(__assign({}, (userId && { userId: userId })), (username && { username: username })), (type && { gameType: type })), (gameRoundId && { gameRoundId: gameRoundId })), (this.partnerId && { partnerId: this.partnerId })))
+                            .sort("-createdAt")
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
                     case 1:
                         bets = _a.sent();
                         return [2 /*return*/, bets];
@@ -138,7 +141,9 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaceds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.find().sort('-createdAt').catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.find()
+                            .sort("-createdAt")
+                            .catch(function (e) {
                             throw new Error(e.message);
                         })];
                     case 1:
@@ -154,11 +159,12 @@ var BetPlacedService = /** @class */ (function () {
             var count, bets;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) { throw e; })];
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
+                            throw e;
+                        })];
                     case 1:
                         count = _b.sent();
-                        return [4 /*yield*/, models_1.BetPlaced
-                                .find(__assign({}, (condition && condition)))
+                        return [4 /*yield*/, models_1.BetPlaced.find(__assign({}, (condition && condition)))
                                 .sort(sort)
                                 .limit(limit)
                                 .skip(limit * (page - 1))
@@ -180,7 +186,9 @@ var BetPlacedService = /** @class */ (function () {
             var docs;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.countDocuments(__assign({}, (condition && condition))).catch(function (e) { throw e; })];
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.countDocuments(__assign({}, (condition && condition))).catch(function (e) {
+                            throw e;
+                        })];
                     case 1:
                         docs = _a.sent();
                         return [2 /*return*/, docs];
@@ -196,7 +204,7 @@ var BetPlacedService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.BetPlaced.find()
                             .where("gameType")
                             .equals(type)
-                            .sort('-createdAt')
+                            .sort("-createdAt")
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];
@@ -215,11 +223,11 @@ var BetPlacedService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.BetPlaced.findOne()
                             .where("gameType")
                             .equals(params.gameType)
-                            .where('userId')
+                            .where("userId")
                             .equals(params.userId)
-                            .where('partnerId')
+                            .where("partnerId")
                             .equals(this.partnerId)
-                            .where('username')
+                            .where("username")
                             .equals(params.username)
                             .catch(function (e) {
                             throw new Error(e.message);
@@ -237,10 +245,10 @@ var BetPlacedService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.BetPlaced.find()
-                            .where('userId')
-                            .sort('-createdAt')
+                            .where("userId")
+                            .sort("-createdAt")
                             .equals(params.userId)
-                            .where('gameType')
+                            .where("gameType")
                             .equals(params.gameType)
                             .catch(function (e) {
                             throw new Error(e.message);
@@ -290,8 +298,7 @@ var BetPlacedService = /** @class */ (function () {
             var betPlaced;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.updateMany({ gameRoundId: this.partnerId }, __assign({}, params), { new: true })
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.updateMany({ gameRoundId: this.partnerId }, __assign({}, params), { new: true }).catch(function (e) {
                             throw new Error(e.message);
                         })];
                     case 1:

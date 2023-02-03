@@ -1,6 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
+var customizationSchema = new mongoose_1.Schema({
+    isActive: { type: Boolean, required: true, default: true },
+    showAbout: { type: Boolean, default: true },
+    promoAmount: { type: Number, default: 0 },
+    showBalance: { type: Boolean, default: true },
+    showHistory: { type: Boolean, default: true },
+    stakePercentage: { type: Number, default: 0 },
+    numberOfBetPlaced: { type: Number, default: 0 },
+    numberOfTimesPerDay: { type: Number, default: 0 },
+    showBetAmountOption: { type: Boolean, default: true },
+});
 var PartnerSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -61,6 +72,7 @@ var PartnerSchema = new mongoose_1.Schema({
         enum: ['aggregator', 'thirdparty', 'demo'],
         default: 'thirdparty',
     },
+    customization: [customizationSchema]
 }, {
     collection: 'partners',
     versionKey: false

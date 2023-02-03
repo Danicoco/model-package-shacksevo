@@ -32,69 +32,81 @@ class BetPlacedService {
   }
 
   public async findAll(limit: number) {
-    const betPlaceds = await BetPlaced
-      .find()
-      .sort('-createdAt')
-      .where('partnerId')
+    const betPlaceds = await BetPlaced.find()
+      .sort("-createdAt")
+      .where("partnerId")
       .equals(this.partnerId)
       .limit(limit)
       .catch((e: any) => {
-      throw new Error(e.message);
-    });
+        throw new Error(e.message);
+      });
     return betPlaceds;
   }
 
-  public async findAllGeneric(userId = '', username = '', gameRoundId = '', type = '') {
+  public async findAllGeneric(
+    userId = "",
+    username = "",
+    gameRoundId = "",
+    type = ""
+  ) {
     const bets = await BetPlaced.find({
       ...(userId && { userId }),
       ...(username && { username }),
       ...(type && { gameType: type }),
       ...(gameRoundId && { gameRoundId }),
-      ...(this.partnerId  && { partnerId: this.partnerId }),
-    }).sort('-createdAt').catch(e => { throw new Error(e.message) });
-
+      ...(this.partnerId && { partnerId: this.partnerId }),
+    })
+      .sort("-createdAt")
+      .catch((e) => {
+        throw new Error(e.message);
+      });
 
     return bets;
   }
 
   public async findAllByAdmin() {
-    const betPlaceds = await BetPlaced.find().sort('-createdAt').catch((e: any) => {
-      throw new Error(e.message);
-    });
+    const betPlaceds = await BetPlaced.find()
+      .sort("-createdAt")
+      .catch((e: any) => {
+        throw new Error(e.message);
+      });
     return betPlaceds;
   }
 
   public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
-    const count = await this.count(condition).catch(e => { throw e; });
-    const bets = await BetPlaced
-    .find({
-        ...(condition && condition)
-    })
-    .sort(sort)
-    .limit(limit)
-    .skip(limit * (page - 1))
-    .catch((e) => {
+    const count = await this.count(condition).catch((e) => {
       throw e;
     });
+    const bets = await BetPlaced.find({
+      ...(condition && condition),
+    })
+      .sort(sort)
+      .limit(limit)
+      .skip(limit * (page - 1))
+      .catch((e) => {
+        throw e;
+      });
 
     return {
-        data: bets,
-        pagination: Pagionation.builder(bets, count, { page, limit }),
-    }
-}
+      data: bets,
+      pagination: Pagionation.builder(bets, count, { page, limit }),
+    };
+  }
 
-public async count(condition?: any) {
+  public async count(condition?: any) {
     const docs = await BetPlaced.countDocuments({
-        ...(condition && condition)
-    }).catch(e => { throw e; });
+      ...(condition && condition),
+    }).catch((e) => {
+      throw e;
+    });
     return docs;
-}
+  }
 
   public async findByType(type: string) {
     const bets = await BetPlaced.find()
       .where("gameType")
       .equals(type)
-      .sort('-createdAt')
+      .sort("-createdAt")
       .catch((e: any) => {
         throw new Error(e.message);
       });
@@ -105,11 +117,11 @@ public async count(condition?: any) {
     const betPlaced = await BetPlaced.findOne()
       .where("gameType")
       .equals(params.gameType)
-      .where('userId')
+      .where("userId")
       .equals(params.userId)
-      .where('partnerId')
+      .where("partnerId")
       .equals(this.partnerId)
-      .where('username')
+      .where("username")
       .equals(params.username)
       .catch((e: any) => {
         throw new Error(e.message);
@@ -119,15 +131,14 @@ public async count(condition?: any) {
 
   public async findAllUserBets(params: Partial<IBetPlaced>) {
     const bets = await BetPlaced.find()
-      .where('userId')
-      .sort('-createdAt')
+      .where("userId")
+      .sort("-createdAt")
       .equals(params.userId)
-      .where('gameType')
+      .where("gameType")
       .equals(params.gameType)
       .catch((e: any) => {
         throw new Error(e.message);
-      }
-    );
+      });
     return bets;
   }
 
@@ -158,10 +169,10 @@ public async count(condition?: any) {
     const betPlaced = await BetPlaced.updateMany(
       { gameRoundId: this.partnerId },
       { ...params },
-      { new: true })
-      .catch((e) => {
-        throw new Error(e.message);
-      });
+      { new: true }
+    ).catch((e) => {
+      throw new Error(e.message);
+    });
 
     return betPlaced;
   }

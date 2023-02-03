@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IReward } from '../../types';
+import { IReward } from "../../types";
 declare const _default: import("mongoose").Model<IReward, {}, {}, {}, any>;
 export default _default;
 //# sourceMappingURL=reward.d.ts.map

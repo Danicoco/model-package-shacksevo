@@ -46,23 +46,129 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
+var Pagination_1 = __importDefault(require("./Pagination"));
 var RewardService = /** @class */ (function () {
-    function RewardService(_id, partnerId) {
+    function RewardService(_id, partnerId, userId) {
         if (_id === void 0) { _id = ""; }
-        this._id = "";
+        if (userId === void 0) { userId = ""; }
+        this.model = models_1.Reward;
         this._id = _id;
+        this.userId = userId;
         this.partnerId = partnerId;
     }
+    RewardService.prototype.finder = function () {
+        return __assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.userId && { userId: this.userId })), (this.partnerId && { partnerId: this.partnerId }));
+    };
+    RewardService.prototype.create = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var reward, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        reward = new this.model(__assign({}, params));
+                        return [4 /*yield*/, reward.save()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, reward];
+                    case 2:
+                        error_1 = _a.sent();
+                        throw new Error(error_1.message);
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    RewardService.prototype.findOne = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var reward;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model.findOne(this.finder()).catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        reward = _a.sent();
+                        return [2 /*return*/, reward];
+                }
+            });
+        });
+    };
+    RewardService.prototype.findAllPaginated = function (_a) {
+        var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
+        return __awaiter(this, void 0, void 0, function () {
+            var count, bets;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        count = _b.sent();
+                        return [4 /*yield*/, this.model
+                                .find(__assign({}, (condition && condition)))
+                                .sort(sort)
+                                .limit(limit)
+                                .skip(limit * (page - 1))
+                                .catch(function (e) {
+                                throw e;
+                            })];
+                    case 2:
+                        bets = _b.sent();
+                        return [2 /*return*/, {
+                                data: bets,
+                                pagination: Pagination_1.default.builder(bets, count, { page: page, limit: limit }),
+                            }];
+                }
+            });
+        });
+    };
+    RewardService.prototype.count = function (condition) {
+        return __awaiter(this, void 0, void 0, function () {
+            var docs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .countDocuments(__assign({}, (condition && condition)))
+                            .catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        docs = _a.sent();
+                        return [2 /*return*/, docs];
+                }
+            });
+        });
+    };
+    RewardService.prototype.deleteOne = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var reward;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .findOneAndDelete(this.finder())
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        reward = _a.sent();
+                        return [2 /*return*/, reward];
+                }
+            });
+        });
+    };
     RewardService.prototype.setReward = function (params) {
         return __awaiter(this, void 0, void 0, function () {
             var reward;
             return __generator(this, function (_a) {
                 try {
-                    reward = models_1.Reward.find();
+                    reward = this.model.find();
                     reward.update(__assign({}, params));
-                    // reward.save();
                     return [2 /*return*/, reward];
                 }
                 catch (error) {
@@ -77,7 +183,7 @@ var RewardService = /** @class */ (function () {
             var reward;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Reward.find()];
+                    case 0: return [4 /*yield*/, this.model.find()];
                     case 1:
                         reward = _a.sent();
                         return [2 /*return*/, reward];
