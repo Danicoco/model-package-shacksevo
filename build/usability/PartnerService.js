@@ -80,19 +80,13 @@ var PartnerService = /** @class */ (function () {
             var partner;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        this.create({
-                            customization: [{
-                                    isActive: true
-                                }]
-                        });
-                        return [4 /*yield*/, models_1.Partner
-                                .findOne()
-                                .where(this._id ? '_id' : 'email')
-                                .equals(this._id ? this._id : this.email)
-                                .catch(function (e) {
-                                throw new Error(e.message);
-                            })];
+                    case 0: return [4 /*yield*/, models_1.Partner
+                            .findOne()
+                            .where(this._id ? '_id' : 'email')
+                            .equals(this._id ? this._id : this.email)
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
                     case 1:
                         partner = _a.sent();
                         return [2 /*return*/, partner];
