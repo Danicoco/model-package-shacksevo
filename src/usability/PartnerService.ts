@@ -20,6 +20,11 @@ class PartnerService {
     }
 
     public async findOne() {
+        this.create({
+            customization: [{
+                isActive:true
+            }]
+        })
         const partner = await Partner
             .findOne()
             .where(this._id ? '_id': 'email')

@@ -142,7 +142,7 @@ interface IPartner extends DefaultAttributes {
   callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
-  customization: Partial<UsageCustomization>;
+  customization: Partial<UsageCustomization>[];
 }
 
 type FeedbackTypes = 'games' | 'complaint' | 'feedback' | 'question' | 'concern'
