@@ -7,7 +7,6 @@ const GameSchema: Schema = new Schema<IGame>({
         type: String,
         required: true,
         trim: true,
-        unique: true,
     },
     accessUrl: {
         type: String,
