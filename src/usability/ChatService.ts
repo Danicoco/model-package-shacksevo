@@ -1,5 +1,6 @@
-import { IChat } from "../../types";
+import { IChat, IPaginator } from "../../types";
 import { Chat } from '../models';
+import Pagionation from "./Pagination";
 
 class ChatService {
     private _id: string;
@@ -27,6 +28,32 @@ class ChatService {
             .equals(this._id ? this._id : this.partnerId)
             .catch((e: any) => { throw new Error(e) });
         return chat;
+    }
+
+    public async count(condition?: any) {
+        const docs = await Chat.countDocuments({
+            ...(condition && condition)
+        }).catch(e => { throw e; });
+        return docs;
+    }
+
+    public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+        const count = await this.count(condition).catch(e => { throw e; });
+        const chats = await Chat
+        .find({
+            ...(condition && condition)
+        })
+        .sort(sort)
+        .limit(limit)
+        .skip(limit * (page - 1))
+        .catch((e) => {
+          throw e;
+        });
+
+        return {
+            data: chats,
+            pagination: Pagionation.builder(chats, count, { page, limit }),
+        }
     }
 
     public async findAll() {

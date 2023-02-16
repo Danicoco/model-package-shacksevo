@@ -81,9 +81,10 @@ class APIService {
 
     public async deleteOne() {
         const api = await API
-            .findOneAndDelete()
-            .where("partnerId")
-            .equals(this.partnerId)
+            .findOneAndDelete({
+                partnerId: this.partnerId,
+                publicKey: this.publicKey
+            })
             .catch((e: any) => {
                 throw new Error(e.message);
             });

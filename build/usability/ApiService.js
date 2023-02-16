@@ -180,9 +180,10 @@ var APIService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.API
-                            .findOneAndDelete()
-                            .where("partnerId")
-                            .equals(this.partnerId)
+                            .findOneAndDelete({
+                            partnerId: this.partnerId,
+                            publicKey: this.publicKey
+                        })
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];

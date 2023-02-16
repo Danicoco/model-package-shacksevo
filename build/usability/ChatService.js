@@ -46,8 +46,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
+var Pagination_1 = __importDefault(require("./Pagination"));
 var ChatService = /** @class */ (function () {
     function ChatService(_id, partnerId) {
         if (_id === void 0) { _id = ''; }
@@ -88,6 +92,46 @@ var ChatService = /** @class */ (function () {
                     case 1:
                         chat = _a.sent();
                         return [2 /*return*/, chat];
+                }
+            });
+        });
+    };
+    ChatService.prototype.count = function (condition) {
+        return __awaiter(this, void 0, void 0, function () {
+            var docs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.Chat.countDocuments(__assign({}, (condition && condition))).catch(function (e) { throw e; })];
+                    case 1:
+                        docs = _a.sent();
+                        return [2 /*return*/, docs];
+                }
+            });
+        });
+    };
+    ChatService.prototype.findAllPaginated = function (_a) {
+        var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
+        return __awaiter(this, void 0, void 0, function () {
+            var count, chats;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) { throw e; })];
+                    case 1:
+                        count = _b.sent();
+                        return [4 /*yield*/, models_1.Chat
+                                .find(__assign({}, (condition && condition)))
+                                .sort(sort)
+                                .limit(limit)
+                                .skip(limit * (page - 1))
+                                .catch(function (e) {
+                                throw e;
+                            })];
+                    case 2:
+                        chats = _b.sent();
+                        return [2 /*return*/, {
+                                data: chats,
+                                pagination: Pagination_1.default.builder(chats, count, { page: page, limit: limit }),
+                            }];
                 }
             });
         });

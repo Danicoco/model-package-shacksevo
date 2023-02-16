@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IChat } from "../../types";
+import { IChat, IPaginator } from "../../types";
 declare class ChatService {
     private _id;
     private partnerId;
@@ -34,6 +34,20 @@ declare class ChatService {
     findOne(): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
         _id: string;
     }>) | null>;
+    count(condition?: any): Promise<number>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
     findAll(): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
         _id: string;
     }>)[]>;
