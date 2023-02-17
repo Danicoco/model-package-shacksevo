@@ -49,6 +49,15 @@ class GameRoundService {
         return round;
     }
 
+    public async findOneCrashRound() {
+        const round = await GameRound
+            .findOne()
+            .where('crashRoundId')
+            .equals(this._id)
+            .catch((e: any) => { throw new Error(e) });
+        return round;
+    }
+
     public async findAll(limit: number) {
         const rounds = await GameRound
             .find()
@@ -91,6 +100,16 @@ class GameRoundService {
         const round = await GameRound
             .findOneAndUpdate(
                 { _id: this._id },
+                { ...params },
+                { new: true }
+            );
+        return round;
+    }
+
+    public async updateOneCrashRound(params: Partial<IGameRound>) {
+        const round = await GameRound
+            .findOneAndUpdate(
+                { crashRoundId: this._id },
                 { ...params },
                 { new: true }
             );

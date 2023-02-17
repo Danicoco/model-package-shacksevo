@@ -23,6 +23,9 @@ const GameRoundSchema: Schema = new Schema<IGameRound>({
     gameOdd: {
         type: String,
     },
+    crashRoundId: {
+        type: String,
+    },
     eventRanges: {
         type: Array
     },
