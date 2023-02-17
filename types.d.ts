@@ -23,6 +23,7 @@ interface IGameRound extends DefaultAttributes {
   eventRanges: Array;
   partnerId?: string;
   partnerName: string;
+  crashRoundId: string;
   algorithmUsed: string;
   numberOfBetPlaced: number;
 }

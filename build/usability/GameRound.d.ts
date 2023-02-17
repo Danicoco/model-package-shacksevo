@@ -49,6 +49,9 @@ declare class GameRoundService {
     findOne(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
         _id: string;
     }>) | null>;
+    findOneCrashRound(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+        _id: string;
+    }>) | null>;
     findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
         _id: string;
     }>)[]>;
@@ -62,6 +65,9 @@ declare class GameRoundService {
         _id: string;
     }>)[]>;
     updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+        _id: string;
+    }>) | null>;
+    updateOneCrashRound(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
         _id: string;
     }>) | null>;
     last(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{

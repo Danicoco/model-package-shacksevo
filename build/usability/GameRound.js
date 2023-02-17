@@ -122,6 +122,23 @@ var GameRoundService = /** @class */ (function () {
             });
         });
     };
+    GameRoundService.prototype.findOneCrashRound = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .findOne()
+                            .where('crashRoundId')
+                            .equals(this._id)
+                            .catch(function (e) { throw new Error(e); })];
+                    case 1:
+                        round = _a.sent();
+                        return [2 /*return*/, round];
+                }
+            });
+        });
+    };
     GameRoundService.prototype.findAll = function (limit) {
         return __awaiter(this, void 0, void 0, function () {
             var rounds;
@@ -200,6 +217,20 @@ var GameRoundService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameRound
                             .findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
+                    case 1:
+                        round = _a.sent();
+                        return [2 /*return*/, round];
+                }
+            });
+        });
+    };
+    GameRoundService.prototype.updateOneCrashRound = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound
+                            .findOneAndUpdate({ crashRoundId: this._id }, __assign({}, params), { new: true })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];

@@ -21,6 +21,9 @@ var GameRoundSchema = new mongoose_1.Schema({
     gameOdd: {
         type: String,
     },
+    crashRoundId: {
+        type: String,
+    },
     eventRanges: {
         type: Array
     },
