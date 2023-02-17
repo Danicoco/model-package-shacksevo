@@ -14,11 +14,13 @@ class GameRoundService {
     partnerId = "";
     numberOfBetPlaced = 0;
     year: string;
+    crashRoundId  = ''
 
-    constructor(_id = '', partnerId = '', year = '') {
+    constructor(_id = '', partnerId = '', year = '', crashRoundId = '') {
         this.partnerId = partnerId;
         this._id = _id;
         this.year = year;
+        this.crashRoundId = crashRoundId;
     }
 
     public async create(params: Partial<IGameRound>) {
@@ -53,7 +55,7 @@ class GameRoundService {
         const round = await GameRound
             .findOne()
             .where('crashRoundId')
-            .equals(this._id)
+            .equals(this.crashRoundId)
             .catch((e: any) => { throw new Error(e) });
         return round;
     }
@@ -109,7 +111,7 @@ class GameRoundService {
     public async updateOneCrashRound(params: Partial<IGameRound>) {
         const round = await GameRound
             .findOneAndUpdate(
-                { crashRoundId: this._id },
+                { crashRoundId: this.crashRoundId },
                 { ...params },
                 { new: true }
             );

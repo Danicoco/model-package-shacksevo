@@ -37,7 +37,8 @@ declare class GameRoundService {
     partnerId: string;
     numberOfBetPlaced: number;
     year: string;
-    constructor(_id?: string, partnerId?: string, year?: string);
+    crashRoundId: string;
+    constructor(_id?: string, partnerId?: string, year?: string, crashRoundId?: string);
     create(params: Partial<IGameRound>): Promise<import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
         _id: string;
     }>>;

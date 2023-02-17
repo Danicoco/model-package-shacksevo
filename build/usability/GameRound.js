@@ -49,10 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var GameRoundService = /** @class */ (function () {
-    function GameRoundService(_id, partnerId, year) {
+    function GameRoundService(_id, partnerId, year, crashRoundId) {
         if (_id === void 0) { _id = ''; }
         if (partnerId === void 0) { partnerId = ''; }
         if (year === void 0) { year = ''; }
+        if (crashRoundId === void 0) { crashRoundId = ''; }
         this._id = "";
         this.eventId = "";
         this.gameOdd = "";
@@ -64,9 +65,11 @@ var GameRoundService = /** @class */ (function () {
         this.algorithmUsed = "";
         this.partnerId = "";
         this.numberOfBetPlaced = 0;
+        this.crashRoundId = '';
         this.partnerId = partnerId;
         this._id = _id;
         this.year = year;
+        this.crashRoundId = crashRoundId;
     }
     GameRoundService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -130,7 +133,7 @@ var GameRoundService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, models_1.GameRound
                             .findOne()
                             .where('crashRoundId')
-                            .equals(this._id)
+                            .equals(this.crashRoundId)
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         round = _a.sent();
@@ -230,7 +233,7 @@ var GameRoundService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOneAndUpdate({ crashRoundId: this._id }, __assign({}, params), { new: true })];
+                            .findOneAndUpdate({ crashRoundId: this.crashRoundId }, __assign({}, params), { new: true })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
