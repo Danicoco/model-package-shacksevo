@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
 var stakesSchema = new mongoose_1.Schema({
-    gameType: { type: String, },
     minimumStake: { type: Number, default: 10 },
     maximumStake: { type: Number, default: 5000 },
+    gameType: { type: String, default: 'cointoss' },
     maximumWinnableAmount: { type: Number, default: 20000 },
     minimumWinnableAmount: { type: Number, default: 0 }
 });

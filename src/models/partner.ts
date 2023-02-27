@@ -3,9 +3,9 @@ import { Schema, Types, model } from 'mongoose';
 import { IPartner, IStakesCustomization, UsageCustomization } from '../../types';
 
 const stakesSchema: Schema = new Schema<IStakesCustomization>({
-    gameType: { type: String, },
     minimumStake: { type: Number, default: 10 },
     maximumStake: { type: Number, default: 5000 },
+    gameType: { type: String, default: 'cointoss' },
     maximumWinnableAmount: { type: Number, default: 20000 },
     minimumWinnableAmount: { type: Number, default: 0 }
 })
