@@ -80,7 +80,8 @@ var PartnerSchema = new mongoose_1.Schema({
         enum: ['aggregator', 'thirdparty', 'demo'],
         default: 'thirdparty',
     },
-    customization: [customizationSchema]
+    customization: [customizationSchema],
+    stakesCustomization: [stakesSchema]
 }, {
     collection: 'partners',
     versionKey: false

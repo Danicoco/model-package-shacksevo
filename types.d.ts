@@ -153,6 +153,7 @@ interface IPartner extends DefaultAttributes {
   callbackUrl: string;
   phoneNumber: string;
   noOfEmployees: number;
+  stakesCustomization: IStakesCustomization[];
   customization: Partial<UsageCustomization>[];
 }
 
