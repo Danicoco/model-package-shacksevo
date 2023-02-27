@@ -11,16 +11,16 @@ const stakesSchema: Schema = new Schema<IStakesCustomization>({
 })
 
 const customizationSchema: Schema = new Schema<UsageCustomization>({
-    isActive: { type: Boolean, required: true, default: true },
-    showAbout: { type: Boolean, default: true },
-    stakes: [stakesSchema],
+    stakes: stakesSchema,
     promoAmount: { type: Number, default: 0 },
+    showAbout: { type: Boolean, default: true },
     showBalance: { type: Boolean, default: true },
     showHistory: { type: Boolean, default: true },
     stakePercentage: { type: Number, default: 0 },
     numberOfBetPlaced: { type: Number, default: 0 },
     numberOfTimesPerDay: { type: Number, default: 0 },
     showBetAmountOption: { type: Boolean, default: true },
+    isActive: { type: Boolean, required: true, default: true },
 });
 
 const PartnerSchema: Schema = new Schema<IPartner>({

@@ -123,6 +123,7 @@ type IStakesCustomization = {
 
 type UsageCustomization = {
   type: string;
+  gameType: string;
   isActive: boolean;
   showAbout: boolean;
   promoAmount: number;
@@ -132,7 +133,7 @@ type UsageCustomization = {
   numberOfBetPlaced: number;
   numberOfTimesPerDay: number;
   showBetAmountOption: boolean;
-  stakes: IStakesCustomization[];
+  stakes: IStakesCustomization;
 };
 
 interface IPartner extends DefaultAttributes {
