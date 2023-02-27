@@ -94,7 +94,7 @@ interface IGame extends DefaultAttributes {
   name: string;
   code: string;
   demoUrl: string;
-  partnerId: ObjectId,
+  partnerId: ObjectId;
   accessUrl: string; // live integration
   documentationUrl: string;
   integrationCount: number;
@@ -110,8 +110,16 @@ interface IGameAccess extends DefaultAttributes {
 }
 
 type IAMACCESS = "owner" | "manager";
-type IStatus = 'test' | 'live';
-type IPartnerType = 'aggregator' | 'thirdparty' | 'demo';
+type IStatus = "test" | "live";
+type IPartnerType = "aggregator" | "thirdparty" | "demo";
+
+type IStakesCustomization = {
+  gameType: string;
+  minimumStake: number;
+  maximumStake: number;
+  maximumWinnableAmount: number;
+  minimumWinnableAmount: number;
+};
 
 type UsageCustomization = {
   type: string;
@@ -124,7 +132,8 @@ type UsageCustomization = {
   numberOfBetPlaced: number;
   numberOfTimesPerDay: number;
   showBetAmountOption: boolean;
-}
+  stakes: IStakesCustomization[];
+};
 
 interface IPartner extends DefaultAttributes {
   name: string;
@@ -146,7 +155,12 @@ interface IPartner extends DefaultAttributes {
   customization: Partial<UsageCustomization>[];
 }
 
-type FeedbackTypes = 'games' | 'complaint' | 'feedback' | 'question' | 'concern'
+type FeedbackTypes =
+  | "games"
+  | "complaint"
+  | "feedback"
+  | "question"
+  | "concern";
 interface IFeedback extends DefaultAttributes {
   title: string;
   message: string;
@@ -197,10 +211,15 @@ interface Wallet extends DefaultAttributes {
   lastTransactionDate: string;
 }
 
-
 type rewardType = "loyalty_points" | "reward_multiplier" | "free_rounds";
-type rankType = "rounds_played" | "win_to_bet_ratio" | "sum_of_bets" | "sum_of_wins" | "highest_win_to_bet_ratio" | "success_ratio"
-type tornamentGameType = "crashlite" | "busly"
+type rankType =
+  | "rounds_played"
+  | "win_to_bet_ratio"
+  | "sum_of_bets"
+  | "sum_of_wins"
+  | "highest_win_to_bet_ratio"
+  | "success_ratio";
+type tornamentGameType = "crashlite" | "busly";
 
 interface ITornament extends DefaultAttributes {
   name: string;
@@ -221,17 +240,16 @@ interface ITornamentPlayers extends DefaultAttributes {
   sumOfWins: number;
   winToBetRatio: number;
   successRatio: number;
-
 }
 
-interface ILeaderboard extends DefaultAttributes{
+interface ILeaderboard extends DefaultAttributes {
   tornamentId?: string;
   username: string;
   point: number;
   rank: number;
 }
 
-interface IReward extends DefaultAttributes{
+interface IReward extends DefaultAttributes {
   rewardType: string;
   userId: string;
   amount: number;
@@ -242,28 +260,28 @@ interface IReward extends DefaultAttributes{
   freeBetsAmount: number;
   loyaltyPercentage: number;
   multiplier: number;
-  duration: Date,
-  startDate: Date,
-  endDate: Date,
+  duration: Date;
+  startDate: Date;
+  endDate: Date;
 }
 
-interface LoyaltyPoints extends DefaultAttributes{
+interface LoyaltyPoints extends DefaultAttributes {
   pointsPercentage: number;
   minimumNumberOfBets: number;
 }
 
-interface FreeRounds extends DefaultAttributes{
+interface FreeRounds extends DefaultAttributes {
   pointsPercentage: number;
   minimumNumberOfBets: number;
   minimumStakeAmount: number;
 }
 
-interface RewardMultiplier extends DefaultAttributes{
+interface RewardMultiplier extends DefaultAttributes {
   pointsPercentage: number;
   numberOfGamesPlayed: number;
 }
 
-interface IBonus extends DefaultAttributes{
+interface IBonus extends DefaultAttributes {
   username: string;
   partnerId?: string;
   tornamentId?: string;
@@ -295,8 +313,8 @@ type IPaginator = {
   sort: string;
   limit: number;
   page: number;
-  condition?: any
-}
+  condition?: any;
+};
 
 type CatchErr = (message: string, code?: number, validations?: object) => Error;
 

@@ -1,9 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
+var stakesSchema = new mongoose_1.Schema({
+    gameType: { type: String, },
+    minimumStake: { type: Number, default: 10 },
+    maximumStake: { type: Number, default: 5000 },
+    maximumWinnableAmount: { type: Number, default: 20000 },
+    minimumWinnableAmount: { type: Number, default: 0 }
+});
 var customizationSchema = new mongoose_1.Schema({
     isActive: { type: Boolean, required: true, default: true },
     showAbout: { type: Boolean, default: true },
+    stakes: [stakesSchema],
     promoAmount: { type: Number, default: 0 },
     showBalance: { type: Boolean, default: true },
     showHistory: { type: Boolean, default: true },
