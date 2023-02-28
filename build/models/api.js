@@ -10,6 +10,9 @@ var APISchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    hashedKey: {
+        type: String,
+    },
     partnerId: {
         type: mongoose_1.Types.ObjectId,
     },

@@ -65,6 +65,7 @@ interface IAdmin extends DefaultAttributes {
 interface IAPI extends DefaultAttributes {
   publicKey: string;
   secretKey: string;
+  hashedKey?: string;
   partnerId?: string;
   associatedGames: number;
   numOfTimesGenerated: number;

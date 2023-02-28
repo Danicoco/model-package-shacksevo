@@ -28,13 +28,13 @@ declare class APIService {
     private partnerId;
     private publicKey;
     constructor(partnerId?: string, publicKey?: string);
-    create(params: Partial<IAPI>): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    create(params: Partial<IAPI>, withHash?: boolean): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    findOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>) | null>;
-    findWithPublicKey(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    findWithPublicKey(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>) | null>;
     findAll(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
@@ -54,7 +54,7 @@ declare class APIService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    deleteOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>) | null>;
 }

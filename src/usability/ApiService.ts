@@ -12,17 +12,20 @@ class APIService {
         this.publicKey = publicKey;
     }
 
-    public async create(params: Partial<IAPI>) {
+    public async create(params: Partial<IAPI>, withHash = false) {
         try {
             const api = new API({ ...params });
             await api.save();
+            if (api && api.hashedKey && !withHash) {
+                delete api.hashedKey;
+            }
             return api;
         } catch (error: any) {
             throw new Error(error.message)
         }
     }
 
-    public async findOne() {
+    public async findOne(withHash = false) {
         const api = await API
             .findOne()
             .where('partnerId')
@@ -30,10 +33,13 @@ class APIService {
             .catch((e: any) => {
                 throw new Error(e.message);
             });
+            if (api && api.hashedKey && !withHash) {
+                delete api.hashedKey;
+            }
         return api;
     }
 
-    public async findWithPublicKey() {
+    public async findWithPublicKey(withHash = false) {
         const api = await API
             .findOne()
             .where('publicKey')
@@ -41,15 +47,24 @@ class APIService {
             .catch((e: any) => {
                 throw new Error(e.message);
             });
+        if (api && api.hashedKey && !withHash) {
+            delete api.hashedKey;
+        }
         return api;
     }
 
     public async findAll() {
-        const apis = await API
+        let apis = await API
             .find()
             .catch((e: any) => {
                 throw new Error(e.message)
             });
+        apis.map(api => {
+            if (api.hashedKey) {
+                delete api.hashedKey;
+            }
+            return api;
+        });
         return apis;
     }
 
@@ -65,6 +80,12 @@ class APIService {
         .catch((e) => {
           throw e;
         });
+        apis.map(api => {
+            if (api.hashedKey) {
+                delete api.hashedKey;
+            }
+            return api;
+        });
 
         return {
             data: apis,
@@ -79,7 +100,7 @@ class APIService {
         return docs;
     }
 
-    public async deleteOne() {
+    public async deleteOne(withHash = false) {
         const api = await API
             .findOneAndDelete({
                 partnerId: this.partnerId,
@@ -88,6 +109,9 @@ class APIService {
             .catch((e: any) => {
                 throw new Error(e.message);
             });
+            if (api && api.hashedKey && !withHash) {
+                delete api.hashedKey;
+            }
 
         return api;
 

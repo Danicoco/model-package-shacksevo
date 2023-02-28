@@ -59,7 +59,8 @@ var APIService = /** @class */ (function () {
         this.partnerId = partnerId;
         this.publicKey = publicKey;
     }
-    APIService.prototype.create = function (params) {
+    APIService.prototype.create = function (params, withHash) {
+        if (withHash === void 0) { withHash = false; }
         return __awaiter(this, void 0, void 0, function () {
             var api, error_1;
             return __generator(this, function (_a) {
@@ -70,6 +71,9 @@ var APIService = /** @class */ (function () {
                         return [4 /*yield*/, api.save()];
                     case 1:
                         _a.sent();
+                        if (api && api.hashedKey && !withHash) {
+                            delete api.hashedKey;
+                        }
                         return [2 /*return*/, api];
                     case 2:
                         error_1 = _a.sent();
@@ -79,7 +83,8 @@ var APIService = /** @class */ (function () {
             });
         });
     };
-    APIService.prototype.findOne = function () {
+    APIService.prototype.findOne = function (withHash) {
+        if (withHash === void 0) { withHash = false; }
         return __awaiter(this, void 0, void 0, function () {
             var api;
             return __generator(this, function (_a) {
@@ -93,12 +98,16 @@ var APIService = /** @class */ (function () {
                         })];
                     case 1:
                         api = _a.sent();
+                        if (api && api.hashedKey && !withHash) {
+                            delete api.hashedKey;
+                        }
                         return [2 /*return*/, api];
                 }
             });
         });
     };
-    APIService.prototype.findWithPublicKey = function () {
+    APIService.prototype.findWithPublicKey = function (withHash) {
+        if (withHash === void 0) { withHash = false; }
         return __awaiter(this, void 0, void 0, function () {
             var api;
             return __generator(this, function (_a) {
@@ -112,6 +121,9 @@ var APIService = /** @class */ (function () {
                         })];
                     case 1:
                         api = _a.sent();
+                        if (api && api.hashedKey && !withHash) {
+                            delete api.hashedKey;
+                        }
                         return [2 /*return*/, api];
                 }
             });
@@ -129,6 +141,12 @@ var APIService = /** @class */ (function () {
                         })];
                     case 1:
                         apis = _a.sent();
+                        apis.map(function (api) {
+                            if (api.hashedKey) {
+                                delete api.hashedKey;
+                            }
+                            return api;
+                        });
                         return [2 /*return*/, apis];
                 }
             });
@@ -153,6 +171,12 @@ var APIService = /** @class */ (function () {
                             })];
                     case 2:
                         apis = _b.sent();
+                        apis.map(function (api) {
+                            if (api.hashedKey) {
+                                delete api.hashedKey;
+                            }
+                            return api;
+                        });
                         return [2 /*return*/, {
                                 data: apis,
                                 pagination: Pagination_1.default.builder(apis, count, { page: page, limit: limit }),
@@ -174,7 +198,8 @@ var APIService = /** @class */ (function () {
             });
         });
     };
-    APIService.prototype.deleteOne = function () {
+    APIService.prototype.deleteOne = function (withHash) {
+        if (withHash === void 0) { withHash = false; }
         return __awaiter(this, void 0, void 0, function () {
             var api;
             return __generator(this, function (_a) {
@@ -189,6 +214,9 @@ var APIService = /** @class */ (function () {
                         })];
                     case 1:
                         api = _a.sent();
+                        if (api && api.hashedKey && !withHash) {
+                            delete api.hashedKey;
+                        }
                         return [2 /*return*/, api];
                 }
             });

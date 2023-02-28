@@ -10,6 +10,9 @@ const APISchema: Schema = new Schema<IAPI>({
         type: String,
         required: true,
     },
+    hashedKey: {
+        type: String,
+    },
     partnerId: {
         type: Types.ObjectId,
     },
