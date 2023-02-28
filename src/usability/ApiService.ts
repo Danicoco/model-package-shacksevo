@@ -6,10 +6,12 @@ import Pagionation from './Pagination';
 class APIService {
     private partnerId: string;
     private publicKey: string;
+    private hashedKey: string;
 
-    constructor(partnerId = "", publicKey = "") {
+    constructor(partnerId = "", publicKey = "", hashedKey = "") {
         this.partnerId = partnerId;
         this.publicKey = publicKey;
+        this.hashedKey = hashedKey;
     }
 
     public async create(params: Partial<IAPI>, withHash = false) {
@@ -27,9 +29,11 @@ class APIService {
 
     public async findOne(withHash = false) {
         const api = await API
-            .findOne()
-            .where('partnerId')
-            .equals(this.partnerId)
+            .findOne({
+                ...(this.partnerId && { partnerId: this.partnerId }),
+                ...(this.publicKey && { publicKey: this.publicKey }),
+                ...(this.hashedKey && { hashedKey: this.hashedKey }),
+            })
             .catch((e: any) => {
                 throw new Error(e.message);
             });

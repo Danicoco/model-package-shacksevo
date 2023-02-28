@@ -27,7 +27,8 @@ import { IAPI, IPaginator } from '../../types';
 declare class APIService {
     private partnerId;
     private publicKey;
-    constructor(partnerId?: string, publicKey?: string);
+    private hashedKey;
+    constructor(partnerId?: string, publicKey?: string, hashedKey?: string);
     create(params: Partial<IAPI>, withHash?: boolean): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>>;
