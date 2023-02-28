@@ -7,8 +7,10 @@ class APIService {
     private partnerId: string;
     private publicKey: string;
     private hashedKey: string;
+    private id: string;
 
-    constructor(partnerId = "", publicKey = "", hashedKey = "") {
+    constructor(partnerId = "", publicKey = "", hashedKey = "", id = "") {
+        this.id = id;
         this.partnerId = partnerId;
         this.publicKey = publicKey;
         this.hashedKey = hashedKey;
@@ -110,6 +112,20 @@ class APIService {
                 partnerId: this.partnerId,
                 publicKey: this.publicKey
             })
+            .catch((e: any) => {
+                throw new Error(e.message);
+            });
+            if (api && api.hashedKey && !withHash) {
+                delete api.hashedKey;
+            }
+
+        return api;
+
+    }
+
+    public async updateOne(params: Partial<IAPI>, withHash = false) {
+        const api = await API
+            .findOneAndUpdate({ _id: this.id }, params, { new: true})
             .catch((e: any) => {
                 throw new Error(e.message);
             });

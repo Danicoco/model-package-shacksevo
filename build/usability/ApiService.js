@@ -53,10 +53,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var Pagination_1 = __importDefault(require("./Pagination"));
 var APIService = /** @class */ (function () {
-    function APIService(partnerId, publicKey, hashedKey) {
+    function APIService(partnerId, publicKey, hashedKey, id) {
         if (partnerId === void 0) { partnerId = ""; }
         if (publicKey === void 0) { publicKey = ""; }
         if (hashedKey === void 0) { hashedKey = ""; }
+        if (id === void 0) { id = ""; }
+        this.id = id;
         this.partnerId = partnerId;
         this.publicKey = publicKey;
         this.hashedKey = hashedKey;
@@ -209,6 +211,27 @@ var APIService = /** @class */ (function () {
                             partnerId: this.partnerId,
                             publicKey: this.publicKey
                         })
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        api = _a.sent();
+                        if (api && api.hashedKey && !withHash) {
+                            delete api.hashedKey;
+                        }
+                        return [2 /*return*/, api];
+                }
+            });
+        });
+    };
+    APIService.prototype.updateOne = function (params, withHash) {
+        if (withHash === void 0) { withHash = false; }
+        return __awaiter(this, void 0, void 0, function () {
+            var api;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.API
+                            .findOneAndUpdate({ _id: this.id }, params, { new: true })
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];

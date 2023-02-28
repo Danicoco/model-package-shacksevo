@@ -28,7 +28,8 @@ declare class APIService {
     private partnerId;
     private publicKey;
     private hashedKey;
-    constructor(partnerId?: string, publicKey?: string, hashedKey?: string);
+    private id;
+    constructor(partnerId?: string, publicKey?: string, hashedKey?: string, id?: string);
     create(params: Partial<IAPI>, withHash?: boolean): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>>;
@@ -56,6 +57,9 @@ declare class APIService {
     }>;
     count(condition?: any): Promise<number>;
     deleteOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+        _id: string;
+    }>) | null>;
+    updateOne(params: Partial<IAPI>, withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
         _id: string;
     }>) | null>;
 }
