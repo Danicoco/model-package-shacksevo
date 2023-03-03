@@ -36,6 +36,7 @@ interface IBetPlaced extends DefaultAttributes {
   playerDetails: any;
   gameRoundId?: string;
   amountPlaced: number;
+  betPlacedType: string;
   cashoutAmount: number;
   potentialWinning: number;
   selectedEventType?: any[];
