@@ -50,6 +50,7 @@ interface IUser extends DefaultAttributes {
   isActive: boolean;
   username: string;
   partnerId?: string;
+  lastPlayed?: string;
   partnerName: string;
 }
 
@@ -327,6 +328,14 @@ type AppError = Error & {
   message: string;
   validations?: object | null;
 };
+
+interface ISpinRecord extends DefaultAttributes {
+  userId?: string;
+  balance: number;
+  partner: string;
+  cashoutAmount?: number;
+  outcome: "cashout" | "free-spin";
+}
 
 declare module "express-serve-static-core" {
   export interface Request {
