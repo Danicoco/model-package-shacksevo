@@ -330,9 +330,8 @@ type AppError = Error & {
 };
 
 interface ISpinRecord extends DefaultAttributes {
-  userId?: string;
-  balance: number;
-  partner: string;
+  userId: string;
+  partnerId: ObjectId;
   cashoutAmount?: number;
   outcome: "cashout" | "free-spin";
 }
