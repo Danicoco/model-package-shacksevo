@@ -49,6 +49,7 @@ interface IUser extends DefaultAttributes {
   otp?: string;
   gameType: string;
   isActive: boolean;
+  partnerUserId: string;
   username: string;
   partnerId?: string;
   lastPlayed?: string;
@@ -321,6 +322,19 @@ type IPaginator = {
   condition?: any;
 };
 
+type ISpinContructor = {
+    id: string;
+    userId: string;
+    partnerId: string;
+}
+
+interface ISpinRecord extends DefaultAttributes {
+  userId: string;
+  partnerId: ObjectId;
+  cashoutAmount?: number;
+  outcome: "cashout" | "free-spin";
+}
+
 type CatchErr = (message: string, code?: number, validations?: object) => Error;
 
 type AppError = Error & {
@@ -329,13 +343,6 @@ type AppError = Error & {
   message: string;
   validations?: object | null;
 };
-
-interface ISpinRecord extends DefaultAttributes {
-  userId: string;
-  partnerId: ObjectId;
-  cashoutAmount?: number;
-  outcome: "cashout" | "free-spin";
-}
 
 declare module "express-serve-static-core" {
   export interface Request {

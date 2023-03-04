@@ -46,100 +46,127 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var models_1 = require("../models");
-var UserService = /** @class */ (function () {
-    function UserService(_id, partnerId) {
-        if (_id === void 0) { _id = ""; }
-        if (partnerId === void 0) { partnerId = ""; }
-        this._id = "";
-        this.partnerId = "";
+var Pagination_1 = __importDefault(require("./Pagination"));
+var spinRecord_1 = __importDefault(require("../models/spinRecord"));
+var SpinRecordService = /** @class */ (function () {
+    function SpinRecordService(_a) {
+        var _b = _a.id, id = _b === void 0 ? "" : _b, _c = _a.userId, userId = _c === void 0 ? "" : _c, _d = _a.partnerId, partnerId = _d === void 0 ? "" : _d;
+        this.model = spinRecord_1.default;
+        this.id = id;
+        this.userId = userId;
         this.partnerId = partnerId;
-        this._id = _id;
     }
-    UserService.prototype.create = function (params) {
+    SpinRecordService.prototype.finder = function () {
+        return __assign(__assign(__assign({}, (this.id && { _id: this.id })), (this.userId && { userId: this.userId })), (this.partnerId && { partnerId: this.partnerId }));
+    };
+    SpinRecordService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
-            var user, error_1;
+            var spin;
+            return __generator(this, function (_a) {
+                spin = new this.model(params).save().catch(function (e) {
+                    throw new Error(e);
+                });
+                return [2 /*return*/, spin];
+            });
+        });
+    };
+    SpinRecordService.prototype.findOne = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var spin;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        user = new models_1.User(__assign({}, params));
-                        return [4 /*yield*/, user.save()];
+                    case 0: return [4 /*yield*/, this.model.findOne(this.finder()).catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
-                        _a.sent();
-                        return [2 /*return*/, user];
+                        spin = _a.sent();
+                        return [2 /*return*/, spin];
+                }
+            });
+        });
+    };
+    SpinRecordService.prototype.findAll = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var spins;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .find(__assign(__assign({}, (this.userId && { userId: this.userId })), (this.partnerId && { partnerId: this.partnerId })))
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
+                    case 1:
+                        spins = _a.sent();
+                        return [2 /*return*/, spins];
+                }
+            });
+        });
+    };
+    SpinRecordService.prototype.findAllPaginated = function (_a) {
+        var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
+        return __awaiter(this, void 0, void 0, function () {
+            var count, spins;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        count = _b.sent();
+                        return [4 /*yield*/, this.model.find(__assign({}, (condition && condition)))
+                                .sort(sort)
+                                .limit(limit)
+                                .skip(limit * (page - 1))
+                                .catch(function (e) {
+                                throw e;
+                            })];
                     case 2:
-                        error_1 = _a.sent();
-                        throw new Error(error_1);
-                    case 3: return [2 /*return*/];
+                        spins = _b.sent();
+                        return [2 /*return*/, {
+                                data: spins,
+                                pagination: Pagination_1.default.builder(spins, count, { page: page, limit: limit }),
+                            }];
                 }
             });
         });
     };
-    UserService.prototype.findOne = function () {
+    SpinRecordService.prototype.count = function (condition) {
         return __awaiter(this, void 0, void 0, function () {
-            var user;
+            var docs;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.findOne()
-                            .where("_id")
-                            .equals(this._id)
+                    case 0: return [4 /*yield*/, this.model.countDocuments(__assign({}, (condition && condition))).catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        docs = _a.sent();
+                        return [2 /*return*/, docs];
+                }
+            });
+        });
+    };
+    SpinRecordService.prototype.updateOne = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var record;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .findOneAndUpdate({ _id: this.id }, __assign({}, params), { new: true })
                             .catch(function (e) {
                             throw new Error(e);
                         })];
                     case 1:
-                        user = _a.sent();
-                        return [2 /*return*/, user];
+                        record = _a.sent();
+                        return [2 /*return*/, record];
                 }
             });
         });
     };
-    UserService.prototype.findAll = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var users;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.find()
-                            .where(this.partnerId && "partnerId")
-                            .equals(this.partnerId && this.partnerId)
-                            .catch(function (e) {
-                            throw new Error(e);
-                        })];
-                    case 1:
-                        users = _a.sent();
-                        return [2 /*return*/, users];
-                }
-            });
-        });
-    };
-    UserService.prototype.updateOne = function (params) {
-        return __awaiter(this, void 0, void 0, function () {
-            var user;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
-                    case 1:
-                        user = _a.sent();
-                        return [2 /*return*/, user];
-                }
-            });
-        });
-    };
-    UserService.prototype.last = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var user;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.find().sort({ _id: -1 }).limit(1)];
-                    case 1:
-                        user = _a.sent();
-                        return [2 /*return*/, user[0]];
-                }
-            });
-        });
-    };
-    return UserService;
+    return SpinRecordService;
 }());
-exports.default = UserService;
-//# sourceMappingURL=UserService.js.map
+exports.default = SpinRecordService;
+//# sourceMappingURL=SpinRecordService.js.map

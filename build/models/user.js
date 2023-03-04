@@ -23,19 +23,23 @@ var UserSchema = new mongoose_1.Schema({
     username: String,
     partnerId: {
         type: mongoose_1.Types.ObjectId,
-        ref: 'partners'
+        ref: "partners",
     },
     partnerName: {
         type: String,
     },
+    partnerUserId: {
+        type: String,
+    },
+    lastPlayed: String,
     isActive: {
         type: Boolean,
         default: false,
     },
 }, {
-    collection: 'users',
-    versionKey: false
+    collection: "users",
+    versionKey: false,
 });
-UserSchema.set('timestamps', true);
-exports.default = (0, mongoose_1.model)('Users', UserSchema);
+UserSchema.set("timestamps", true);
+exports.default = (0, mongoose_1.model)("Users", UserSchema);
 //# sourceMappingURL=user.js.map

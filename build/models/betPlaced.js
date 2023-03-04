@@ -37,7 +37,7 @@ var BetPlacedSchema = new mongoose_1.Schema({
     playerDetails: {
         type: Object
     },
-    BetPlacedType: {
+    betPlacedType: {
         type: String,
     }
 }, {

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TornamentPlayers = exports.Leaderboard = exports.Tornament = exports.Reward = exports.ErrorMessage = exports.Transaction = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
+exports.TornamentPlayers = exports.Leaderboard = exports.Tornament = exports.Reward = exports.ErrorMessage = exports.Transaction = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
 var rtp_1 = __importDefault(require("./rtp"));
 exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
@@ -34,6 +34,8 @@ var gameRound_1 = __importDefault(require("./gameRound"));
 exports.GameRound = gameRound_1.default;
 var betPlaced_1 = __importDefault(require("./betPlaced"));
 exports.BetPlaced = betPlaced_1.default;
+var spinRecord_1 = __importDefault(require("./spinRecord"));
+exports.SpinRecord = spinRecord_1.default;
 var gameAccess_1 = __importDefault(require("./gameAccess"));
 exports.GameAccess = gameAccess_1.default;
 var permission_1 = __importDefault(require("./permission"));

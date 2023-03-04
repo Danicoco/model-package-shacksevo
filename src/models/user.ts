@@ -29,6 +29,9 @@ const UserSchema: Schema = new Schema<IUser>(
     partnerName: {
       type: String,
     },
+    partnerUserId: {
+      type: String,
+    },
     lastPlayed: String,
     isActive: {
       type: Boolean,

@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IUser } from "../../types";
-declare const _default: import("mongoose").Model<IUser, {}, {}, {}, any>;
+import { ISpinRecord } from "../../types";
+declare const _default: import("mongoose").Model<ISpinRecord, {}, {}, {}, any>;
 export default _default;
-//# sourceMappingURL=user.d.ts.map
+//# sourceMappingURL=spinRecord.d.ts.map
