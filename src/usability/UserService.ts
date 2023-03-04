@@ -4,10 +4,12 @@ import { User } from "../models";
 class UserService {
   private _id = "";
   private partnerId = "";
+  private partnerUserId = "";
 
-  constructor(_id = "", partnerId = "") {
+  constructor(_id = "", partnerId = "", partnerUserId = "") {
     this.partnerId = partnerId;
     this._id = _id;
+    this.partnerUserId = partnerUserId;
   }
 
   public async create(params: Partial<IUser>) {
@@ -21,12 +23,12 @@ class UserService {
   }
 
   public async findOne() {
-    const user = await User.findOne()
-      .where("_id")
-      .equals(this._id)
-      .catch((e: any) => {
-        throw new Error(e);
-      });
+    const user = await User.findOne({
+      ...(this._id && { _id: this._id }),
+      ...(this.partnerUserId && { partnerUserId: this.partnerUserId }),
+    }).catch((e: any) => {
+      throw new Error(e);
+    });
     return user;
   }
 
