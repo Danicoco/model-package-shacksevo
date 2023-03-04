@@ -4,17 +4,14 @@ import { ISpinRecord } from "../../types";
 const SpinRecordSchema: Schema = new Schema<ISpinRecord>(
   {
     userId: {
-      type: Types.ObjectId,
-      ref: "users",
+      type: String,
       required: true,
     },
     cashoutAmount: Number,
-    balance: {
-      type: Number,
+    partnerId: {
+      type: Types.ObjectId,
+      ref: "partners",
       required: true,
-    },
-    partner: {
-      type: String,
     },
     outcome: {
       type: String,
