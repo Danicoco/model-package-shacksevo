@@ -1,4 +1,3 @@
-import { ClientSession } from "mongoose";
 import { ISpinRecord } from "../../types";
 import SpinRecord from "../models/spinRecord";
 
@@ -25,13 +24,11 @@ class SpinRecordService {
     this.partner = partner;
   }
 
-  public async create(params: Partial<ISpinRecord>, tr?: ClientSession) {
+  public async create(params: Partial<ISpinRecord>) {
     const data = new this.model(params);
-    const record = await data
-      .save({ ...(tr && { session: tr }) })
-      .catch((e) => {
-        throw new Error(e);
-      });
+    const record = await data.save().catch((e) => {
+      throw new Error(e);
+    });
     return record;
   }
 
@@ -54,13 +51,9 @@ class SpinRecordService {
     return records;
   }
 
-  public async updateOne(params: Partial<ISpinRecord>, tr?: ClientSession) {
+  public async updateOne(params: Partial<ISpinRecord>) {
     const record = await this.model
-      .findOneAndUpdate(
-        { _id: this._id },
-        { ...params },
-        { new: true, ...(tr && { session: tr }) }
-      )
+      .findOneAndUpdate({ _id: this._id }, { ...params }, { new: true })
       .catch((e) => {
         throw new Error(e);
       });

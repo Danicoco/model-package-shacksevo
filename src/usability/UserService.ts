@@ -1,4 +1,3 @@
-import { ClientSession } from "mongoose";
 import { IUser } from "../../types";
 import { User } from "../models";
 
@@ -11,10 +10,10 @@ class UserService {
     this._id = _id;
   }
 
-  public async create(params: Partial<IUser>, tr?: ClientSession) {
+  public async create(params: Partial<IUser>) {
     try {
       const user = new User({ ...params });
-      await user.save({ ...(tr && { session: tr }) });
+      await user.save();
       return user;
     } catch (error: any) {
       throw new Error(error);
@@ -41,11 +40,11 @@ class UserService {
     return users;
   }
 
-  public async updateOne(params: Partial<IUser>, tr?: ClientSession) {
+  public async updateOne(params: Partial<IUser>) {
     const user = await User.findOneAndUpdate(
       { _id: this._id },
       { ...params },
-      { new: true, ...(tr && { session: tr }) }
+      { new: true }
     );
     return user;
   }
