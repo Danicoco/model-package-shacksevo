@@ -15,7 +15,7 @@ class SpinRecordService {
     id = "",
     userId = "",
     partnerId = "",
-  }: ISpinContructor) {
+  }: Partial<ISpinContructor>) {
     this.id = id;
     this.userId = userId;
     this.partnerId = partnerId;
@@ -26,10 +26,10 @@ class SpinRecordService {
       ...(this.id && { _id: this.id }),
       ...(this.userId && { userId: this.userId }),
       ...(this.partnerId && { partnerId: this.partnerId }),
-    }
+    };
   }
 
-  public async create(params: ISpinRecord) {
+  public async create(params: Partial<ISpinRecord>) {
     const spin = new this.model(params).save().catch((e) => {
       throw new Error(e);
     });
@@ -59,9 +59,10 @@ class SpinRecordService {
     const count = await this.count(condition).catch((e) => {
       throw e;
     });
-    const spins = await this.model.find({
-      ...(condition && condition),
-    })
+    const spins = await this.model
+      .find({
+        ...(condition && condition),
+      })
       .sort(sort)
       .limit(limit)
       .skip(limit * (page - 1))
@@ -76,11 +77,13 @@ class SpinRecordService {
   }
 
   public async count(condition?: any) {
-    const docs = await this.model.countDocuments({
-      ...(condition && condition),
-    }).catch((e) => {
-      throw e;
-    });
+    const docs = await this.model
+      .countDocuments({
+        ...(condition && condition),
+      })
+      .catch((e) => {
+        throw e;
+      });
     return docs;
   }
 
