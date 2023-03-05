@@ -25,7 +25,7 @@ class SpinRecordService {
     };
   }
 
-  public async create(params: ISpinRecord) {
+  public async create(params: Partial<ISpinRecord>) {
     const spin = new this.model(params).save().catch((e) => {
       throw new Error(e);
     });
