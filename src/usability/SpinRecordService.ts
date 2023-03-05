@@ -11,7 +11,11 @@ class SpinRecordService {
 
   private partnerId: string;
 
-  constructor({ id = "", userId = "", partnerId = "" }: ISpinContructor = {}) {
+  constructor({
+    id = "",
+    userId = "",
+    partnerId = "",
+  }: Partial<ISpinContructor>) {
     this.id = id;
     this.userId = userId;
     this.partnerId = partnerId;
