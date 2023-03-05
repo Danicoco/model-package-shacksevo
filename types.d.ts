@@ -323,10 +323,10 @@ type IPaginator = {
 };
 
 type ISpinContructor = {
-    id: string;
-    userId: string;
-    partnerId: string;
-}
+  id?: string;
+  userId?: string;
+  partnerId?: string;
+};
 
 interface ISpinRecord extends DefaultAttributes {
   userId: string;
