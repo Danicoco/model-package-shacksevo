@@ -23,17 +23,13 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IPartner } from '../../types';
+import { IPaginator, IPartner } from '../../types';
 declare class PartnerService {
     private _id;
     private email;
     constructor(_id?: string, email?: string);
-    create(params: Partial<IPartner>): Promise<import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
-        _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
-        _id: string;
-    }>) | null>;
+    create(params: Partial<IPartner>): Promise<IPartner>;
+    findOne(): Promise<IPartner | null>;
     findAll(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
         _id: string;
     }>)[]>;
@@ -41,7 +37,22 @@ declare class PartnerService {
         _id: string;
     }>)[]>;
     deleteOne(): Promise<import("mongodb").DeleteResult>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     updateOne(params: Partial<IPartner>): Promise<import("mongodb").UpdateResult>;
+    getPartner(p: IPartner): Promise<IPartner>;
 }
 export default PartnerService;
 //# sourceMappingURL=PartnerService.d.ts.map

@@ -29,9 +29,9 @@ declare class SpinRecordService {
     private id;
     private userId;
     private partnerId;
-    constructor({ id, userId, partnerId, }: ISpinContructor);
+    constructor({ id, userId, partnerId, }: Partial<ISpinContructor>);
     private finder;
-    create(params: ISpinRecord): Promise<import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+    create(params: Partial<ISpinRecord>): Promise<import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
         _id: string;
     }>>;
     findOne(): Promise<(import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{

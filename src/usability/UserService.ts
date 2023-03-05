@@ -1,5 +1,6 @@
-import { IUser } from "../../types";
+import { IPaginator, IUser } from "../../types";
 import { User } from "../models";
+import Pagionation from "./Pagination";
 
 class UserService {
   private _id = "";
@@ -40,6 +41,38 @@ class UserService {
         throw new Error(e);
       });
     return users;
+  }
+
+  public async findAllPaginated({ sort, limit, page, condition }: IPaginator) {
+    const count = await this.count(condition).catch((e) => {
+      throw e;
+    });
+    const spins = await User
+      .find({
+        ...(condition && condition),
+      })
+      .sort(sort)
+      .limit(limit)
+      .skip(limit * (page - 1))
+      .catch((e) => {
+        throw e;
+      });
+
+    return {
+      data: spins,
+      pagination: Pagionation.builder(spins, count, { page, limit }),
+    };
+  }
+
+  public async count(condition?: any) {
+    const docs = await User
+      .countDocuments({
+        ...(condition && condition),
+      })
+      .catch((e) => {
+        throw e;
+      });
+    return docs;
   }
 
   public async updateOne(params: Partial<IUser>) {

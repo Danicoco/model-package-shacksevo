@@ -46,16 +46,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
+var Pagination_1 = __importDefault(require("./Pagination"));
 var UserService = /** @class */ (function () {
-    function UserService(_id, partnerId) {
+    function UserService(_id, partnerId, partnerUserId) {
         if (_id === void 0) { _id = ""; }
         if (partnerId === void 0) { partnerId = ""; }
+        if (partnerUserId === void 0) { partnerUserId = ""; }
         this._id = "";
         this.partnerId = "";
+        this.partnerUserId = "";
         this.partnerId = partnerId;
         this._id = _id;
+        this.partnerUserId = partnerUserId;
     }
     UserService.prototype.create = function (params) {
         return __awaiter(this, void 0, void 0, function () {
@@ -82,10 +89,7 @@ var UserService = /** @class */ (function () {
             var user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.findOne()
-                            .where("_id")
-                            .equals(this._id)
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.User.findOne(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerUserId && { partnerUserId: this.partnerUserId }))).catch(function (e) {
                             throw new Error(e);
                         })];
                     case 1:
@@ -109,6 +113,52 @@ var UserService = /** @class */ (function () {
                     case 1:
                         users = _a.sent();
                         return [2 /*return*/, users];
+                }
+            });
+        });
+    };
+    UserService.prototype.findAllPaginated = function (_a) {
+        var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
+        return __awaiter(this, void 0, void 0, function () {
+            var count, spins;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        count = _b.sent();
+                        return [4 /*yield*/, models_1.User
+                                .find(__assign({}, (condition && condition)))
+                                .sort(sort)
+                                .limit(limit)
+                                .skip(limit * (page - 1))
+                                .catch(function (e) {
+                                throw e;
+                            })];
+                    case 2:
+                        spins = _b.sent();
+                        return [2 /*return*/, {
+                                data: spins,
+                                pagination: Pagination_1.default.builder(spins, count, { page: page, limit: limit }),
+                            }];
+                }
+            });
+        });
+    };
+    UserService.prototype.count = function (condition) {
+        return __awaiter(this, void 0, void 0, function () {
+            var docs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.User
+                            .countDocuments(__assign({}, (condition && condition)))
+                            .catch(function (e) {
+                            throw e;
+                        })];
+                    case 1:
+                        docs = _a.sent();
+                        return [2 /*return*/, docs];
                 }
             });
         });

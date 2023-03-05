@@ -23,11 +23,12 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IUser } from "../../types";
+import { IPaginator, IUser } from "../../types";
 declare class UserService {
     private _id;
     private partnerId;
-    constructor(_id?: string, partnerId?: string);
+    private partnerUserId;
+    constructor(_id?: string, partnerId?: string, partnerUserId?: string);
     create(params: Partial<IUser>): Promise<import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
         _id: string;
     }>>;
@@ -37,6 +38,20 @@ declare class UserService {
     findAll(): Promise<(import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
         _id: string;
     }>)[]>;
+    findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
+        data: (import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+            _id: string;
+        }>)[];
+        pagination: {
+            to: number;
+            from: number;
+            totalPages: number;
+            total: number;
+            limit: number;
+            currentPage: number;
+        };
+    }>;
+    count(condition?: any): Promise<number>;
     updateOne(params: Partial<IUser>): Promise<(import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
         _id: string;
     }>) | null>;

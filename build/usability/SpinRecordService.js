@@ -117,7 +117,8 @@ var SpinRecordService = /** @class */ (function () {
                         })];
                     case 1:
                         count = _b.sent();
-                        return [4 /*yield*/, this.model.find(__assign({}, (condition && condition)))
+                        return [4 /*yield*/, this.model
+                                .find(__assign({}, (condition && condition)))
                                 .sort(sort)
                                 .limit(limit)
                                 .skip(limit * (page - 1))
@@ -139,7 +140,9 @@ var SpinRecordService = /** @class */ (function () {
             var docs;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.model.countDocuments(__assign({}, (condition && condition))).catch(function (e) {
+                    case 0: return [4 /*yield*/, this.model
+                            .countDocuments(__assign({}, (condition && condition)))
+                            .catch(function (e) {
                             throw e;
                         })];
                     case 1:

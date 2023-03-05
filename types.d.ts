@@ -148,6 +148,7 @@ interface IPartner extends DefaultAttributes {
   roleId?: string;
   status: IStatus;
   IAM?: IAMACCESS;
+  hashedId: string;
   lastName: string;
   password: string;
   firstName: string;
@@ -323,10 +324,10 @@ type IPaginator = {
 };
 
 type ISpinContructor = {
-  id: string;
-  userId: string;
-  partnerId: string;
-};
+    id: string;
+    userId: string;
+    partnerId: string;
+}
 
 interface ISpinRecord extends DefaultAttributes {
   userId: string;

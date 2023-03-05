@@ -62,6 +62,9 @@ var PartnerSchema = new mongoose_1.Schema({
     IAM: {
         type: String,
     },
+    hashedId: {
+        type: String,
+    },
     status: {
         type: String,
         enum: ['test', 'live'],
