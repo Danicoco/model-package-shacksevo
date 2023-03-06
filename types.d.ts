@@ -324,13 +324,15 @@ type IPaginator = {
 };
 
 type ISpinContructor = {
-    id: string;
-    userId: string;
-    partnerId: string;
-}
+  id: string;
+  userId: string;
+  partnerId: string;
+};
 
 interface ISpinRecord extends DefaultAttributes {
   userId: string;
+  reference: string;
+  approved: boolean;
   partnerId: ObjectId;
   cashoutAmount?: number;
   outcome: "cashout" | "free-spin";
