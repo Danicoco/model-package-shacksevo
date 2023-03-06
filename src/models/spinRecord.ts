@@ -17,6 +17,11 @@ const SpinRecordSchema: Schema = new Schema<ISpinRecord>(
       type: String,
       required: true,
     },
+    reference: {
+      type: String,
+      required: true,
+    },
+    approved: Boolean,
   },
   {
     collection: "spinRecords",
