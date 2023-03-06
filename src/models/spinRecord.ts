@@ -21,10 +21,7 @@ const SpinRecordSchema: Schema = new Schema<ISpinRecord>(
       type: String,
       required: true,
     },
-    approved: {
-      type: Boolean,
-      required: true,
-    },
+    approved: Boolean,
   },
   {
     collection: "spinRecords",
