@@ -16,6 +16,11 @@ var SpinRecordSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    reference: {
+        type: String,
+        required: true,
+    },
+    approved: Boolean,
 }, {
     collection: "spinRecords",
     versionKey: false,

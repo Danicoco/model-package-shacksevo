@@ -14,6 +14,7 @@ import ErrorMessage from "./error";
 import GameRound from "./gameRound";
 import BetPlaced from "./betPlaced";
 import SpinRecord from "./spinRecord";
+import EveryMatrix from "./everymatrix";
 import GameAccess from "./gameAccess";
 import Permission from "./permission";
 import Transaction from "./transaction";
@@ -31,17 +32,18 @@ export {
   Role,
   Admin,
   Wallet,
+  Reward,
   Partner,
   Feedback,
   GameRound,
   BetPlaced,
+  Tornament,
   GameAccess,
   Permission,
   SpinRecord,
+  EveryMatrix,
+  Leaderboard,
   Transaction,
   ErrorMessage,
-  Reward,
-  Tornament,
-  Leaderboard,
   TornamentPlayers,
 };

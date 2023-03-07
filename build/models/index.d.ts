@@ -14,11 +14,12 @@ import ErrorMessage from "./error";
 import GameRound from "./gameRound";
 import BetPlaced from "./betPlaced";
 import SpinRecord from "./spinRecord";
+import EveryMatrix from "./everymatrix";
 import GameAccess from "./gameAccess";
 import Permission from "./permission";
 import Transaction from "./transaction";
 import Leaderboard from "./leaderboard";
 import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
-export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Partner, Feedback, GameRound, BetPlaced, GameAccess, Permission, SpinRecord, Transaction, ErrorMessage, Reward, Tornament, Leaderboard, TornamentPlayers, };
+export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, ErrorMessage, TornamentPlayers, };
 //# sourceMappingURL=index.d.ts.map

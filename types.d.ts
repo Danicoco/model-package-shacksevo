@@ -175,6 +175,18 @@ interface IFeedback extends DefaultAttributes {
   type: FeedbackTypes;
 }
 
+interface IEveryMatrix extends DefaultAttributes {
+  meta: any;
+  token: string;
+  gameId: string;
+  userId: string;
+  isFun: boolean;
+  balance: number;
+  currency: string;
+  username: string;
+  partnerId: ObjectId;
+}
+
 interface IRTP extends DefaultAttributes {
   value: string;
   gameType: string;
