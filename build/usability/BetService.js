@@ -278,6 +278,22 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.deleteMany = function (condition) {
+        return __awaiter(this, void 0, void 0, function () {
+            var betPlaced;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.deleteMany(__assign(__assign(__assign({}, (condition && condition)), (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })))
+                            .catch(function (e) {
+                            throw new Error(e.message);
+                        })];
+                    case 1:
+                        betPlaced = _a.sent();
+                        return [2 /*return*/, betPlaced];
+                }
+            });
+        });
+    };
     BetPlacedService.prototype.updateOne = function (params) {
         return __awaiter(this, void 0, void 0, function () {
             var betPlaced;

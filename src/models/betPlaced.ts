@@ -14,6 +14,9 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
     username: {
         type: String,
     },
+    type: {
+        type: String,
+    },
     partnerId: {
         type: Types.ObjectId,
         ref: 'partners'

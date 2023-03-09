@@ -69,6 +69,7 @@ declare class BetPlacedService {
     deleteOne(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
         _id: string;
     }>) | null>;
+    deleteMany(condition: any): Promise<import("mongodb").DeleteResult>;
     updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
         _id: string;
     }>) | null>;

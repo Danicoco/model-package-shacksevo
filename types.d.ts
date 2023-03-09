@@ -27,8 +27,12 @@ interface IGameRound extends DefaultAttributes {
   algorithmUsed: string;
   numberOfBetPlaced: number;
 }
+
+type IBetType =  'free-bet' | 'real' | 'demo';
+
 interface IBetPlaced extends DefaultAttributes {
   result: string;
+  type:  IBetType;
   userId?: string;
   gameType: string;
   username: string;

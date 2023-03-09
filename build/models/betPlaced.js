@@ -14,6 +14,9 @@ var BetPlacedSchema = new mongoose_1.Schema({
     username: {
         type: String,
     },
+    type: {
+        type: String,
+    },
     partnerId: {
         type: mongoose_1.Types.ObjectId,
         ref: 'partners'

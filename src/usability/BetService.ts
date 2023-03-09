@@ -153,6 +153,19 @@ class BetPlacedService {
     return betPlaced;
   }
 
+  public async deleteMany(condition: any) {
+    const betPlaced = await BetPlaced.deleteMany({
+      ...(condition && condition),
+      ...(this._id && { _id: this._id }),
+      ...(this.partnerId && { partnerId: this.partnerId }),
+    })
+      .catch((e: any) => {
+        throw new Error(e.message);
+      });
+
+    return betPlaced;
+  }
+
   public async updateOne(params: Partial<IBetPlaced>) {
     const betPlaced = await BetPlaced.findOneAndUpdate(
       { _id: this._id },
