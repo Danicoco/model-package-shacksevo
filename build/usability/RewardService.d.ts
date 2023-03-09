@@ -57,6 +57,9 @@ declare class RewardService {
     setReward(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
         _id: string;
     }>)[]>;
+    updateOne(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+        _id: string;
+    }>) | null>;
     getReward(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
         _id: string;
     }>)[]>;

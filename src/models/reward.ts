@@ -18,6 +18,10 @@ const RewardSchema: Schema = new Schema<IReward>(
         type: Number,
         default: 0
     },
+    betId: {
+      type: Types.ObjectId,
+      ref: "betPlaceds",
+  },
     rewardType: {
       type: String,
       required: true,

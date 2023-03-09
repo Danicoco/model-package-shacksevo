@@ -93,6 +93,17 @@ class RewardService {
     }
   }
 
+  public async updateOne(params: Partial<IReward>) {
+    try {
+      const reward = this.model.findOneAndUpdate({
+        _id: this._id,
+      }, { ...params }, { new: true});
+      return reward;
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+
   public async getReward() {
     const reward = await this.model.find();
 

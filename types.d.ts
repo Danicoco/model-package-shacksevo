@@ -273,19 +273,20 @@ interface ILeaderboard extends DefaultAttributes {
 }
 
 interface IReward extends DefaultAttributes {
-  rewardType: string;
+  endDate: Date;
   userId: string;
   amount: number;
-  cashoutAmount: number;
+  duration: Date;
+  startDate: Date;
+  betId?: string;
   gameType: string;
   isActive: boolean;
   partnerId?: string;
+  rewardType: string;
+  multiplier: number;
+  cashoutAmount: number;
   freeBetsAmount: number;
   loyaltyPercentage: number;
-  multiplier: number;
-  duration: Date;
-  startDate: Date;
-  endDate: Date;
 }
 
 interface LoyaltyPoints extends DefaultAttributes {

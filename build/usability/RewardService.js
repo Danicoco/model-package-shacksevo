@@ -178,6 +178,23 @@ var RewardService = /** @class */ (function () {
             });
         });
     };
+    RewardService.prototype.updateOne = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var reward;
+            return __generator(this, function (_a) {
+                try {
+                    reward = this.model.findOneAndUpdate({
+                        _id: this._id,
+                    }, __assign({}, params), { new: true });
+                    return [2 /*return*/, reward];
+                }
+                catch (error) {
+                    throw new Error(error);
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
     RewardService.prototype.getReward = function () {
         return __awaiter(this, void 0, void 0, function () {
             var reward;

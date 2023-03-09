@@ -17,6 +17,10 @@ var RewardSchema = new mongoose_1.Schema({
         type: Number,
         default: 0
     },
+    betId: {
+        type: mongoose_1.Types.ObjectId,
+        ref: "betPlaceds",
+    },
     rewardType: {
         type: String,
         required: true,
