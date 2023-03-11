@@ -28,11 +28,11 @@ interface IGameRound extends DefaultAttributes {
   numberOfBetPlaced: number;
 }
 
-type IBetType =  'free-bet' | 'real' | 'demo';
+type IBetType = "free-bet" | "real" | "demo";
 
 interface IBetPlaced extends DefaultAttributes {
   result: string;
-  type:  IBetType;
+  type: IBetType;
   userId?: string;
   gameType: string;
   username: string;
@@ -352,7 +352,7 @@ interface ISpinRecord extends DefaultAttributes {
   approved: boolean;
   partnerId: ObjectId;
   cashoutAmount?: number;
-  outcome: "cashout" | "free-spin";
+  outcome: "cash-win" | "free-spin";
 }
 
 type CatchErr = (message: string, code?: number, validations?: object) => Error;
