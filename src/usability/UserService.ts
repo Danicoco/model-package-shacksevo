@@ -47,10 +47,9 @@ class UserService {
     const count = await this.count(condition).catch((e) => {
       throw e;
     });
-    const spins = await User
-      .find({
-        ...(condition && condition),
-      })
+    const spins = await User.find({
+      ...(condition && condition),
+    })
       .sort(sort)
       .limit(limit)
       .skip(limit * (page - 1))
@@ -65,19 +64,21 @@ class UserService {
   }
 
   public async count(condition?: any) {
-    const docs = await User
-      .countDocuments({
-        ...(condition && condition),
-      })
-      .catch((e) => {
-        throw e;
-      });
+    const docs = await User.countDocuments({
+      ...(condition && condition),
+    }).catch((e) => {
+      throw e;
+    });
     return docs;
   }
 
   public async updateOne(params: Partial<IUser>) {
     const user = await User.findOneAndUpdate(
-      { _id: this._id },
+      {
+        ...(this._id && { _id: this._id }),
+        ...(this.partnerUserId && { partnerUserId: this.partnerUserId }),
+        ...(this.partnerId && { partnerId: this.partnerId }),
+      },
       { ...params },
       { new: true }
     );

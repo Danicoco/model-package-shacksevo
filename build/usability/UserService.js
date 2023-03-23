@@ -128,8 +128,7 @@ var UserService = /** @class */ (function () {
                         })];
                     case 1:
                         count = _b.sent();
-                        return [4 /*yield*/, models_1.User
-                                .find(__assign({}, (condition && condition)))
+                        return [4 /*yield*/, models_1.User.find(__assign({}, (condition && condition)))
                                 .sort(sort)
                                 .limit(limit)
                                 .skip(limit * (page - 1))
@@ -151,9 +150,7 @@ var UserService = /** @class */ (function () {
             var docs;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User
-                            .countDocuments(__assign({}, (condition && condition)))
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.User.countDocuments(__assign({}, (condition && condition))).catch(function (e) {
                             throw e;
                         })];
                     case 1:
@@ -168,7 +165,7 @@ var UserService = /** @class */ (function () {
             var user;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.User.findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
+                    case 0: return [4 /*yield*/, models_1.User.findOneAndUpdate(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerUserId && { partnerUserId: this.partnerUserId })), (this.partnerId && { partnerId: this.partnerId })), __assign({}, params), { new: true })];
                     case 1:
                         user = _a.sent();
                         return [2 /*return*/, user];
