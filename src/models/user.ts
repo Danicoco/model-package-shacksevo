@@ -13,13 +13,10 @@ const UserSchema: Schema = new Schema<IUser>(
     },
     email: {
       type: String,
-      trim: true,
-      required: true,
     },
     otp: String,
     gameType: {
       type: String,
-      required: true,
     },
     username: String,
     partnerId: {
@@ -35,7 +32,7 @@ const UserSchema: Schema = new Schema<IUser>(
     lastPlayed: String,
     isActive: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   {

@@ -12,13 +12,10 @@ var UserSchema = new mongoose_1.Schema({
     },
     email: {
         type: String,
-        trim: true,
-        required: true,
     },
     otp: String,
     gameType: {
         type: String,
-        required: true,
     },
     username: String,
     partnerId: {
@@ -34,7 +31,7 @@ var UserSchema = new mongoose_1.Schema({
     lastPlayed: String,
     isActive: {
         type: Boolean,
-        default: false,
+        default: true,
     },
 }, {
     collection: "users",
