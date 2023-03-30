@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IFeedback } from '../../types';
-declare const _default: import("mongoose").Model<IFeedback, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IFeedback, {}, {}, {}, import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=feedback.d.ts.map

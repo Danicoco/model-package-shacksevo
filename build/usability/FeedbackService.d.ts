@@ -29,19 +29,19 @@ declare class FeedbackService {
     private type;
     private title;
     constructor(_id?: string, type?: string, title?: string);
-    create(params: Partial<IFeedback>): Promise<import("mongoose").Document<unknown, any, IFeedback> & IFeedback & Required<{
+    create(params: Partial<IFeedback>): Promise<import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IFeedback> & IFeedback & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IFeedback> & IFeedback & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IFeedback> & IFeedback & Required<{
+        data: (import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -52,9 +52,9 @@ declare class FeedbackService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<IFeedback>): Promise<(import("mongoose").Document<unknown, any, IFeedback> & IFeedback & Required<{
+    updateOne(params: Partial<IFeedback>): Promise<(import("mongoose").Document<unknown, {}, IFeedback> & Omit<IFeedback & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default FeedbackService;
 //# sourceMappingURL=FeedbackService.d.ts.map

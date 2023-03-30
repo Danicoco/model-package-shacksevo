@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IAPI } from '../../types';
-declare const _default: import("mongoose").Model<IAPI, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IAPI, {}, {}, {}, import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=api.d.ts.map

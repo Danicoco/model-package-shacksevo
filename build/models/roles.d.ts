@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IRole } from '../../types';
-declare const _default: import("mongoose").Model<IRole, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IRole, {}, {}, {}, import("mongoose").Document<unknown, {}, IRole> & Omit<IRole & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=roles.d.ts.map

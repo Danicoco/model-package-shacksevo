@@ -83,10 +83,9 @@ class RewardService {
     return reward;
   }
 
-  public async setReward(params: Partial<IReward>) {
+  public async setReward(_params: Partial<IReward>) {
     try {
       const reward = this.model.find();
-      reward.update({ ...params });
       return reward;
     } catch (error: any) {
       throw new Error(error);

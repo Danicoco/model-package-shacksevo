@@ -28,18 +28,18 @@ declare class GameAccessService {
     private partnerId;
     private _id;
     constructor(_id: string | null, partnerId: string | null);
-    create(params: Partial<IGameAccess>): Promise<import("mongoose").Document<unknown, any, IGameAccess> & IGameAccess & Required<{
+    create(params: Partial<IGameAccess>): Promise<import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IGameAccess> & IGameAccess & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IGameAccess> & IGameAccess & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
-    }>)[]>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IGameAccess> & IGameAccess & Required<{
+    }>, never>)[]>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default GameAccessService;
 //# sourceMappingURL=GameAccessService.d.ts.map

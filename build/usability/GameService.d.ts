@@ -36,19 +36,19 @@ declare class GameService {
     integrationCount: number;
     documentationUrl: string;
     constructor(_id?: string, name?: string, partnerId?: ObjectId);
-    createGame(params: Partial<IGame>): Promise<import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+    createGame(params: Partial<IGame>): Promise<import("mongoose").Document<unknown, {}, IGame> & Omit<IGame & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IGame> & Omit<IGame & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IGame> & Omit<IGame & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+        data: (import("mongoose").Document<unknown, {}, IGame> & Omit<IGame & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -59,9 +59,9 @@ declare class GameService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<IGame>): Promise<(import("mongoose").Document<unknown, any, IGame> & IGame & Required<{
+    updateOne(params: Partial<IGame>): Promise<(import("mongoose").Document<unknown, {}, IGame> & Omit<IGame & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     deleteOne(): Promise<import("mongodb").DeleteResult>;
 }
 export default GameService;

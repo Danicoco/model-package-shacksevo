@@ -53,10 +53,9 @@ class TornamentService {
 
     public async updateTornamentPlayers(params: Partial<ITornamentPlayers>){
         try {
-            const player = TornamentPlayers.findOne({'_id': this._id, 'username': this.username})
+            const player = await TornamentPlayers.findOne({'_id': this._id, 'username': this.username})
             if(player){
-                player.update({...params})
-                return player
+                return TornamentPlayers.updateOne({ _id: player._id }, { ...params }, { new: true });
             }else{
                 const newPlayer = TornamentPlayers.create({...params})
                 return newPlayer

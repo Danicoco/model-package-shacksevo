@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IUser } from "../../types";
-declare const _default: import("mongoose").Model<IUser, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IUser, {}, {}, {}, import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=user.d.ts.map

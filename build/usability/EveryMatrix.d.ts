@@ -31,25 +31,25 @@ declare class EveryMatrixService {
     private username;
     private partnerId;
     constructor(id?: string, userId?: string, username?: string, partnerId?: string);
-    create(params: Partial<IEveryMatrix>): Promise<import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    create(params: Partial<IEveryMatrix>): Promise<import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>) | null>;
-    findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>) | null>;
+    findAll(limit: number): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>)[]>;
-    findAllGeneric(userId?: string, username?: string): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>)[]>;
+    findAllGeneric(userId?: string, username?: string): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>)[]>;
-    findAllByAdmin(): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>)[]>;
+    findAllByAdmin(): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+        data: (import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -60,15 +60,15 @@ declare class EveryMatrixService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    findByType(type: string): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    findByType(type: string): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>)[]>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>)[]>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>) | null>;
-    updateOne(params: Partial<IEveryMatrix>): Promise<(import("mongoose").Document<unknown, any, IEveryMatrix> & IEveryMatrix & Required<{
+    }>, never>) | null>;
+    updateOne(params: Partial<IEveryMatrix>): Promise<(import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     updateAll(params: Partial<IEveryMatrix>): Promise<import("mongodb").UpdateResult>;
 }
 export default EveryMatrixService;

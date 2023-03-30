@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IReward } from "../../types";
-declare const _default: import("mongoose").Model<IReward, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IReward, {}, {}, {}, import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=reward.d.ts.map

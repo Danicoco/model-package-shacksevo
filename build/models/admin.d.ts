@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IAdmin } from '../../types';
-declare const _default: import("mongoose").Model<IAdmin, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IAdmin, {}, {}, {}, import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=admin.d.ts.map

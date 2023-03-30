@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IPermission } from "../../types";
-declare const _default: import("mongoose").Model<IPermission, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IPermission, {}, {}, {}, import("mongoose").Document<unknown, {}, IPermission> & Omit<IPermission & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=permission.d.ts.map

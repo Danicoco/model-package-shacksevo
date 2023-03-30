@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IEveryMatrix } from '../../types';
-declare const _default: import("mongoose").Model<IEveryMatrix, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IEveryMatrix, {}, {}, {}, import("mongoose").Document<unknown, {}, IEveryMatrix> & Omit<IEveryMatrix & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=everymatrix.d.ts.map

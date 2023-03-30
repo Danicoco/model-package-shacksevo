@@ -29,25 +29,25 @@ declare class TornamentPlayerService {
     partnerId?: ObjectId;
     username: string;
     constructor(_id?: string, partnerId?: ObjectId, username?: string);
-    createTornament(params: Partial<ITornament>): Promise<import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+    createTornament(params: Partial<ITornament>): Promise<import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
         _id: string;
-    }>)[]>;
-    leaderboard(): Promise<(import("mongoose").Document<unknown, any, import("../../types").ILeaderboard> & import("../../types").ILeaderboard & Required<{
+    }>, never>)[]>;
+    leaderboard(): Promise<(import("mongoose").Document<unknown, {}, import("../../types").ILeaderboard> & Omit<import("../../types").ILeaderboard & Required<{
         _id: string;
-    }>)[]>;
-    updateTornamentPlayers(params: Partial<ITornamentPlayers>): Promise<(import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+    }>, never>)[]>;
+    updateTornamentPlayers(params: Partial<ITornamentPlayers>): Promise<import("mongodb").UpdateResult | (import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>)>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+        data: (import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -58,9 +58,9 @@ declare class TornamentPlayerService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<ITornament>): Promise<(import("mongoose").Document<unknown, any, ITornamentPlayers> & ITornamentPlayers & Required<{
+    updateOne(params: Partial<ITornament>): Promise<(import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     deleteOne(): Promise<import("mongodb").DeleteResult>;
 }
 export default TornamentPlayerService;

@@ -27,18 +27,18 @@ import { IRole } from "../../types";
 declare class RoleService {
     private _id;
     constructor(_id?: string);
-    create(params: Partial<IRole>): Promise<import("mongoose").Document<unknown, any, IRole> & IRole & Required<{
+    create(params: Partial<IRole>): Promise<import("mongoose").Document<unknown, {}, IRole> & Omit<IRole & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IRole> & IRole & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IRole> & Omit<IRole & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IRole> & IRole & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IRole> & Omit<IRole & Required<{
         _id: string;
-    }>)[]>;
-    updateOne(params: Partial<IRole>): Promise<(import("mongoose").Document<unknown, any, IRole> & IRole & Required<{
+    }>, never>)[]>;
+    updateOne(params: Partial<IRole>): Promise<(import("mongoose").Document<unknown, {}, IRole> & Omit<IRole & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default RoleService;
 //# sourceMappingURL=RoleService.d.ts.map

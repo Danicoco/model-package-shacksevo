@@ -25,7 +25,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -129,23 +129,26 @@ var TornamentPlayerService = /** @class */ (function () {
     };
     TornamentPlayerService.prototype.updateTornamentPlayers = function (params) {
         return __awaiter(this, void 0, void 0, function () {
-            var player, newPlayer;
+            var player, newPlayer, error_1;
             return __generator(this, function (_a) {
-                try {
-                    player = models_1.TornamentPlayers.findOne({ '_id': this._id, 'username': this.username });
-                    if (player) {
-                        player.update(__assign({}, params));
-                        return [2 /*return*/, player];
-                    }
-                    else {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 5, , 6]);
+                        return [4 /*yield*/, models_1.TornamentPlayers.findOne({ '_id': this._id, 'username': this.username })];
+                    case 1:
+                        player = _a.sent();
+                        if (!player) return [3 /*break*/, 3];
+                        return [4 /*yield*/, models_1.TornamentPlayers.updateOne({ _id: player._id }, params, { new: true })];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3:
                         newPlayer = models_1.TornamentPlayers.create(__assign({}, params));
                         return [2 /*return*/, newPlayer];
-                    }
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
+                        error_1 = _a.sent();
+                        throw new Error(error_1);
+                    case 6: return [2 /*return*/];
                 }
-                catch (error) {
-                    throw new Error(error);
-                }
-                return [2 /*return*/];
             });
         });
     };

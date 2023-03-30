@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IGameAccess } from '../../types';
-declare const _default: import("mongoose").Model<IGameAccess, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IGameAccess, {}, {}, {}, import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=gameAccess.d.ts.map

@@ -30,22 +30,22 @@ declare class APIService {
     private hashedKey;
     private id;
     constructor(partnerId?: string, publicKey?: string, hashedKey?: string, id?: string);
-    create(params: Partial<IAPI>, withHash?: boolean): Promise<import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    create(params: Partial<IAPI>, withHash?: boolean): Promise<import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>>;
-    findOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    }>, never>>;
+    findOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>) | null>;
-    findWithPublicKey(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    }>, never>) | null>;
+    findWithPublicKey(withHash?: boolean): Promise<(import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+        data: (import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -56,12 +56,12 @@ declare class APIService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    deleteOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    deleteOne(withHash?: boolean): Promise<(import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>) | null>;
-    updateOne(params: Partial<IAPI>, withHash?: boolean): Promise<(import("mongoose").Document<unknown, any, IAPI> & IAPI & Required<{
+    }>, never>) | null>;
+    updateOne(params: Partial<IAPI>, withHash?: boolean): Promise<(import("mongoose").Document<unknown, {}, IAPI> & Omit<IAPI & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default APIService;
 //# sourceMappingURL=ApiService.d.ts.map

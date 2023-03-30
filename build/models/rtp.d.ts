@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IRTP } from '../../types';
-declare const _default: import("mongoose").Model<IRTP, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IRTP, {}, {}, {}, import("mongoose").Document<unknown, {}, IRTP> & Omit<IRTP & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=rtp.d.ts.map

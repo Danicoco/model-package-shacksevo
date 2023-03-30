@@ -28,25 +28,25 @@ declare class BetPlacedService {
     private partnerId;
     private _id;
     constructor(_id: string | null, partnerId: string | null);
-    create(params: Partial<IBetPlaced>): Promise<import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    create(params: Partial<IBetPlaced>): Promise<import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>) | null>;
-    findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>) | null>;
+    findAll(limit: number): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>)[]>;
-    findAllGeneric(userId?: string, username?: string, gameRoundId?: string, type?: string): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>)[]>;
+    findAllGeneric(userId?: string, username?: string, gameRoundId?: string, type?: string): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>)[]>;
-    findAllByAdmin(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>)[]>;
+    findAllByAdmin(): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+        data: (import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -57,22 +57,22 @@ declare class BetPlacedService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    findByType(type: string): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    findByType(type: string): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>)[]>;
-    singleByType(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>)[]>;
+    singleByType(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>) | null>;
-    findAllUserBets(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>) | null>;
+    findAllUserBets(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>)[]>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    }>, never>)[]>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     deleteMany(condition: any): Promise<import("mongodb").DeleteResult>;
-    updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, any, IBetPlaced> & IBetPlaced & Required<{
+    updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     updateAll(params: Partial<IBetPlaced>): Promise<import("mongodb").UpdateResult>;
 }
 export default BetPlacedService;

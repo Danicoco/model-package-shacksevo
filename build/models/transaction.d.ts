@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { ITransaction } from '../../types';
-declare const _default: import("mongoose").Model<ITransaction, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<ITransaction, {}, {}, {}, import("mongoose").Document<unknown, {}, ITransaction> & Omit<ITransaction & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=transaction.d.ts.map

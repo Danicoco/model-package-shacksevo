@@ -31,19 +31,19 @@ declare class SpinRecordService {
     private partnerId;
     constructor({ id, userId, partnerId, }: Partial<ISpinContructor>);
     private finder;
-    create(params: Partial<ISpinRecord>): Promise<import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+    create(params: Partial<ISpinRecord>): Promise<import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+        data: (import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -54,9 +54,9 @@ declare class SpinRecordService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<ISpinRecord>): Promise<(import("mongoose").Document<unknown, any, ISpinRecord> & ISpinRecord & Required<{
+    updateOne(params: Partial<ISpinRecord>): Promise<(import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default SpinRecordService;
 //# sourceMappingURL=SpinRecordService.d.ts.map

@@ -32,15 +32,15 @@ declare class ErrorService implements IErrorMessages {
     createdAt: string;
     updatedAt: string;
     constructor(_id?: string);
-    create(params: Partial<IErrorMessages>): Promise<import("mongoose").Document<unknown, any, IErrorMessages> & IErrorMessages & Required<{
+    create(params: Partial<IErrorMessages>): Promise<import("mongoose").Document<unknown, {}, IErrorMessages> & Omit<IErrorMessages & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IErrorMessages> & IErrorMessages & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IErrorMessages> & Omit<IErrorMessages & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IErrorMessages> & IErrorMessages & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IErrorMessages> & Omit<IErrorMessages & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
 }
 export default ErrorService;
 //# sourceMappingURL=ErrorService.d.ts.map

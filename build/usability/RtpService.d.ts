@@ -30,15 +30,15 @@ declare class RTPService {
     private gameType;
     private partnerId;
     constructor(id?: string, gameType?: string, partnerId?: string);
-    create(params: IRTP): Promise<import("mongoose").Document<unknown, any, IRTP> & IRTP & Required<{
+    create(params: IRTP): Promise<import("mongoose").Document<unknown, {}, IRTP> & Omit<IRTP & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IRTP> & IRTP & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IRTP> & Omit<IRTP & Required<{
         _id: string;
-    }>) | null>;
-    updateOne(params: Partial<IRTP>): Promise<(import("mongoose").Document<unknown, any, IRTP> & IRTP & Required<{
+    }>, never>) | null>;
+    updateOne(params: Partial<IRTP>): Promise<(import("mongoose").Document<unknown, {}, IRTP> & Omit<IRTP & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default RTPService;
 //# sourceMappingURL=RtpService.d.ts.map

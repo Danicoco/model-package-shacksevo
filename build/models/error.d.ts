@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IErrorMessages } from '../../types';
-declare const _default: import("mongoose").Model<IErrorMessages, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IErrorMessages, {}, {}, {}, import("mongoose").Document<unknown, {}, IErrorMessages> & Omit<IErrorMessages & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=error.d.ts.map

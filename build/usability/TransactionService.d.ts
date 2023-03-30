@@ -28,18 +28,18 @@ declare class TransactionService {
     private userId;
     private _id;
     constructor(_id: string | null, userId: string | null);
-    create(params: Partial<ITransaction>): Promise<import("mongoose").Document<unknown, any, ITransaction> & ITransaction & Required<{
+    create(params: Partial<ITransaction>): Promise<import("mongoose").Document<unknown, {}, ITransaction> & Omit<ITransaction & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, ITransaction> & ITransaction & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, ITransaction> & Omit<ITransaction & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, ITransaction> & ITransaction & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, ITransaction> & Omit<ITransaction & Required<{
         _id: string;
-    }>)[]>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, ITransaction> & ITransaction & Required<{
+    }>, never>)[]>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, ITransaction> & Omit<ITransaction & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default TransactionService;
 //# sourceMappingURL=TransactionService.d.ts.map

@@ -39,47 +39,47 @@ declare class GameRoundService {
     year: string;
     crashRoundId: string;
     constructor(_id?: string, partnerId?: string, year?: string, crashRoundId?: string);
-    create(params: Partial<IGameRound>): Promise<import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    create(params: Partial<IGameRound>): Promise<import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>>;
-    bulkCreate(params: Partial<IGameRound>[]): Promise<(import("mongoose").Document<unknown, any, import("mongoose").MergeType<import("mongoose").MergeType<IGameRound, Partial<IGameRound>>, IGameRound & Required<{
+    }>, never>>;
+    bulkCreate(params: Partial<IGameRound>[]): Promise<(import("mongoose").Document<unknown, {}, import("mongoose").MergeType<import("mongoose").MergeType<IGameRound, Partial<IGameRound>>, IGameRound & Required<{
         _id: string;
-    }>>> & Omit<import("mongoose").MergeType<IGameRound, Partial<IGameRound>>, keyof IGameRound> & IGameRound & Required<{
+    }>>> & Omit<Omit<import("mongoose").MergeType<IGameRound, Partial<IGameRound>>, keyof IGameRound> & IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
-    findOneCrashRound(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>) | null>;
+    findOneCrashRound(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
-    findAll(limit: number): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>) | null>;
+    findAll(limit: number): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    findAllByCondition({ sort, limit, condition }: IPaginator): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    findAllByCondition({ sort, limit, condition }: IPaginator): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    findAllAdmin(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    findAllAdmin(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    findByYear(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    findByYear(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
-    updateOneCrashRound(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>) | null>;
+    updateOneCrashRound(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
-    last(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>) | null>;
+    last(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>)[]>;
-    findOneFirst(): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>)[]>;
+    findOneFirst(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
-    findByIsPlayed(params: boolean): Promise<(import("mongoose").Document<unknown, any, IGameRound> & IGameRound & Required<{
+    }>, never>) | null>;
+    findByIsPlayed(params: boolean): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     deleteAll(): Promise<boolean>;
     deleteByPartnerId(): Promise<boolean>;
 }

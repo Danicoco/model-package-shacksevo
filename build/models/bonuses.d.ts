@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IBonus } from '../../types';
-declare const _default: import("mongoose").Model<IBonus, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IBonus, {}, {}, {}, import("mongoose").Document<unknown, {}, IBonus> & Omit<IBonus & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=bonuses.d.ts.map

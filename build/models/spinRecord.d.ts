@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { ISpinRecord } from "../../types";
-declare const _default: import("mongoose").Model<ISpinRecord, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<ISpinRecord, {}, {}, {}, import("mongoose").Document<unknown, {}, ISpinRecord> & Omit<ISpinRecord & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=spinRecord.d.ts.map

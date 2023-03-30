@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { ILeaderboard } from '../../types';
-declare const _default: import("mongoose").Model<ILeaderboard, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<ILeaderboard, {}, {}, {}, import("mongoose").Document<unknown, {}, ILeaderboard> & Omit<ILeaderboard & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=leaderboard.d.ts.map

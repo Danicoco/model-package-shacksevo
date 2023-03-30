@@ -27,18 +27,18 @@ import { IPermission } from '../../types';
 declare class PermissionService {
     private _id;
     constructor(_id: string | null);
-    create(params: Partial<IPermission>): Promise<import("mongoose").Document<unknown, any, IPermission> & IPermission & Required<{
+    create(params: Partial<IPermission>): Promise<import("mongoose").Document<unknown, {}, IPermission> & Omit<IPermission & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IPermission> & IPermission & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IPermission> & Omit<IPermission & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IPermission> & IPermission & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IPermission> & Omit<IPermission & Required<{
         _id: string;
-    }>)[]>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IPermission> & IPermission & Required<{
+    }>, never>)[]>;
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IPermission> & Omit<IPermission & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default PermissionService;
 //# sourceMappingURL=PermissionService.d.ts.map

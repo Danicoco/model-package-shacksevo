@@ -28,17 +28,17 @@ declare class ChatService {
     private _id;
     private partnerId;
     constructor(_id?: string, partnerId?: string);
-    create(params: Partial<IChat>): Promise<import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+    create(params: Partial<IChat>): Promise<import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     count(condition?: any): Promise<number>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+        data: (import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -48,15 +48,15 @@ declare class ChatService {
             currentPage: number;
         };
     }>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
         _id: string;
-    }>)[]>;
-    findAllPartner(): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+    }>, never>)[]>;
+    findAllPartner(): Promise<(import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
         _id: string;
-    }>)[]>;
-    updateOne(params: Partial<IChat>): Promise<(import("mongoose").Document<unknown, any, IChat> & IChat & Required<{
+    }>, never>)[]>;
+    updateOne(params: Partial<IChat>): Promise<(import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default ChatService;
 //# sourceMappingURL=ChatService.d.ts.map

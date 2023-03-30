@@ -31,16 +31,16 @@ declare class RewardService {
     private partnerId?;
     constructor(_id?: string, partnerId?: ObjectId, userId?: string);
     private finder;
-    create(params: Partial<IReward>): Promise<import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    create(params: Partial<IReward>): Promise<import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+        data: (import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -51,18 +51,18 @@ declare class RewardService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>) | null>;
-    setReward(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    }>, never>) | null>;
+    setReward(_params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>)[]>;
-    updateOne(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    }>, never>)[]>;
+    updateOne(params: Partial<IReward>): Promise<(import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>) | null>;
-    getReward(): Promise<(import("mongoose").Document<unknown, any, IReward> & IReward & Required<{
+    }>, never>) | null>;
+    getReward(): Promise<(import("mongoose").Document<unknown, {}, IReward> & Omit<IReward & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
 }
 export default RewardService;
 //# sourceMappingURL=RewardService.d.ts.map

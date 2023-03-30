@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IChat } from '../../types';
-declare const _default: import("mongoose").Model<IChat, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<IChat, {}, {}, {}, import("mongoose").Document<unknown, {}, IChat> & Omit<IChat & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=chat.d.ts.map

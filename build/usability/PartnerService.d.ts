@@ -30,17 +30,17 @@ declare class PartnerService {
     constructor(_id?: string, email?: string);
     create(params: Partial<IPartner>): Promise<IPartner>;
     findOne(): Promise<IPartner | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IPartner> & Omit<IPartner & Required<{
         _id: string;
-    }>)[]>;
-    findAllActive(): Promise<(import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
+    }>, never>)[]>;
+    findAllActive(): Promise<(import("mongoose").Document<unknown, {}, IPartner> & Omit<IPartner & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     deleteOne(): Promise<import("mongodb").DeleteResult>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IPartner> & IPartner & Required<{
+        data: (import("mongoose").Document<unknown, {}, IPartner> & Omit<IPartner & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;

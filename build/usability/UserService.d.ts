@@ -29,19 +29,19 @@ declare class UserService {
     private partnerId;
     private partnerUserId;
     constructor(_id?: string, partnerId?: string, partnerUserId?: string);
-    create(params: Partial<IUser>): Promise<import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+    create(params: Partial<IUser>): Promise<import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+        data: (import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -52,12 +52,12 @@ declare class UserService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<IUser>): Promise<(import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+    updateOne(params: Partial<IUser>): Promise<(import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
         _id: string;
-    }>) | null>;
-    last(): Promise<import("mongoose").Document<unknown, any, IUser> & IUser & Required<{
+    }>, never>) | null>;
+    last(): Promise<import("mongoose").Document<unknown, {}, IUser> & Omit<IUser & Required<{
         _id: string;
-    }>>;
+    }>, never>>;
 }
 export default UserService;
 //# sourceMappingURL=UserService.d.ts.map

@@ -24,6 +24,8 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { ITornamentPlayers } from '../../types';
-declare const _default: import("mongoose").Model<ITornamentPlayers, {}, {}, {}, any>;
+declare const _default: import("mongoose").Model<ITornamentPlayers, {}, {}, {}, import("mongoose").Document<unknown, {}, ITornamentPlayers> & Omit<ITornamentPlayers & Required<{
+    _id: string;
+}>, never>, any>;
 export default _default;
 //# sourceMappingURL=tornamentPlayers.d.ts.map

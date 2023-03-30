@@ -29,22 +29,22 @@ declare class AppService {
     private _id;
     private partnerId;
     constructor(_id: string | null, partnerId: string | null, gameType?: string);
-    create(params: Partial<IApp>): Promise<import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+    create(params: Partial<IApp>): Promise<import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
         _id: string;
-    }>>;
-    findOrCreate(params?: IApp): Promise<import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+    }>, never>>;
+    findOrCreate(params?: IApp): Promise<import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+        data: (import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -55,9 +55,9 @@ declare class AppService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    deleteOne(): Promise<(import("mongoose").Document<unknown, any, IApp> & IApp & Required<{
+    deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IApp> & Omit<IApp & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default AppService;
 //# sourceMappingURL=AppService.d.ts.map

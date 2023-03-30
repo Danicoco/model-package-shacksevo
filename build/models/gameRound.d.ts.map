@@ -1,1 +1,1 @@
-{"version":3,"file":"gameRound.d.ts","sourceRoot":"","sources":["../../src/models/gameRound.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AAEA,OAAO,EAAE,UAAU,EAAE,MAAM,aAAa,CAAC;;AAsDzC,wBAAgE"}
+{"version":3,"file":"gameRound.d.ts","sourceRoot":"","sources":["../../src/models/gameRound.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AAEA,OAAO,EAAE,UAAU,EAAE,MAAM,aAAa,CAAC;;;;AAsDzC,wBAAgE"}

@@ -36,12 +36,12 @@ interface IWallet extends DefaultAttributes {
 declare class WalletService {
     private userId;
     constructor(userId?: string);
-    create(params: Partial<IWallet>): Promise<import("mongoose").Document<unknown, any, import("../../types").Wallet> & import("../../types").Wallet & Required<{
+    create(params: Partial<IWallet>): Promise<import("mongoose").Document<unknown, {}, import("../../types").Wallet> & Omit<import("../../types").Wallet & Required<{
         _id: string;
-    }>>;
-    updateOne(params: Partial<IWallet>): Promise<(import("mongoose").Document<unknown, any, import("../../types").Wallet> & import("../../types").Wallet & Required<{
+    }>, never>>;
+    updateOne(params: Partial<IWallet>): Promise<(import("mongoose").Document<unknown, {}, import("../../types").Wallet> & Omit<import("../../types").Wallet & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default WalletService;
 //# sourceMappingURL=WalletService.d.ts.map

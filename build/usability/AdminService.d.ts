@@ -28,19 +28,19 @@ declare class AdminService {
     private _id;
     private email;
     constructor(_id?: string, email?: string);
-    create(params: Partial<IAdmin>): Promise<import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+    create(params: Partial<IAdmin>): Promise<import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
         _id: string;
-    }>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+    }>, never>>;
+    findOne(): Promise<(import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
         _id: string;
-    }>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+    }>, never>) | null>;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
         _id: string;
-    }>)[]>;
+    }>, never>)[]>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+        data: (import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
             _id: string;
-        }>)[];
+        }>, never>)[];
         pagination: {
             to: number;
             from: number;
@@ -51,9 +51,9 @@ declare class AdminService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<IAdmin>): Promise<(import("mongoose").Document<unknown, any, IAdmin> & IAdmin & Required<{
+    updateOne(params: Partial<IAdmin>): Promise<(import("mongoose").Document<unknown, {}, IAdmin> & Omit<IAdmin & Required<{
         _id: string;
-    }>) | null>;
+    }>, never>) | null>;
 }
 export default AdminService;
 //# sourceMappingURL=AdminService.d.ts.map
