@@ -134,9 +134,11 @@ type UsageCustomization = {
   gameType: string;
   isActive: boolean;
   showAbout: boolean;
+  stagingUrl: string;
   promoAmount: number;
   showBalance: boolean;
   showHistory: boolean;
+  productionUrl: string;
   stakePercentage: number;
   numberOfBetPlaced: number;
   numberOfTimesPerDay: number;
