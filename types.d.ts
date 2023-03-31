@@ -155,6 +155,7 @@ interface IPartner extends DefaultAttributes {
   status: IStatus;
   IAM?: IAMACCESS;
   hashedId: string;
+  baseUrl: string;
   lastName: string;
   password: string;
   firstName: string;

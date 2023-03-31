@@ -68,6 +68,9 @@ const PartnerSchema: Schema = new Schema<IPartner>({
     hashedId: {
         type: String,
     },
+    baseUrl: {
+        type: String,
+    },
     status: {
         type: String,
         enum: ['test', 'live'],

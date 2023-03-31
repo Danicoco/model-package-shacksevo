@@ -65,6 +65,9 @@ var PartnerSchema = new mongoose_1.Schema({
     hashedId: {
         type: String,
     },
+    baseUrl: {
+        type: String,
+    },
     status: {
         type: String,
         enum: ['test', 'live'],
