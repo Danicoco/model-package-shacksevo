@@ -21,9 +21,9 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IGameAccess } from '../../types';
+import { ClientSession } from 'mongoose';
 declare class GameAccessService {
     private partnerId;
     private _id;
@@ -31,6 +31,11 @@ declare class GameAccessService {
     create(params: Partial<IGameAccess>): Promise<import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>>;
+    insert(params: Partial<IGameAccess>[], session?: ClientSession): Promise<(import("mongoose").Document<unknown, {}, import("mongoose").MergeType<import("mongoose").MergeType<IGameAccess, Partial<IGameAccess>[]>, IGameAccess & Required<{
+        _id: string;
+    }>>> & Omit<Omit<import("mongoose").MergeType<IGameAccess, Partial<IGameAccess>[]>, keyof IGameAccess> & IGameAccess & Required<{
+        _id: string;
+    }>, never>)[]>;
     findOne(select?: string): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>) | null>;

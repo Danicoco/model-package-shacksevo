@@ -1,5 +1,6 @@
 import { GameAccess } from '../models';
 import { IGameAccess} from '../../types';
+import { ClientSession } from 'mongoose';
 
 
 class GameAccessService {
@@ -15,6 +16,15 @@ class GameAccessService {
         try {
             const gameAccess = new GameAccess({ ...params });
             await gameAccess.save();
+            return gameAccess;
+        } catch (error: any) {
+            throw new Error(error.message)
+        }
+    }
+
+    public async insert(params: Partial<IGameAccess>[], session?: ClientSession) {
+        try {
+            const gameAccess = await GameAccess.insertMany(params, { session });
             return gameAccess;
         } catch (error: any) {
             throw new Error(error.message)

@@ -73,6 +73,25 @@ var GameAccessService = /** @class */ (function () {
             });
         });
     };
+    GameAccessService.prototype.insert = function (params, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var gameAccess, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, models_1.GameAccess.insertMany(params, { session: session })];
+                    case 1:
+                        gameAccess = _a.sent();
+                        return [2 /*return*/, gameAccess];
+                    case 2:
+                        error_2 = _a.sent();
+                        throw new Error(error_2.message);
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     GameAccessService.prototype.findOne = function (select) {
         return __awaiter(this, void 0, void 0, function () {
             var gameAccess;
