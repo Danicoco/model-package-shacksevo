@@ -79,10 +79,8 @@ var GameAccessService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameAccess
-                            .findOne()
+                            .findOne(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })))
                             .select(select || '')
-                            .where(this._id ? '_id' : 'partnerId')
-                            .equals(this._id ? this._id : this.partnerId)
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];
@@ -99,7 +97,7 @@ var GameAccessService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameAccess
-                            .find()
+                            .find(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })))
                             .select(select || '')
                             .catch(function (e) {
                             throw new Error(e.message);

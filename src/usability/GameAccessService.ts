@@ -23,10 +23,11 @@ class GameAccessService {
 
     public async findOne(select?: string) {
         const gameAccess = await GameAccess
-            .findOne()
+            .findOne({
+                ...(this._id && { _id: this._id }),
+                ...(this.partnerId && { partnerId: this.partnerId }),
+            })
             .select(select || '')
-            .where(this._id ? '_id' : 'partnerId')
-            .equals(this._id ? this._id : this.partnerId)
             .catch((e: any) => {
                 throw new Error(e.message);
             });
@@ -35,7 +36,10 @@ class GameAccessService {
 
     public async findAll(select?: string) {
         const gameAccesss = await GameAccess
-            .find()
+            .find({
+                ...(this._id && { _id: this._id }),
+                ...(this.partnerId && { partnerId: this.partnerId }),
+            })
             .select(select || '')
             .catch((e: any) => {
                 throw new Error(e.message)
