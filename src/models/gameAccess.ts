@@ -15,9 +15,9 @@ const GameAccessSchema: Schema = new Schema<IGameAccess>({
         type: String,
     },
     gameId: {
-        type: Types.ObjectId,
+        type: String,
     },
-    gameName: {
+    url: {
         type: String,
     },
     isActive: {

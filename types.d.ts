@@ -109,12 +109,12 @@ interface IGame extends DefaultAttributes {
 }
 
 interface IGameAccess extends DefaultAttributes {
+  url: string;
+  gameId?: string;
+  isActive: boolean;
   partnerId?: string;
   partnerName: string;
   partnerEmail: string;
-  gameId?: string;
-  gameName: string;
-  isActive: boolean;
 }
 
 type IAMACCESS = "owner" | "manager";

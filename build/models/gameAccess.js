@@ -13,9 +13,9 @@ var GameAccessSchema = new mongoose_1.Schema({
         type: String,
     },
     gameId: {
-        type: mongoose_1.Types.ObjectId,
+        type: String,
     },
-    gameName: {
+    url: {
         type: String,
     },
     isActive: {
