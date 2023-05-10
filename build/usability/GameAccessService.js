@@ -73,13 +73,14 @@ var GameAccessService = /** @class */ (function () {
             });
         });
     };
-    GameAccessService.prototype.findOne = function () {
+    GameAccessService.prototype.findOne = function (select) {
         return __awaiter(this, void 0, void 0, function () {
             var gameAccess;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameAccess
                             .findOne()
+                            .select(select || '')
                             .where(this._id ? '_id' : 'partnerId')
                             .equals(this._id ? this._id : this.partnerId)
                             .catch(function (e) {
@@ -92,13 +93,14 @@ var GameAccessService = /** @class */ (function () {
             });
         });
     };
-    GameAccessService.prototype.findAll = function () {
+    GameAccessService.prototype.findAll = function (select) {
         return __awaiter(this, void 0, void 0, function () {
             var gameAccesss;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, models_1.GameAccess
                             .find()
+                            .select(select || '')
                             .catch(function (e) {
                             throw new Error(e.message);
                         })];

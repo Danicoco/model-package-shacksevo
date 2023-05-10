@@ -31,10 +31,10 @@ declare class GameAccessService {
     create(params: Partial<IGameAccess>): Promise<import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
+    findOne(select?: string): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
+    findAll(select?: string): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>)[]>;
     deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{

@@ -21,9 +21,10 @@ class GameAccessService {
         }
     }
 
-    public async findOne() {
+    public async findOne(select?: string) {
         const gameAccess = await GameAccess
             .findOne()
+            .select(select || '')
             .where(this._id ? '_id' : 'partnerId')
             .equals(this._id ? this._id : this.partnerId)
             .catch((e: any) => {
@@ -32,15 +33,16 @@ class GameAccessService {
         return gameAccess;
     }
 
-    public async findAll() {
+    public async findAll(select?: string) {
         const gameAccesss = await GameAccess
             .find()
+            .select(select || '')
             .catch((e: any) => {
                 throw new Error(e.message)
             });
         return gameAccesss;
     }
-    
+
     public async deleteOne() {
         const gameAccess = await GameAccess
             .findOneAndDelete()
