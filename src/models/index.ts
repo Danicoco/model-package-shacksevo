@@ -21,6 +21,7 @@ import Transaction from "./transaction";
 import Leaderboard from "./leaderboard";
 import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
+import Customization from "./customization";
 
 export {
   Rtp,
@@ -45,5 +46,6 @@ export {
   Leaderboard,
   Transaction,
   ErrorMessage,
+  Customization,
   TornamentPlayers,
 };

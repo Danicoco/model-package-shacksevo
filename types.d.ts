@@ -169,6 +169,14 @@ interface IPartner extends DefaultAttributes {
   customization: Partial<UsageCustomization>[];
 }
 
+interface ICustomization extends DefaultAttributes {
+  name: string;
+  value: string | string[] | boolean;
+  type: "general" | "game-specific";
+  game: string;
+  partnerId: string;
+}
+
 type FeedbackTypes =
   | "games"
   | "complaint"

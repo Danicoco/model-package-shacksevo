@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TornamentPlayerService = exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.SpinRecordService = exports.TornamentService = exports.FeedbackService = exports.EveryMatrixService = exports.PartnerService = exports.RewardService = exports.WalletService = exports.BetPlacedService = exports.GameRoundService = exports.AdminService = exports.ErrorService = exports.ChatService = exports.UserService = exports.RoleService = exports.GameService = exports.AppService = exports.RtpService = exports.ApiService = void 0;
+exports.TornamentPlayerService = exports.CustomizationService = exports.TransactionService = exports.PermissionService = exports.GameAccessService = exports.SpinRecordService = exports.TornamentService = exports.FeedbackService = exports.EveryMatrixService = exports.PartnerService = exports.RewardService = exports.WalletService = exports.BetPlacedService = exports.GameRoundService = exports.AdminService = exports.ErrorService = exports.ChatService = exports.UserService = exports.RoleService = exports.GameService = exports.AppService = exports.RtpService = exports.ApiService = void 0;
 var ApiService_1 = require("./ApiService");
 Object.defineProperty(exports, "ApiService", { enumerable: true, get: function () { return __importDefault(ApiService_1).default; } });
 var RtpService_1 = require("./RtpService");
@@ -46,6 +46,8 @@ var PermissionService_1 = require("./PermissionService");
 Object.defineProperty(exports, "PermissionService", { enumerable: true, get: function () { return __importDefault(PermissionService_1).default; } });
 var TransactionService_1 = require("./TransactionService");
 Object.defineProperty(exports, "TransactionService", { enumerable: true, get: function () { return __importDefault(TransactionService_1).default; } });
+var CustomizationService_1 = require("./CustomizationService");
+Object.defineProperty(exports, "CustomizationService", { enumerable: true, get: function () { return __importDefault(CustomizationService_1).default; } });
 var TornamentPlayerService_1 = require("./TornamentPlayerService");
 Object.defineProperty(exports, "TornamentPlayerService", { enumerable: true, get: function () { return __importDefault(TornamentPlayerService_1).default; } });
 //# sourceMappingURL=index.js.map

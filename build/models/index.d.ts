@@ -21,5 +21,6 @@ import Transaction from "./transaction";
 import Leaderboard from "./leaderboard";
 import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
-export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, ErrorMessage, TornamentPlayers, };
+import Customization from "./customization";
+export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, ErrorMessage, Customization, TornamentPlayers, };
 //# sourceMappingURL=index.d.ts.map

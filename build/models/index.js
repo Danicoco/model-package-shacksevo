@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TornamentPlayers = exports.ErrorMessage = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
+exports.TornamentPlayers = exports.Customization = exports.ErrorMessage = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.APP = exports.API = exports.Rtp = void 0;
 var rtp_1 = __importDefault(require("./rtp"));
 exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
@@ -50,4 +50,6 @@ var tornamentPlayers_1 = __importDefault(require("./tornamentPlayers"));
 exports.Tornament = tornamentPlayers_1.default;
 var tornamentPlayers_2 = __importDefault(require("./tornamentPlayers"));
 exports.TornamentPlayers = tornamentPlayers_2.default;
+var customization_1 = __importDefault(require("./customization"));
+exports.Customization = customization_1.default;
 //# sourceMappingURL=index.js.map

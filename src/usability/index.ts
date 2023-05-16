@@ -19,4 +19,5 @@ export { default as SpinRecordService } from "./SpinRecordService";
 export { default as GameAccessService } from "./GameAccessService";
 export { default as PermissionService } from "./PermissionService";
 export { default as TransactionService } from "./TransactionService";
+export { default as CustomizationService } from "./CustomizationService";
 export { default as TornamentPlayerService } from "./TornamentPlayerService";
