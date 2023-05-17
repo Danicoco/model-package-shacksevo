@@ -21,8 +21,8 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
+import { ClientSession } from "mongoose";
 import { ICustomization, IPaginator } from "../../types";
 declare class CustomizationService {
     private model;
@@ -31,10 +31,10 @@ declare class CustomizationService {
     private game;
     private partnerId;
     constructor(_id?: string, partnerId?: string, name?: string, game?: string);
-    create(params: Partial<ICustomization>): Promise<import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
+    create(params: Partial<ICustomization>, session?: ClientSession): Promise<import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
         _id: string;
     }>, never>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
+    findOne(session?: ClientSession): Promise<(import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
         _id: string;
     }>, never>) | null>;
     count(condition?: any): Promise<number>;
@@ -54,9 +54,10 @@ declare class CustomizationService {
     findAll(): Promise<(import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
         _id: string;
     }>, never>)[]>;
-    updateOne(params: Partial<ICustomization>): Promise<(import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
+    updateOne(params: Partial<ICustomization>, session?: ClientSession): Promise<(import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
         _id: string;
     }>, never>) | null>;
+    deleteOne(session?: ClientSession): Promise<import("mongodb").DeleteResult>;
 }
 export default CustomizationService;
 //# sourceMappingURL=CustomizationService.d.ts.map

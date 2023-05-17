@@ -1,3 +1,4 @@
+import { ClientSession } from "mongoose";
 import { ICustomization, IPaginator } from "../../types";
 import { Customization } from '../models';
 import Pagionation from "./Pagination";
@@ -20,23 +21,24 @@ class CustomizationService {
         this.partnerId = partnerId;
     }
 
-    public async create(params: Partial<ICustomization>) {
+    public async create(params: Partial<ICustomization>, session?: ClientSession) {
         try {
-            const cus = await this.model.create({ ...params });
+            const cus = new this.model({ ...params });
+            await cus.save({ ...(session && { session } ) })
             return cus;
         } catch (error: any) {
             throw new Error(error);
         }
     }
 
-    public async findOne() {
+    public async findOne(session?: ClientSession) {
         const cus = await this.model
             .findOne({
                 ...(this._id && { _id: this._id }),
                 ...(this.partnerId && { partnerId: this.partnerId }),
                 ...(this.game && { game: this.game }),
                 ...(this.name && { name: this.name }),
-            })
+            }, {}, { ...(session && { session }) })
             .catch((e: any) => { throw new Error(e) });
 
         return cus;
@@ -81,12 +83,22 @@ class CustomizationService {
         return cus;
     }
 
-    public async updateOne(params: Partial<ICustomization>) {
+    public async updateOne(params: Partial<ICustomization>, session?: ClientSession) {
         const cus = await this.model
             .findOneAndUpdate(
                 { _id: this._id },
                 { ...params },
-                { new: true }
+                { new: true, ...(session && { session }) }
+            );
+
+        return cus;
+    }
+
+    public async deleteOne(session?: ClientSession) {
+        const cus = await this.model
+            .deleteOne(
+                { _id: this._id },
+                { ...(session  && { session }) }
             );
 
         return cus;

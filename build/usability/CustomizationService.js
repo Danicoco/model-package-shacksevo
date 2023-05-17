@@ -64,16 +64,17 @@ var CustomizationService = /** @class */ (function () {
         this.game = game;
         this.partnerId = partnerId;
     }
-    CustomizationService.prototype.create = function (params) {
+    CustomizationService.prototype.create = function (params, session) {
         return __awaiter(this, void 0, void 0, function () {
             var cus, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.model.create(__assign({}, params))];
+                        cus = new this.model(__assign({}, params));
+                        return [4 /*yield*/, cus.save(__assign({}, (session && { session: session })))];
                     case 1:
-                        cus = _a.sent();
+                        _a.sent();
                         return [2 /*return*/, cus];
                     case 2:
                         error_1 = _a.sent();
@@ -83,13 +84,13 @@ var CustomizationService = /** @class */ (function () {
             });
         });
     };
-    CustomizationService.prototype.findOne = function () {
+    CustomizationService.prototype.findOne = function (session) {
         return __awaiter(this, void 0, void 0, function () {
             var cus;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.model
-                            .findOne(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.game && { game: this.game })), (this.name && { name: this.name })))
+                            .findOne(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.game && { game: this.game })), (this.name && { name: this.name })), {}, __assign({}, (session && { session: session })))
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         cus = _a.sent();
@@ -153,13 +154,27 @@ var CustomizationService = /** @class */ (function () {
             });
         });
     };
-    CustomizationService.prototype.updateOne = function (params) {
+    CustomizationService.prototype.updateOne = function (params, session) {
         return __awaiter(this, void 0, void 0, function () {
             var cus;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.model
-                            .findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
+                            .findOneAndUpdate({ _id: this._id }, __assign({}, params), __assign({ new: true }, (session && { session: session })))];
+                    case 1:
+                        cus = _a.sent();
+                        return [2 /*return*/, cus];
+                }
+            });
+        });
+    };
+    CustomizationService.prototype.deleteOne = function (session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var cus;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .deleteOne({ _id: this._id }, __assign({}, (session && { session: session })))];
                     case 1:
                         cus = _a.sent();
                         return [2 /*return*/, cus];
