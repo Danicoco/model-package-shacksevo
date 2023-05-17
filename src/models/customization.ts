@@ -6,7 +6,7 @@ const CustomizationSchema: Schema = new Schema<ICustomization>({
         type: String
     },
     value: {
-        type: String
+        type: Schema.Types.Mixed
     },
     type: {
         type: String,

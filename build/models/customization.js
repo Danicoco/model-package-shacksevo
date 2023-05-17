@@ -6,7 +6,7 @@ var CustomizationSchema = new mongoose_1.Schema({
         type: String
     },
     value: {
-        type: String
+        type: mongoose_1.Schema.Types.Mixed
     },
     type: {
         type: String,
