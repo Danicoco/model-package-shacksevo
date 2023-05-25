@@ -63,6 +63,8 @@ declare class GameService {
         _id: string;
     }>, never>) | null>;
     deleteOne(): Promise<import("mongodb").DeleteResult>;
+    deleteByPartnerId(): Promise<import("mongodb").DeleteResult>;
+    deleteAll(): Promise<import("mongodb").DeleteResult>;
 }
 export default GameService;
 //# sourceMappingURL=GameService.d.ts.map
