@@ -69,6 +69,16 @@ class GameAccessService {
         return gameAccess;
 
     }
+
+    public async deleteByPartnerId() {
+        const game = await GameAccess.deleteMany({ ...(this.partnerId && { partnerId: this.partnerId }) });
+        return game;
+    }
+
+    public async deleteAll() {
+        const game = await GameAccess.deleteMany({});
+        return game;
+    }
 }
 
 export default GameAccessService;

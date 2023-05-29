@@ -147,6 +147,32 @@ var GameAccessService = /** @class */ (function () {
             });
         });
     };
+    GameAccessService.prototype.deleteByPartnerId = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var game;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameAccess.deleteMany(__assign({}, (this.partnerId && { partnerId: this.partnerId })))];
+                    case 1:
+                        game = _a.sent();
+                        return [2 /*return*/, game];
+                }
+            });
+        });
+    };
+    GameAccessService.prototype.deleteAll = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var game;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameAccess.deleteMany({})];
+                    case 1:
+                        game = _a.sent();
+                        return [2 /*return*/, game];
+                }
+            });
+        });
+    };
     return GameAccessService;
 }());
 exports.default = GameAccessService;

@@ -25,9 +25,6 @@ var GameSchema = new mongoose_1.Schema({
     documentationUrl: {
         type: String,
     },
-    assets: {
-        type: mongoose_1.Schema.Types.Mixed,
-    },
     integrationCount: {
         type: Number,
         default: 0,

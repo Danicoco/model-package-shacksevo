@@ -18,6 +18,9 @@ var GameAccessSchema = new mongoose_1.Schema({
     url: {
         type: String,
     },
+    assets: {
+        type: mongoose_1.Schema.Types.Mixed,
+    },
     isActive: {
         type: Boolean,
     }

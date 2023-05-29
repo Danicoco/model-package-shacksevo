@@ -26,9 +26,6 @@ const GameSchema: Schema = new Schema<IGame>({
     documentationUrl: {
         type: String,
     },
-    assets: {
-        type: Schema.Types.Mixed,
-    },
     integrationCount: {
         type: Number,
         default: 0,

@@ -102,7 +102,6 @@ interface IGame extends DefaultAttributes {
   name: string;
   code: string;
   demoUrl: string;
-  assets: { logo: string; banner: string };
   partnerId: ObjectId;
   accessUrl: string; // live integration
   documentationUrl: string;
@@ -112,6 +111,7 @@ interface IGame extends DefaultAttributes {
 interface IGameAccess extends DefaultAttributes {
   url: string;
   gameId?: string;
+  assets: { logo: string; banner: string };
   isActive: boolean;
   partnerId?: string;
   partnerName: string;

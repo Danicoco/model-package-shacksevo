@@ -20,6 +20,9 @@ const GameAccessSchema: Schema = new Schema<IGameAccess>({
     url: {
         type: String,
     },
+    assets: {
+        type: Schema.Types.Mixed,
+    },
     isActive: {
         type: Boolean,
     }

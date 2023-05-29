@@ -45,6 +45,8 @@ declare class GameAccessService {
     deleteOne(): Promise<(import("mongoose").Document<unknown, {}, IGameAccess> & Omit<IGameAccess & Required<{
         _id: string;
     }>, never>) | null>;
+    deleteByPartnerId(): Promise<import("mongodb").DeleteResult>;
+    deleteAll(): Promise<import("mongodb").DeleteResult>;
 }
 export default GameAccessService;
 //# sourceMappingURL=GameAccessService.d.ts.map
