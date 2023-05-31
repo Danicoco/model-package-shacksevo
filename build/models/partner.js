@@ -87,7 +87,10 @@ var PartnerSchema = new mongoose_1.Schema({
         default: 'thirdparty',
     },
     customization: [customizationSchema],
-    stakesCustomization: [stakesSchema]
+    stakesCustomization: [stakesSchema],
+    partnerUrl: { type: "String" },
+    gameWebsocket: { type: "String" },
+    chatWebsocket: { type: "String" }
 }, {
     collection: 'partners',
     versionKey: false

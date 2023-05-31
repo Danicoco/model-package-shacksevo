@@ -90,7 +90,10 @@ const PartnerSchema: Schema = new Schema<IPartner>({
         default: 'thirdparty',
     },
     customization: [customizationSchema],
-    stakesCustomization: [stakesSchema]
+    stakesCustomization: [stakesSchema],
+    partnerUrl: { type: "String" },
+    gameWebsocket: { type: "String" },
+    chatWebsocket: { type: "String" }
 }, {
     collection: 'partners',
     versionKey: false

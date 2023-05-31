@@ -163,8 +163,11 @@ interface IPartner extends DefaultAttributes {
   isActive: boolean;
   type: IPartnerType;
   webhookUrl: string;
+  partnerUrl: string;
   callbackUrl: string;
   phoneNumber: string;
+  chatWebsocket: string;
+  gameWebsocket: string;
   noOfEmployees: number;
   stakesCustomization: IStakesCustomization[];
   customization: Partial<UsageCustomization>[];
