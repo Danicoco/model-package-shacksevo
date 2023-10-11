@@ -80,6 +80,9 @@ const PartnerSchema: Schema = new Schema<IPartner>({
         type: String,
         default: null,
     },
+    associatedId: {
+        type: String,
+    },
     webhookUrl: {
         type: String,
         default: null,

@@ -166,6 +166,7 @@ interface IPartner extends DefaultAttributes {
   partnerUrl: string;
   callbackUrl: string;
   phoneNumber: string;
+  associatedId: string;
   chatWebsocket: string;
   gameWebsocket: string;
   noOfEmployees: number;

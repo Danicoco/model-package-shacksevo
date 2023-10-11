@@ -77,6 +77,9 @@ var PartnerSchema = new mongoose_1.Schema({
         type: String,
         default: null,
     },
+    associatedId: {
+        type: String,
+    },
     webhookUrl: {
         type: String,
         default: null,
