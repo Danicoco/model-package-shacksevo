@@ -13,6 +13,7 @@ import Feedback from "./feedback";
 import ErrorMessage from "./error";
 import GameRound from "./gameRound";
 import BetPlaced from "./betPlaced";
+import Promotion from "./promotion";
 import SpinRecord from "./spinRecord";
 import EveryMatrix from "./everymatrix";
 import GameAccess from "./gameAccess";
@@ -39,6 +40,7 @@ export {
   GameRound,
   BetPlaced,
   Tornament,
+  Promotion,
   GameAccess,
   Permission,
   SpinRecord,

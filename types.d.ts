@@ -213,6 +213,18 @@ interface IRTP extends DefaultAttributes {
   partnerId: string;
 }
 
+type IPromotionBet = {
+  betId: string;
+  date: Date;
+}
+
+interface IPromotion extends DefaultAttributes {
+  gameType: string;
+  isActive: boolean;
+  partnerId: string;
+  bets: Array<IPromotionBet>;
+}
+
 interface IRole extends DefaultAttributes {
   name: string;
   addedBy: string;

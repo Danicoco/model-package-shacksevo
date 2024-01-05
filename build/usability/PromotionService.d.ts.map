@@ -1,0 +1,1 @@
+{"version":3,"file":"PromotionService.d.ts","sourceRoot":"","sources":["../../src/usability/PromotionService.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,aAAa,CAAC;AACzC,OAAO,cAAc,MAAM,0BAA0B,CAAC;AAGtD,cAAM,gBAAiB,SAAQ,cAAc,CAAC,UAAU,CAAC;gBAC3C,MAAM,EAAE,OAAO,CAAC,UAAU,CAAC;CAGxC;AAED,eAAe,gBAAgB,CAAC"}

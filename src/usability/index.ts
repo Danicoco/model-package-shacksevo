@@ -14,6 +14,7 @@ export { default as RewardService } from "./RewardService";
 export { default as PartnerService } from "./PartnerService";
 export { default as EveryMatrixService } from "./EveryMatrix";
 export { default as FeedbackService } from "./FeedbackService";
+export { default as PromotionService } from "./PromotionService";
 export { default as TornamentService } from "./TornamentService";
 export { default as SpinRecordService } from "./SpinRecordService";
 export { default as GameAccessService } from "./GameAccessService";
