@@ -28,9 +28,9 @@ declare class CustomizationService {
     private model;
     private _id;
     private name;
-    private game;
+    private type;
     private partnerId;
-    constructor(_id?: string, partnerId?: string, name?: string, game?: string);
+    constructor(_id?: string, partnerId?: string, name?: string, type?: string);
     create(params: Partial<ICustomization>, session?: ClientSession): Promise<import("mongoose").Document<unknown, {}, ICustomization> & Omit<ICustomization & Required<{
         _id: string;
     }>, never>>;

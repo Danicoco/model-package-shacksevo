@@ -10,14 +10,14 @@ class CustomizationService {
 
     private name: string;
 
-    private game: string;
+    private type: string;
 
     private partnerId: string;
 
-    constructor(_id = '', partnerId = '', name = '', game = '') {
+    constructor(_id = '', partnerId = '', name = '', type = '') {
         this._id = _id;
         this.name = name;
-        this.game = game;
+        this.type = type;
         this.partnerId = partnerId;
     }
 
@@ -36,7 +36,7 @@ class CustomizationService {
             .findOne({
                 ...(this._id && { _id: this._id }),
                 ...(this.partnerId && { partnerId: this.partnerId }),
-                ...(this.game && { game: this.game }),
+                ...(this.type && { game: this.type }),
                 ...(this.name && { name: this.name }),
             }, {}, { ...(session && { session }) })
             .catch((e: any) => { throw new Error(e) });
@@ -75,7 +75,7 @@ class CustomizationService {
             .find({
                 ...(this._id && { _id: this._id }),
                 ...(this.partnerId && { partnerId: this.partnerId }),
-                ...(this.game && { game: this.game }),
+                ...(this.type && { game: this.type }),
                 ...(this.name && { name: this.name }),
             })
             .catch((e: any) => { throw new Error(e) });

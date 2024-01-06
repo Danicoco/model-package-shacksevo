@@ -53,15 +53,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var Pagination_1 = __importDefault(require("./Pagination"));
 var CustomizationService = /** @class */ (function () {
-    function CustomizationService(_id, partnerId, name, game) {
+    function CustomizationService(_id, partnerId, name, type) {
         if (_id === void 0) { _id = ''; }
         if (partnerId === void 0) { partnerId = ''; }
         if (name === void 0) { name = ''; }
-        if (game === void 0) { game = ''; }
+        if (type === void 0) { type = ''; }
         this.model = models_1.Customization;
         this._id = _id;
         this.name = name;
-        this.game = game;
+        this.type = type;
         this.partnerId = partnerId;
     }
     CustomizationService.prototype.create = function (params, session) {
@@ -90,7 +90,7 @@ var CustomizationService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.model
-                            .findOne(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.game && { game: this.game })), (this.name && { name: this.name })), {}, __assign({}, (session && { session: session })))
+                            .findOne(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.type && { game: this.type })), (this.name && { name: this.name })), {}, __assign({}, (session && { session: session })))
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         cus = _a.sent();
@@ -145,7 +145,7 @@ var CustomizationService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.model
-                            .find(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.game && { game: this.game })), (this.name && { name: this.name })))
+                            .find(__assign(__assign(__assign(__assign({}, (this._id && { _id: this._id })), (this.partnerId && { partnerId: this.partnerId })), (this.type && { game: this.type })), (this.name && { name: this.name })))
                             .catch(function (e) { throw new Error(e); })];
                     case 1:
                         cus = _a.sent();
