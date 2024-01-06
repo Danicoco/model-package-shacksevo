@@ -14,7 +14,7 @@ declare class BaseRepository<T> {
     deleteOne(session?: ClientSession): Promise<T | null>;
     count(condition?: any): Promise<number>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: any[];
+        data: T[];
         pagination: {
             to: number;
             from: number;

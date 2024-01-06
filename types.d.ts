@@ -219,9 +219,11 @@ type IPromotionBet = {
 }
 
 interface IPromotion extends DefaultAttributes {
+  userId: string;
   gameType: string;
   isActive: boolean;
   partnerId: string;
+  type: 'free-bet';
   bets: Array<IPromotionBet>;
 }
 

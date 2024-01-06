@@ -170,7 +170,7 @@ var BaseRepository = /** @class */ (function () {
     BaseRepository.prototype.findAllPaginated = function (_a) {
         var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
         return __awaiter(this, void 0, void 0, function () {
-            var count, spins;
+            var count, data;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
@@ -187,10 +187,10 @@ var BaseRepository = /** @class */ (function () {
                                 throw e;
                             })];
                     case 2:
-                        spins = _b.sent();
+                        data = _b.sent();
                         return [2 /*return*/, {
-                                data: spins,
-                                pagination: Pagination_1.default.builder(spins, count, { page: page, limit: limit }),
+                                data: data,
+                                pagination: Pagination_1.default.builder(data, count, { page: page, limit: limit }),
                             }];
                 }
             });

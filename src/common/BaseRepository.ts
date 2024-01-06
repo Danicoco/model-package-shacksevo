@@ -103,7 +103,7 @@ class BaseRepository<T> {
         const count = await this.count(condition).catch((e) => {
           throw e;
         });
-        const spins = await this.model
+        const data: T[] = await this.model
           .find({
             ...(condition && condition),
           })
@@ -115,8 +115,8 @@ class BaseRepository<T> {
           });
 
         return {
-          data: spins,
-          pagination: Pagionation.builder(spins, count, { page, limit }),
+          data,
+          pagination: Pagionation.builder(data, count, { page, limit }),
         };
       }
 }

@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IPromotion } from '../../types';
+import { IPromotion } from "../../types";
 declare const _default: import("mongoose").Model<IPromotion, {}, {}, {}, import("mongoose").Document<unknown, {}, IPromotion> & Omit<IPromotion & Required<{
     _id: string;
 }>, never>, any>;
