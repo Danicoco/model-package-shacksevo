@@ -214,16 +214,17 @@ interface IRTP extends DefaultAttributes {
 }
 
 type IPromotionBet = {
-  betId: string;
   date: Date;
-}
+  betId: string;
+  amount: number;
+};
 
 interface IPromotion extends DefaultAttributes {
   userId: string;
   gameType: string;
   isActive: boolean;
   partnerId: string;
-  type: 'free-bet';
+  type: "free-bet";
   bets: Array<IPromotionBet>;
 }
 

@@ -3,6 +3,7 @@ import { IPromotion, IPromotionBet } from "../../types";
 
 const PromotionBet = new Schema<IPromotionBet>({
   betId: { type: "String" },
+  amount: { type: "Number" },
   date: { type: "Date" },
 });
 
