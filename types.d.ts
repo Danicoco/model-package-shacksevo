@@ -7,9 +7,9 @@ interface AuthenticatedUser extends Request {
 }
 
 interface DefaultAttributes {
-  _id: string;
-  createdAt: string;
-  updatedAt: string;
+  _id?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 interface IGameRound extends DefaultAttributes {

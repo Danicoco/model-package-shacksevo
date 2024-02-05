@@ -1,11 +1,6 @@
 import { Schema, model } from "mongoose";
-import { IPromotion, IPromotionBet } from "../../types";
+import { IPromotion } from "../../types";
 
-const PromotionBet = new Schema<IPromotionBet>({
-  betId: { type: "String" },
-  amount: { type: "Number" },
-  date: { type: "Date" },
-});
 
 const PromotionSchema: Schema = new Schema<IPromotion>(
   {
@@ -13,7 +8,7 @@ const PromotionSchema: Schema = new Schema<IPromotion>(
       type: Boolean,
       required: true,
     },
-    bets: [PromotionBet],
+    bets: [],
     gameType: {
       type: String,
       required: true,

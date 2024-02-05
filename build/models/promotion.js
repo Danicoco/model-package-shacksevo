@@ -1,16 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
-var PromotionBet = new mongoose_1.Schema({
-    betId: { type: "String" },
-    date: { type: "Date" },
-});
 var PromotionSchema = new mongoose_1.Schema({
     isActive: {
         type: Boolean,
         required: true,
     },
-    bets: [PromotionBet],
+    bets: [],
     gameType: {
         type: String,
         required: true,
