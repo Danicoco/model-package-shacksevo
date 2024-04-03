@@ -11,9 +11,6 @@ const UserSchema: Schema = new Schema<IUser>(
       type: String,
       trim: true,
     },
-    email: {
-      type: String,
-    },
     otp: String,
     gameType: {
       type: String,

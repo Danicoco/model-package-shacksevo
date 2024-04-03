@@ -49,7 +49,6 @@ interface IBetPlaced extends DefaultAttributes {
 interface IUser extends DefaultAttributes {
   firstName: string;
   lastName: string;
-  email: string;
   otp?: string;
   gameType: string;
   isActive: boolean;

@@ -10,9 +10,6 @@ var UserSchema = new mongoose_1.Schema({
         type: String,
         trim: true,
     },
-    email: {
-        type: String,
-    },
     otp: String,
     gameType: {
         type: String,
