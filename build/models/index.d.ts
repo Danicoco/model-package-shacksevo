@@ -12,6 +12,8 @@ import Partner from "./partner";
 import Feedback from "./feedback";
 import ErrorMessage from "./error";
 import GameRound from "./gameRound";
+import Notification from "./notification";
+import Log from "./log";
 import BetPlaced from "./betPlaced";
 import Promotion from "./promotion";
 import SpinRecord from "./spinRecord";
@@ -23,5 +25,5 @@ import Leaderboard from "./leaderboard";
 import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
 import Customization from "./customization";
-export { Rtp, API, APP, Game, Chat, User, Role, Admin, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, Promotion, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, ErrorMessage, Customization, TornamentPlayers, };
+export { Rtp, API, APP, Log, Game, Chat, User, Role, Admin, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, Promotion, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, Notification, ErrorMessage, Customization, TornamentPlayers, };
 //# sourceMappingURL=index.d.ts.map

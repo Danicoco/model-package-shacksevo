@@ -9,6 +9,8 @@ export { default as ErrorService } from "./ErrorService";
 export { default as AdminService } from "./AdminService";
 export { default as GameRoundService } from "./GameRound";
 export { default as BetPlacedService } from "./BetService";
+export { default as Notification } from "./NotificationService";
+export { default as LogService } from "./LogService";
 export { default as WalletService } from "./WalletService";
 export { default as RewardService } from "./RewardService";
 export { default as PartnerService } from "./PartnerService";

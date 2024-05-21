@@ -12,6 +12,8 @@ import Partner from "./partner";
 import Feedback from "./feedback";
 import ErrorMessage from "./error";
 import GameRound from "./gameRound";
+import Notification from "./notification";
+import Log from "./log";
 import BetPlaced from "./betPlaced";
 import Promotion from "./promotion";
 import SpinRecord from "./spinRecord";
@@ -28,6 +30,7 @@ export {
   Rtp,
   API,
   APP,
+  Log,
   Game,
   Chat,
   User,
@@ -47,6 +50,7 @@ export {
   EveryMatrix,
   Leaderboard,
   Transaction,
+  Notification,
   ErrorMessage,
   Customization,
   TornamentPlayers,
