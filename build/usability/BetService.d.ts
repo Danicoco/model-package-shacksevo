@@ -21,9 +21,9 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IBetPlaced, IPaginator } from "../../types";
+import { PipelineStage } from "mongoose";
 declare class BetPlacedService {
     private partnerId;
     private _id;
@@ -74,6 +74,7 @@ declare class BetPlacedService {
         _id: string;
     }>, never>) | null>;
     updateAll(params: Partial<IBetPlaced>): Promise<import("mongodb").UpdateResult>;
+    aggregate(pipeline: PipelineStage[]): Promise<any[]>;
 }
 export default BetPlacedService;
 //# sourceMappingURL=BetService.d.ts.map

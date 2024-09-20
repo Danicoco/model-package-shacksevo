@@ -324,6 +324,13 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
+    BetPlacedService.prototype.aggregate = function (pipeline) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, models_1.BetPlaced.aggregate(pipeline)];
+            });
+        });
+    };
     return BetPlacedService;
 }());
 exports.default = BetPlacedService;

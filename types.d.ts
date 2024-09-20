@@ -186,6 +186,12 @@ interface INotification extends DefaultAttributes {
   meta: Record<string, any>
 }
 
+interface IDomain extends DefaultAttributes {
+  webhookUrl: string;
+  callbackUrl: string;
+  partnerId: string;
+}
+
 interface ILog extends DefaultAttributes {
   type: 'error' | 'info';
   meta: Record<string, any>

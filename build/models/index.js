@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TornamentPlayers = exports.Customization = exports.ErrorMessage = exports.Notification = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Promotion = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.Log = exports.APP = exports.API = exports.Rtp = void 0;
+exports.TornamentPlayers = exports.Customization = exports.ErrorMessage = exports.Notification = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Promotion = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Domain = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.Log = exports.APP = exports.API = exports.Rtp = void 0;
 var rtp_1 = __importDefault(require("./rtp"));
 exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
@@ -20,6 +20,8 @@ var roles_1 = __importDefault(require("./roles"));
 exports.Role = roles_1.default;
 var admin_1 = __importDefault(require("./admin"));
 exports.Admin = admin_1.default;
+var domain_1 = __importDefault(require("./domain"));
+exports.Domain = domain_1.default;
 var wallet_1 = __importDefault(require("./wallet"));
 exports.Wallet = wallet_1.default;
 var reward_1 = __importDefault(require("./reward"));

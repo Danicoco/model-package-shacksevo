@@ -1,6 +1,7 @@
 import { BetPlaced } from "../models";
 import { IBetPlaced, IPaginator } from "../../types";
 import Pagionation from "./Pagination";
+import { PipelineStage } from "mongoose";
 
 class BetPlacedService {
   private partnerId: string | null;
@@ -189,6 +190,11 @@ class BetPlacedService {
 
     return betPlaced;
   }
+
+  public async aggregate(pipeline: PipelineStage[]) {
+    return BetPlaced.aggregate(pipeline)
+  }
 }
+
 
 export default BetPlacedService;

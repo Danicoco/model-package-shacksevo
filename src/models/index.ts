@@ -6,6 +6,7 @@ import User from "./user";
 import Chat from "./chat";
 import Role from "./roles";
 import Admin from "./admin";
+import Domain from "./domain";
 import Wallet from "./wallet";
 import Reward from "./reward";
 import Partner from "./partner";
@@ -36,6 +37,7 @@ export {
   User,
   Role,
   Admin,
+  Domain,
   Wallet,
   Reward,
   Partner,
