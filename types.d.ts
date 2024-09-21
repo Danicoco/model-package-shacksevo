@@ -181,6 +181,22 @@ interface ICustomization extends DefaultAttributes {
   partnerId: string;
 }
 
+interface INotification extends DefaultAttributes {
+  type: 'bet' | 'user' | 'partner' | 'aggregator' | 'game';
+  meta: Record<string, any>
+}
+
+interface IDomain extends DefaultAttributes {
+  webhookUrl: string;
+  callbackUrl: string;
+  partnerId: string;
+}
+
+interface ILog extends DefaultAttributes {
+  type: 'error' | 'info';
+  meta: Record<string, any>
+}
+
 type FeedbackTypes =
   | "games"
   | "complaint"

@@ -6,12 +6,15 @@ import User from "./user";
 import Chat from "./chat";
 import Role from "./roles";
 import Admin from "./admin";
+import Domain from "./domain";
 import Wallet from "./wallet";
 import Reward from "./reward";
 import Partner from "./partner";
 import Feedback from "./feedback";
 import ErrorMessage from "./error";
 import GameRound from "./gameRound";
+import Notification from "./notification";
+import Log from "./log";
 import BetPlaced from "./betPlaced";
 import Promotion from "./promotion";
 import SpinRecord from "./spinRecord";
@@ -28,11 +31,13 @@ export {
   Rtp,
   API,
   APP,
+  Log,
   Game,
   Chat,
   User,
   Role,
   Admin,
+  Domain,
   Wallet,
   Reward,
   Partner,
@@ -47,6 +52,7 @@ export {
   EveryMatrix,
   Leaderboard,
   Transaction,
+  Notification,
   ErrorMessage,
   Customization,
   TornamentPlayers,
