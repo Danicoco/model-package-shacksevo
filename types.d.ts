@@ -177,6 +177,7 @@ type IProject = {
   partnerUrl: string;
   crashliteWebsocket?: string;
   buslyWebsocket?: string;
+  rtp?: number;
 };
 
 type IParnterPermissions = {
