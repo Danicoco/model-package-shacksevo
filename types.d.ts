@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Request } from "express";
-import { ObjectId } from "mongoose";
+import { FilterQuery, ObjectId, UpdateQuery } from "mongoose";
 
 interface AuthenticatedUser extends Request {
   user: Users;
@@ -14,12 +14,16 @@ interface DefaultAttributes {
 
 interface IGameRound extends DefaultAttributes {
   day: string;
+  betId: string;
   season: number;
   gameOdd: string;
   eventId: string;
   gameType: string;
   eventTypes: Array;
   isPlayed: boolean;
+  hasEnded: boolean;
+  sessionId: string;
+  playerId: string;
   eventRanges: Array;
   partnerId?: string;
   partnerName: string;
@@ -33,7 +37,7 @@ type IBetType = "free-bet" | "real" | "demo";
 interface IBetPlaced extends DefaultAttributes {
   result: string;
   type: IBetType;
-  userId?: string;
+  userId: string;
   gameType: string;
   username: string;
   partnerId?: string;
@@ -43,8 +47,27 @@ interface IBetPlaced extends DefaultAttributes {
   betPlacedType: string;
   cashoutAmount: number;
   potentialWinning: number;
-  selectedEventType?: any[];
+  selectedEventType: any[];
 }
+
+interface IDealer extends DefaultAttributes {
+  card: string;
+  dateInitiated: Date;
+  dateUsed: Date;
+  hasEnded: boolean;
+  playerId: string;
+  partnerId: string;
+  playerToken: string;
+  roundId: string;
+  meta: Record<string, string>;
+}
+
+type IWrite<T> = {
+  updateOne: {
+    filter: FilterQuery<T>;
+    update: UpdateQuery<T>;
+  };
+};
 
 interface IUser extends DefaultAttributes {
   firstName: string;
@@ -146,6 +169,24 @@ type UsageCustomization = {
   stakes: IStakesCustomization;
 };
 
+type IProject = {
+  _id?: string;
+  isActive: boolean;
+  email: string;
+  name: string;
+  partnerUrl: string;
+  crashliteWebsocket?: string;
+  buslyWebsocket?: string;
+};
+
+type IParnterPermissions = {
+  addPartner: boolean;
+  getPartner: boolean;
+  getGame: boolean;
+  getBets: boolean;
+  getReports: boolean;
+};
+
 interface IPartner extends DefaultAttributes {
   name: string;
   role: string;
@@ -171,6 +212,8 @@ interface IPartner extends DefaultAttributes {
   noOfEmployees: number;
   stakesCustomization: IStakesCustomization[];
   customization: Partial<UsageCustomization>[];
+  projects: IProject[];
+  permissions: IParnterPermissions;
 }
 
 interface ICustomization extends DefaultAttributes {
@@ -182,8 +225,8 @@ interface ICustomization extends DefaultAttributes {
 }
 
 interface INotification extends DefaultAttributes {
-  type: 'bet' | 'user' | 'partner' | 'aggregator' | 'game';
-  meta: Record<string, any>
+  type: "bet" | "user" | "partner" | "aggregator" | "game";
+  meta: Record<string, any>;
 }
 
 interface IDomain extends DefaultAttributes {
@@ -193,8 +236,8 @@ interface IDomain extends DefaultAttributes {
 }
 
 interface ILog extends DefaultAttributes {
-  type: 'error' | 'info';
-  meta: Record<string, any>
+  type: "error" | "info";
+  meta: Record<string, any>;
 }
 
 type FeedbackTypes =
@@ -399,6 +442,19 @@ interface ISpinRecord extends DefaultAttributes {
   partnerId: ObjectId;
   cashoutAmount?: number;
   outcome: "cash-win" | "free-spin";
+}
+
+interface IAggregator extends DefaultAttributes {
+  name: string;
+  betId: string;
+  roundId: string;
+  playerId: string;
+  partnerId: string;
+  gameType: string;
+  hasEnded: boolean;
+  betEndedAt?: Date;
+  mode: "real" | "demo";
+  meta: Record<string, any>;
 }
 
 type CatchErr = (message: string, code?: number, validations?: object) => Error;

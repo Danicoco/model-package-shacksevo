@@ -23,7 +23,8 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { IBetPlaced, IPaginator } from "../../types";
-import { PipelineStage } from "mongoose";
+import { ClientSession, FilterQuery, PipelineStage, QueryOptions } from "mongoose";
+import { AnyBulkWriteOperation } from "mongodb";
 declare class BetPlacedService {
     private partnerId;
     private _id;
@@ -31,7 +32,7 @@ declare class BetPlacedService {
     create(params: Partial<IBetPlaced>): Promise<import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
     }>, never>>;
-    findOne(): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
+    findOne(filter: FilterQuery<IBetPlaced>, options: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
     }>, never>) | null>;
     findAll(limit: number): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
@@ -70,11 +71,12 @@ declare class BetPlacedService {
         _id: string;
     }>, never>) | null>;
     deleteMany(condition: any): Promise<import("mongodb").DeleteResult>;
-    updateOne(params: Partial<IBetPlaced>): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
+    updateOne(params: Partial<IBetPlaced>, options?: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
         _id: string;
     }>, never>) | null>;
     updateAll(params: Partial<IBetPlaced>): Promise<import("mongodb").UpdateResult>;
     aggregate(pipeline: PipelineStage[]): Promise<any[]>;
+    bulkWrite(writes: AnyBulkWriteOperation<IBetPlaced>[], session?: ClientSession): Promise<import("mongodb").BulkWriteResult>;
 }
 export default BetPlacedService;
 //# sourceMappingURL=BetService.d.ts.map

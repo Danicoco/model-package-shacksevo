@@ -35,7 +35,7 @@ var BetPlacedSchema = new mongoose_1.Schema({
         type: Number,
     },
     selectedEventType: {
-        type: Array
+        type: []
     },
     playerDetails: {
         type: Object
@@ -48,5 +48,6 @@ var BetPlacedSchema = new mongoose_1.Schema({
     versionKey: false
 });
 BetPlacedSchema.set('timestamps', true);
+BetPlacedSchema.index({ gameRoundId: 1, partnerId: 1, userId: 1 });
 exports.default = (0, mongoose_1.model)('BetPlaceds', BetPlacedSchema);
 //# sourceMappingURL=betPlaced.js.map

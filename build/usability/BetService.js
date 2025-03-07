@@ -77,20 +77,18 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
-    BetPlacedService.prototype.findOne = function () {
+    BetPlacedService.prototype.findOne = function (filter, options) {
         return __awaiter(this, void 0, void 0, function () {
-            var betPlaced;
+            var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOne()
-                            .where(this._id ? "_id" : "partnerId")
-                            .equals(this._id ? this._id : this.partnerId)
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOne(filter, {}, __assign({ lean: true }, options))
                             .catch(function (e) {
-                            throw new Error(e.message);
+                            throw new Error(e);
                         })];
                     case 1:
-                        betPlaced = _a.sent();
-                        return [2 /*return*/, betPlaced];
+                        round = _a.sent();
+                        return [2 /*return*/, round];
                 }
             });
         });
@@ -294,12 +292,13 @@ var BetPlacedService = /** @class */ (function () {
             });
         });
     };
-    BetPlacedService.prototype.updateOne = function (params) {
+    BetPlacedService.prototype.updateOne = function (params, options) {
+        if (options === void 0) { options = { lean: true }; }
         return __awaiter(this, void 0, void 0, function () {
             var betPlaced;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true }).catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.BetPlaced.findOneAndUpdate({ _id: this._id }, __assign({}, params), __assign({ new: true, lean: true }, options)).catch(function (e) {
                             throw new Error(e.message);
                         })];
                     case 1:
@@ -328,6 +327,13 @@ var BetPlacedService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, models_1.BetPlaced.aggregate(pipeline)];
+            });
+        });
+    };
+    BetPlacedService.prototype.bulkWrite = function (writes, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, models_1.BetPlaced.bulkWrite(writes, { session: session, ordered: false })];
             });
         });
     };

@@ -1,1 +1,1 @@
-{"version":3,"file":"partner.d.ts","sourceRoot":"","sources":["../../src/models/partner.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AAEA,OAAO,EAAE,QAAQ,EAA4C,MAAM,aAAa,CAAC;;;;AAwGjF,wBAA0D"}
+{"version":3,"file":"partner.d.ts","sourceRoot":"","sources":["../../src/models/partner.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AACA,OAAO,EAEL,QAAQ,EAIT,MAAM,aAAa,CAAC;;;;AAoIrB,wBAA0D"}

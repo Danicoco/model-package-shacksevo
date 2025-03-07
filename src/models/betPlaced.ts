@@ -35,7 +35,7 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
         type: Number,
     },
     selectedEventType: {
-        type: Array
+        type: []
     },
     playerDetails: {
         type: Object
@@ -49,5 +49,7 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
 });
 
 BetPlacedSchema.set('timestamps', true);
+BetPlacedSchema.index({ gameRoundId: 1, partnerId: 1, userId: 1 })
+
 
 export default model<IBetPlaced>('BetPlaceds', BetPlacedSchema);

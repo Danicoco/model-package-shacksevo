@@ -21,9 +21,10 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
+import { ClientSession, FilterQuery, QueryOptions } from "mongoose";
 import { IGameRound, IPaginator } from "../../types";
+import { AnyBulkWriteOperation } from "mongodb";
 declare class GameRoundService {
     _id: string;
     eventId: string;
@@ -47,7 +48,7 @@ declare class GameRoundService {
     }>>> & Omit<Omit<import("mongoose").MergeType<IGameRound, Partial<IGameRound>>, keyof IGameRound> & IGameRound & Required<{
         _id: string;
     }>, never>)[]>;
-    findOne(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
+    findOne(filter: FilterQuery<IGameRound>, options: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
     }>, never>) | null>;
     findOneCrashRound(): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
@@ -68,6 +69,10 @@ declare class GameRoundService {
     updateOne(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
     }>, never>) | null>;
+    update(filter: Partial<IGameRound>, params: Partial<IGameRound>): Promise<(IGameRound & Required<{
+        _id: string;
+    }>) | null>;
+    bulkWrite(writes: AnyBulkWriteOperation<IGameRound>[], session?: ClientSession): Promise<import("mongodb").BulkWriteResult>;
     updateOneCrashRound(params: Partial<IGameRound>): Promise<(import("mongoose").Document<unknown, {}, IGameRound> & Omit<IGameRound & Required<{
         _id: string;
     }>, never>) | null>;

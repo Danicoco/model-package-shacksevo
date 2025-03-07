@@ -23,9 +23,9 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IPartner } from "../../types";
-declare const _default: import("mongoose").Model<IPartner, {}, {}, {}, import("mongoose").Document<unknown, {}, IPartner> & Omit<IPartner & Required<{
+import { IAggregator } from '../../types';
+declare const _default: import("mongoose").Model<IAggregator, {}, {}, {}, import("mongoose").Document<unknown, {}, IAggregator> & Omit<IAggregator & Required<{
     _id: string;
 }>, never>, any>;
 export default _default;
-//# sourceMappingURL=partner.d.ts.map
+//# sourceMappingURL=aggregator.d.ts.map

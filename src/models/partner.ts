@@ -1,107 +1,140 @@
-
-import { Schema, Types, model } from 'mongoose';
-import { IPartner, IStakesCustomization, UsageCustomization } from '../../types';
+import { Schema, Types, model } from "mongoose";
+import {
+  IParnterPermissions,
+  IPartner,
+  IProject,
+  IStakesCustomization,
+  UsageCustomization,
+} from "../../types";
 
 const stakesSchema: Schema = new Schema<IStakesCustomization>({
-    minimumStake: { type: Number, default: 10 },
-    maximumStake: { type: Number, default: 5000 },
-    gameType: { type: String, default: 'cointoss' },
-    maximumWinnableAmount: { type: Number, default: 20000 },
-    minimumWinnableAmount: { type: Number, default: 0 }
-})
-
-const customizationSchema: Schema = new Schema<UsageCustomization>({
-    stakes: stakesSchema,
-    promoAmount: { type: Number, default: 0 },
-    showAbout: { type: Boolean, default: true },
-    showBalance: { type: Boolean, default: true },
-    showHistory: { type: Boolean, default: true },
-    stakePercentage: { type: Number, default: 0 },
-    numberOfBetPlaced: { type: Number, default: 0 },
-    numberOfTimesPerDay: { type: Number, default: 0 },
-    showBetAmountOption: { type: Boolean, default: true },
-    isActive: { type: Boolean, required: true, default: true },
+  minimumStake: { type: Number, default: 10 },
+  maximumStake: { type: Number, default: 5000 },
+  gameType: { type: String, default: "cointoss" },
+ 
+ maximumWinnableAmount: { type: Number, default: 20000 },
+  minimumWinnableAmount: { type: Number, default: 0 },
 });
 
-const PartnerSchema: Schema = new Schema<IPartner>({
-    name: { // company name
-        type: String,
-        required: true,
-        trim: true,
+const customizationSchema: Schema = new Schema<UsageCustomization>({
+  stakes: stakesSchema,
+  gameType: { type: String },
+  promoAmount: { type: Number, default: 0 },
+  showAbout: { type: Boolean, default: true },
+  showBalance: { type: Boolean, default: true },
+  showHistory: { type: Boolean, default: true },
+  stakePercentage: { type: Number, default: 0 },
+  numberOfBetPlaced: { type: Number, default: 0 },
+  numberOfTimesPerDay: { type: Number, default: 0 },
+  showBetAmountOption: { type: Boolean, default: true },
+  isActive: { type: Boolean, required: true, default: true },
+  stagingUrl: { type: String },
+  productionUrl: { type: String },
+});
+
+const projectSchema: Schema = new Schema<IProject>({
+  _id: { type: Schema.Types.ObjectId, auto: true },
+  email: { type: String },
+  name: { type: String },
+  partnerUrl: { type: String },
+  crashliteWebsocket: { type: String },
+  buslyWebsocket: { type: String },
+  isActive: { type: Boolean },
+});
+
+const permissionSchema: Schema = new Schema<IParnterPermissions>({
+  addPartner: { type: Boolean },
+  getPartner: { type: Boolean },
+  getGame: { type: Boolean },
+  getBets: { type: Boolean },
+  getReports: { type: Boolean },
+});
+
+const PartnerSchema: Schema = new Schema<IPartner>(
+  {
+    name: {
+      // company name
+      type: String,
+      required: true,
+      trim: true,
     },
     firstName: {
-        type: String,
+      type: String,
     },
     lastName: {
-        type: String,
+      type: String,
     },
     email: {
-        type: String,
+      type: String,
     },
     gender: {
-        type: String,
+      type: String,
     },
     phoneNumber: {
-        type: String,
-        trim: true,
+      type: String,
+      trim: true,
     },
     noOfEmployees: {
-        type: Number,
+      type: Number,
     },
     password: {
-        type: String,
+      type: String,
     },
     isActive: {
-        type: Boolean,
-        default: false,
+      type: Boolean,
+      default: false,
     },
     role: {
-        type: String,
+      type: String,
     },
     roleId: {
-        type: Types.ObjectId,
-        ref: 'roles',
+      type: Types.ObjectId,
+      ref: "roles",
     },
     IAM: {
-        type: String,
+      type: String,
     },
     hashedId: {
-        type: String,
+      type: String,
     },
     baseUrl: {
-        type: String,
+      type: String,
     },
     status: {
-        type: String,
-        enum: ['test', 'live'],
-        default: 'test'
+      type: String,
+      enum: ["test", "live"],
+      default: "test",
     },
     callbackUrl: {
-        type: String,
-        default: null,
+      type: String,
+      default: null,
     },
     associatedId: {
-        type: String,
+      type: String,
     },
     webhookUrl: {
-        type: String,
-        default: null,
+      type: String,
+      default: null,
     },
     type: {
-        type: String,
-        enum: ['aggregator', 'thirdparty', 'demo'],
-        default: 'thirdparty',
+      type: String,
+      enum: ["aggregator", "thirdparty", "demo"],
+      default: "thirdparty",
     },
     customization: [customizationSchema],
     stakesCustomization: [stakesSchema],
     partnerUrl: { type: "String" },
     gameWebsocket: { type: "String" },
-    chatWebsocket: { type: "String" }
-}, {
-    collection: 'partners',
-    versionKey: false
-});
+    chatWebsocket: { type: "String" },
+    projects: [projectSchema],
+    permissions: permissionSchema
+  },
+  {
+    collection: "partners",
+    versionKey: false,
+  }
+);
 
-PartnerSchema.set('timestamps', true);
+PartnerSchema.set("timestamps", true);
 
-export default model<IPartner>('Partners', PartnerSchema);
+export default model<IPartner>("Partners", PartnerSchema);
