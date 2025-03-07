@@ -1,14 +1,13 @@
 import { Log } from '../models';
 import { IPaginator, ILog } from '../../types';
 import Pagionation from './Pagination';
+import { FilterQuery, QueryOptions } from 'mongoose';
 
 class LogService {
     private _id: string;
-    private email: string;
 
-    constructor(_id = "", email = "") {
+    constructor(_id = "") {
         this._id = _id;
-        this.email = email;
     }
 
     public async create(params: Partial<ILog>) {
@@ -21,16 +20,14 @@ class LogService {
         }
     }
 
-    public async findOne() {
-        const data = await Log
-            .findOne()
-            .where(this._id ? '_id': 'email')
-            .equals(this._id ? this._id : this.email)
-            .catch((e: any) => {
-                throw new Error(e.message);
-            });
-        return data
-    }
+    public async findOne(filter: FilterQuery<ILog>, options: QueryOptions) {
+        const log = await Log.findOne(filter, {}, { lean: true, ...options })
+          .catch((e: any) => {
+            throw new Error(e);
+          });
+        return log;
+      }
+    
 
     public async findAll() {
         const results = await Log

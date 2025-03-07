@@ -50,10 +50,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var GameRoundService = /** @class */ (function () {
     function GameRoundService(_id, partnerId, year, crashRoundId) {
-        if (_id === void 0) { _id = ''; }
-        if (partnerId === void 0) { partnerId = ''; }
-        if (year === void 0) { year = ''; }
-        if (crashRoundId === void 0) { crashRoundId = ''; }
+        if (_id === void 0) { _id = ""; }
+        if (partnerId === void 0) { partnerId = ""; }
+        if (year === void 0) { year = ""; }
+        if (crashRoundId === void 0) { crashRoundId = ""; }
         this._id = "";
         this.eventId = "";
         this.gameOdd = "";
@@ -65,7 +65,7 @@ var GameRoundService = /** @class */ (function () {
         this.algorithmUsed = "";
         this.partnerId = "";
         this.numberOfBetPlaced = 0;
-        this.crashRoundId = '';
+        this.crashRoundId = "";
         this.partnerId = partnerId;
         this._id = _id;
         this.year = year;
@@ -96,9 +96,7 @@ var GameRoundService = /** @class */ (function () {
             var rounds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .insertMany(params)
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.GameRound.insertMany(params).catch(function (e) {
                             throw new Error(e);
                         })];
                     case 1:
@@ -108,16 +106,15 @@ var GameRoundService = /** @class */ (function () {
             });
         });
     };
-    GameRoundService.prototype.findOne = function () {
+    GameRoundService.prototype.findOne = function (filter, options) {
         return __awaiter(this, void 0, void 0, function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOne()
-                            .where('_id')
-                            .equals(this._id)
-                            .catch(function (e) { throw new Error(e); })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOne(filter, {}, __assign({ lean: true }, options))
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
@@ -130,11 +127,12 @@ var GameRoundService = /** @class */ (function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOne()
-                            .where('crashRoundId')
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOne()
+                            .where("crashRoundId")
                             .equals(this.crashRoundId)
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
@@ -147,12 +145,13 @@ var GameRoundService = /** @class */ (function () {
             var rounds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .find()
+                    case 0: return [4 /*yield*/, models_1.GameRound.find()
                             .where(this.partnerId && "partnerId")
                             .equals(this.partnerId && this.partnerId)
                             .limit(limit)
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         rounds = _a.sent();
                         return [2 /*return*/, rounds];
@@ -166,11 +165,12 @@ var GameRoundService = /** @class */ (function () {
             var rounds;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .find(condition)
+                    case 0: return [4 /*yield*/, models_1.GameRound.find(condition)
                             .sort(sort)
                             .limit(limit)
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         rounds = _b.sent();
                         return [2 /*return*/, rounds];
@@ -183,10 +183,11 @@ var GameRoundService = /** @class */ (function () {
             var rounds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .find()
-                            .sort('-createdAt')
-                            .catch(function (e) { throw new Error(e); })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.find()
+                            .sort("-createdAt")
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         rounds = _a.sent();
                         return [2 /*return*/, rounds];
@@ -199,13 +200,14 @@ var GameRoundService = /** @class */ (function () {
             var rounds;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .find()
-                            .where('partnerId')
+                    case 0: return [4 /*yield*/, models_1.GameRound.find()
+                            .where("partnerId")
                             .equals(this.partnerId)
-                            .where('season')
+                            .where("season")
                             .equals(Number(this.year))
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         rounds = _a.sent();
                         return [2 /*return*/, rounds];
@@ -218,12 +220,31 @@ var GameRoundService = /** @class */ (function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOneAndUpdate({ _id: this._id }, __assign({}, params), { new: true })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
                 }
+            });
+        });
+    };
+    GameRoundService.prototype.update = function (filter, params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOneAndUpdate(filter, __assign({}, params), { new: true }).lean()];
+                    case 1:
+                        round = _a.sent();
+                        return [2 /*return*/, round];
+                }
+            });
+        });
+    };
+    GameRoundService.prototype.bulkWrite = function (writes, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, models_1.GameRound.bulkWrite(writes, { session: session, ordered: false })];
             });
         });
     };
@@ -232,8 +253,7 @@ var GameRoundService = /** @class */ (function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOneAndUpdate({ crashRoundId: this.crashRoundId }, __assign({}, params), { new: true })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOneAndUpdate({ crashRoundId: this.crashRoundId }, __assign({}, params), { new: true })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
@@ -259,11 +279,12 @@ var GameRoundService = /** @class */ (function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOne()
-                            .where('partnerId')
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOne()
+                            .where("partnerId")
                             .equals(this.partnerId)
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
@@ -276,13 +297,14 @@ var GameRoundService = /** @class */ (function () {
             var round;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound
-                            .findOne()
-                            .where('partnerId')
+                    case 0: return [4 /*yield*/, models_1.GameRound.findOne()
+                            .where("partnerId")
                             .equals(this.partnerId)
-                            .where('isPlayed')
+                            .where("isPlayed")
                             .equals(params)
-                            .catch(function (e) { throw new Error(e); })];
+                            .catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         round = _a.sent();
                         return [2 /*return*/, round];
@@ -294,7 +316,9 @@ var GameRoundService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound.deleteOne({ _id: this._id }).catch(function (e) { throw new Error(e); })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.deleteOne({ _id: this._id }).catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, true];
@@ -306,7 +330,9 @@ var GameRoundService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.GameRound.deleteMany({ partnerId: this.partnerId }).catch(function (e) { throw new Error(e); })];
+                    case 0: return [4 /*yield*/, models_1.GameRound.deleteMany({ partnerId: this.partnerId }).catch(function (e) {
+                            throw new Error(e);
+                        })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/, true];

@@ -12,6 +12,23 @@ var GameRoundSchema = new mongoose_1.Schema({
     season: {
         type: Number,
     },
+    playerId: {
+        type: String,
+        required: true,
+    },
+    gameType: {
+        type: String,
+        required: true,
+    },
+    hasEnded: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    sessionId: {
+        type: String,
+        required: true,
+    },
     day: {
         type: String,
     },
@@ -37,8 +54,9 @@ var GameRoundSchema = new mongoose_1.Schema({
     algorithmUsed: {
         type: String
     },
-    gameType: {
+    betId: {
         type: String,
+        ref: 'BetPlaceds'
     },
     numberOfBetPlaced: {
         type: Number,

@@ -1,7 +1,8 @@
 import { BetPlaced } from "../models";
 import { IBetPlaced, IPaginator } from "../../types";
 import Pagionation from "./Pagination";
-import { PipelineStage } from "mongoose";
+import { ClientSession, FilterQuery, PipelineStage, QueryOptions } from "mongoose";
+import { AnyBulkWriteOperation } from "mongodb";
 
 class BetPlacedService {
   private partnerId: string | null;
@@ -22,14 +23,12 @@ class BetPlacedService {
     }
   }
 
-  public async findOne() {
-    const betPlaced = await BetPlaced.findOne()
-      .where(this._id ? "_id" : "partnerId")
-      .equals(this._id ? this._id : this.partnerId)
+  public async findOne(filter: FilterQuery<IBetPlaced>, options: QueryOptions) {
+    const round = await BetPlaced.findOne(filter, {}, { lean: true, ...options })
       .catch((e: any) => {
-        throw new Error(e.message);
+        throw new Error(e);
       });
-    return betPlaced;
+    return round;
   }
 
   public async findAll(limit: number) {
@@ -167,11 +166,11 @@ class BetPlacedService {
     return betPlaced;
   }
 
-  public async updateOne(params: Partial<IBetPlaced>) {
+  public async updateOne(params: Partial<IBetPlaced>, options: QueryOptions = { lean: true }) {
     const betPlaced = await BetPlaced.findOneAndUpdate(
       { _id: this._id },
       { ...params },
-      { new: true }
+      { new: true, lean: true, ...options }
     ).catch((e: any) => {
       throw new Error(e.message);
     });
@@ -193,6 +192,13 @@ class BetPlacedService {
 
   public async aggregate(pipeline: PipelineStage[]) {
     return BetPlaced.aggregate(pipeline)
+  }
+
+  public async bulkWrite(
+    writes: AnyBulkWriteOperation<IBetPlaced>[],
+    session?: ClientSession
+  ) {
+    return BetPlaced.bulkWrite(writes , { session, ordered: false });
   }
 }
 

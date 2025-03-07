@@ -22,26 +22,26 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IPaginator, ILog } from '../../types';
-import { FilterQuery, QueryOptions } from 'mongoose';
-declare class LogService {
-    private _id;
-    constructor(_id?: string);
-    create(params: Partial<ILog>): Promise<import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
+import { ClientSession, FilterQuery, QueryOptions } from "mongoose";
+import { IAggregator, IPaginator } from "../../types";
+declare class AggregatorService {
+    private model;
+    private finderOptions;
+    private composeFinder;
+    constructor(finderOptions: Partial<IAggregator>);
+    create(params: IAggregator, session?: ClientSession): Promise<IAggregator>;
+    bulkCreate(params: Array<IAggregator>, session?: ClientSession): Promise<IAggregator[]>;
+    update(param: Partial<IAggregator>, session?: ClientSession): Promise<IAggregator>;
+    updateMany(param: Partial<IAggregator>, session?: ClientSession): Promise<IAggregator & Required<{
         _id: string;
-    }>, never>>;
-    findOne(filter: FilterQuery<ILog>, options: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
+    }>>;
+    bulkWrite(param: any[], session?: ClientSession): Promise<import("mongodb").BulkWriteResult>;
+    findOne(session?: ClientSession): Promise<IAggregator | null>;
+    findOneCustom(filter: FilterQuery<IAggregator>, options: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, IAggregator> & Omit<IAggregator & Required<{
         _id: string;
     }>, never>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
-        _id: string;
-    }>, never>)[]>;
-    findAllActive(): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
-        _id: string;
-    }>, never>)[]>;
-    deleteOne(): Promise<import("mongodb").DeleteResult>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
+        data: (import("mongoose").Document<unknown, {}, IAggregator> & Omit<IAggregator & Required<{
             _id: string;
         }>, never>)[];
         pagination: {
@@ -54,7 +54,6 @@ declare class LogService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<ILog>): Promise<import("mongodb").UpdateResult>;
 }
-export default LogService;
-//# sourceMappingURL=LogService.d.ts.map
+export default AggregatorService;
+//# sourceMappingURL=Aggregator.d.ts.map

@@ -22,26 +22,23 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IPaginator, ILog } from '../../types';
-import { FilterQuery, QueryOptions } from 'mongoose';
-declare class LogService {
-    private _id;
-    constructor(_id?: string);
-    create(params: Partial<ILog>): Promise<import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
+import { ClientSession } from "mongoose";
+import { IDealer, IPaginator } from "../../types";
+declare class DealerService {
+    private model;
+    private finderOptions;
+    private composeFinder;
+    constructor(finderOptions: Partial<IDealer>);
+    create(params: IDealer, session?: ClientSession): Promise<IDealer>;
+    bulkCreate(params: Array<IDealer>, session?: ClientSession): Promise<IDealer[]>;
+    update(param: Partial<IDealer>, session?: ClientSession): Promise<IDealer>;
+    updateMany(param: Partial<IDealer>, session?: ClientSession): Promise<IDealer & Required<{
         _id: string;
-    }>, never>>;
-    findOne(filter: FilterQuery<ILog>, options: QueryOptions): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
-        _id: string;
-    }>, never>) | null>;
-    findAll(): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
-        _id: string;
-    }>, never>)[]>;
-    findAllActive(): Promise<(import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
-        _id: string;
-    }>, never>)[]>;
-    deleteOne(): Promise<import("mongodb").DeleteResult>;
+    }>>;
+    bulkWrite(param: any[], session?: ClientSession): Promise<import("mongodb").BulkWriteResult>;
+    findOne(session?: ClientSession): Promise<IDealer | null>;
     findAllPaginated({ sort, limit, page, condition }: IPaginator): Promise<{
-        data: (import("mongoose").Document<unknown, {}, ILog> & Omit<ILog & Required<{
+        data: (import("mongoose").Document<unknown, {}, IDealer> & Omit<IDealer & Required<{
             _id: string;
         }>, never>)[];
         pagination: {
@@ -54,7 +51,6 @@ declare class LogService {
         };
     }>;
     count(condition?: any): Promise<number>;
-    updateOne(params: Partial<ILog>): Promise<import("mongodb").UpdateResult>;
 }
-export default LogService;
-//# sourceMappingURL=LogService.d.ts.map
+export default DealerService;
+//# sourceMappingURL=DealerService.d.ts.map

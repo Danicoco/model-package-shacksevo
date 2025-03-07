@@ -52,106 +52,128 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var models_1 = require("../models");
 var Pagination_1 = __importDefault(require("./Pagination"));
-var LogService = /** @class */ (function () {
-    function LogService(_id) {
-        if (_id === void 0) { _id = ""; }
-        this._id = _id;
+var AggregatorService = /** @class */ (function () {
+    function AggregatorService(finderOptions) {
+        this.model = models_1.Aggregator;
+        this.finderOptions = this.composeFinder(finderOptions);
     }
-    LogService.prototype.create = function (params) {
+    AggregatorService.prototype.composeFinder = function (params) {
+        var isValidValue = function (value) { return value !== "" && value !== undefined; };
+        Object.entries(params).forEach(function (_a) {
+            var key = _a[0], value = _a[1];
+            if (!isValidValue(value)) {
+                // @ts-ignore
+                delete params[key];
+            }
+        });
+        return params;
+    };
+    AggregatorService.prototype.create = function (params, session) {
         return __awaiter(this, void 0, void 0, function () {
-            var data, error_1;
+            var data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        data = new models_1.Log(__assign({}, params));
-                        return [4 /*yield*/, data.save()];
+                    case 0: return [4 /*yield*/, new this.model(params).save(__assign({}, (session && { session: session })))];
                     case 1:
-                        _a.sent();
+                        data = _a.sent();
                         return [2 /*return*/, data];
-                    case 2:
-                        error_1 = _a.sent();
-                        throw new Error(error_1.message);
-                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    LogService.prototype.findOne = function (filter, options) {
+    AggregatorService.prototype.bulkCreate = function (params, session) {
         return __awaiter(this, void 0, void 0, function () {
-            var log;
+            var data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log.findOne(filter, {}, __assign({ lean: true }, options))
+                    case 0: return [4 /*yield*/, this.model.insertMany(params, __assign({}, (session && { session: session })))];
+                    case 1:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    AggregatorService.prototype.update = function (param, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .findOneAndUpdate(this.finderOptions, param, __assign({ new: true }, (session && { session: session })))
+                            .lean()];
+                    case 1:
+                        data = _a.sent();
+                        if (!data)
+                            throw new Error("Error updating record");
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    AggregatorService.prototype.updateMany = function (param, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .updateMany(this.finderOptions, param, __assign({ new: true }, (session && { session: session })))
+                            .lean()];
+                    case 1:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    AggregatorService.prototype.bulkWrite = function (param, session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model.bulkWrite(param, { session: session })];
+                    case 1:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    AggregatorService.prototype.findOne = function (session) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model
+                            .findOne(__assign({}, this.finderOptions), {}, __assign({ sort: { createdAt: -1 } }, (session && { session: session })))
+                            .lean()];
+                    case 1:
+                        data = _a.sent();
+                        return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    AggregatorService.prototype.findOneCustom = function (filter, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var round;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.model.findOne(filter, {}, __assign({ lean: true }, options))
                             .catch(function (e) {
                             throw new Error(e);
                         })];
                     case 1:
-                        log = _a.sent();
-                        return [2 /*return*/, log];
+                        round = _a.sent();
+                        return [2 /*return*/, round];
                 }
             });
         });
     };
-    LogService.prototype.findAll = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var results;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log
-                            .find()
-                            .catch(function (e) {
-                            throw new Error(e.message);
-                        })];
-                    case 1:
-                        results = _a.sent();
-                        return [2 /*return*/, results];
-                }
-            });
-        });
-    };
-    LogService.prototype.findAllActive = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var data;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log
-                            .find()
-                            .where('isActive')
-                            .equals(true)
-                            .catch(function (e) {
-                            throw new Error(e.message);
-                        })];
-                    case 1:
-                        data = _a.sent();
-                        return [2 /*return*/, data];
-                }
-            });
-        });
-    };
-    LogService.prototype.deleteOne = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var data;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log
-                            .deleteOne()
-                            .where('_id')
-                            .equals(this._id)
-                            .catch(function (e) {
-                            throw new Error(e.message);
-                        })];
-                    case 1:
-                        data = _a.sent();
-                        return [2 /*return*/, data];
-                }
-            });
-        });
-    };
-    LogService.prototype.findAllPaginated = function (_a) {
+    AggregatorService.prototype.findAllPaginated = function (_a) {
         var sort = _a.sort, limit = _a.limit, page = _a.page, condition = _a.condition;
         return __awaiter(this, void 0, void 0, function () {
-            var count, spins;
+            var count, Aggregators;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, this.count(condition).catch(function (e) {
@@ -159,8 +181,7 @@ var LogService = /** @class */ (function () {
                         })];
                     case 1:
                         count = _b.sent();
-                        return [4 /*yield*/, models_1.Log
-                                .find(__assign({}, (condition && condition)))
+                        return [4 /*yield*/, models_1.Aggregator.find(__assign({}, (condition && condition)))
                                 .sort(sort)
                                 .limit(limit)
                                 .skip(limit * (page - 1))
@@ -168,23 +189,21 @@ var LogService = /** @class */ (function () {
                                 throw e;
                             })];
                     case 2:
-                        spins = _b.sent();
+                        Aggregators = _b.sent();
                         return [2 /*return*/, {
-                                data: spins,
-                                pagination: Pagination_1.default.builder(spins, count, { page: page, limit: limit }),
+                                data: Aggregators,
+                                pagination: Pagination_1.default.builder(Aggregators, count, { page: page, limit: limit }),
                             }];
                 }
             });
         });
     };
-    LogService.prototype.count = function (condition) {
+    AggregatorService.prototype.count = function (condition) {
         return __awaiter(this, void 0, void 0, function () {
             var docs;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log
-                            .countDocuments(__assign({}, (condition && condition)))
-                            .catch(function (e) {
+                    case 0: return [4 /*yield*/, models_1.Aggregator.countDocuments(__assign({}, (condition && condition))).catch(function (e) {
                             throw e;
                         })];
                     case 1:
@@ -194,24 +213,7 @@ var LogService = /** @class */ (function () {
             });
         });
     };
-    LogService.prototype.updateOne = function (params) {
-        return __awaiter(this, void 0, void 0, function () {
-            var data;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models_1.Log
-                            .updateOne({ _id: this._id }, __assign({}, params), { new: true })
-                            .catch(function (e) {
-                            throw new Error(e.message);
-                        })];
-                    case 1:
-                        data = _a.sent();
-                        return [2 /*return*/, data];
-                }
-            });
-        });
-    };
-    return LogService;
+    return AggregatorService;
 }());
-exports.default = LogService;
-//# sourceMappingURL=LogService.js.map
+exports.default = AggregatorService;
+//# sourceMappingURL=Aggregator.js.map
