@@ -36,10 +36,12 @@ const projectSchema: Schema = new Schema<IProject>({
   _id: { type: Schema.Types.ObjectId, auto: true },
   email: { type: String },
   name: { type: String },
+  currency: {type: String},
   partnerUrl: { type: String },
   crashliteWebsocket: { type: String },
   buslyWebsocket: { type: String },
   isActive: { type: Boolean },
+  rtp: { type: Number}
 });
 
 const permissionSchema: Schema = new Schema<IParnterPermissions>({
