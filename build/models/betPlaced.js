@@ -42,6 +42,9 @@ var BetPlacedSchema = new mongoose_1.Schema({
     },
     betPlacedType: {
         type: String,
+    },
+    currency: {
+        type: String,
     }
 }, {
     collection: 'betPlaceds',

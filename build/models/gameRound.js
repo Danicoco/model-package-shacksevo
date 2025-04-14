@@ -20,6 +20,9 @@ var GameRoundSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    currency: {
+        type: String,
+    },
     hasEnded: {
         type: Boolean,
         required: true,

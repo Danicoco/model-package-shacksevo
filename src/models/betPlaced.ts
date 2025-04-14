@@ -42,6 +42,9 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
     },
     betPlacedType: {
         type: String,
+    },
+    currency: {
+        type: String,
     }
 }, {
     collection: 'betPlaceds',

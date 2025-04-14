@@ -18,6 +18,7 @@ interface IGameRound extends DefaultAttributes {
   season: number;
   gameOdd: string;
   eventId: string;
+  currency: string;
   gameType: string;
   eventTypes: Array;
   isPlayed: boolean;
@@ -40,6 +41,7 @@ interface IBetPlaced extends DefaultAttributes {
   userId: string;
   gameType: string;
   username: string;
+  currency: string;
   partnerId?: string;
   playerDetails: any;
   gameRoundId?: string;

@@ -22,6 +22,9 @@ const GameRoundSchema: Schema = new Schema<IGameRound>({
         type: String,
         required: true,
     },
+    currency: {
+        type: String,
+    },
     hasEnded: {
         type: Boolean,
         required: true,
