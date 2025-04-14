@@ -28,6 +28,9 @@ const AggregatorSchema: Schema = new Schema<IAggregator>({
         type: String,
         required: true,
     },
+    currency: {
+        type: String,
+    },
     hasEnded: {
         type: Boolean,
         required: true,

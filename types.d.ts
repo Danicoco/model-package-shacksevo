@@ -456,6 +456,7 @@ interface IAggregator extends DefaultAttributes {
   partnerId: string;
   gameType: string;
   hasEnded: boolean;
+  currency: string;
   betEndedAt?: Date;
   mode: "real" | "demo";
   meta: Record<string, any>;
