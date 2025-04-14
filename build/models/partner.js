@@ -27,10 +27,12 @@ var projectSchema = new mongoose_1.Schema({
     _id: { type: mongoose_1.Schema.Types.ObjectId, auto: true },
     email: { type: String },
     name: { type: String },
+    currency: { type: String },
     partnerUrl: { type: String },
     crashliteWebsocket: { type: String },
     buslyWebsocket: { type: String },
     isActive: { type: Boolean },
+    rtp: { type: Number },
 });
 var permissionSchema = new mongoose_1.Schema({
     addPartner: { type: Boolean },
@@ -115,7 +117,7 @@ var PartnerSchema = new mongoose_1.Schema({
     gameWebsocket: { type: "String" },
     chatWebsocket: { type: "String" },
     projects: [projectSchema],
-    permissions: permissionSchema
+    permissions: permissionSchema,
 }, {
     collection: "partners",
     versionKey: false,

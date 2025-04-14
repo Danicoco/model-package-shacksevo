@@ -11,8 +11,8 @@ const stakesSchema: Schema = new Schema<IStakesCustomization>({
   minimumStake: { type: Number, default: 10 },
   maximumStake: { type: Number, default: 5000 },
   gameType: { type: String, default: "cointoss" },
- 
- maximumWinnableAmount: { type: Number, default: 20000 },
+
+  maximumWinnableAmount: { type: Number, default: 20000 },
   minimumWinnableAmount: { type: Number, default: 0 },
 });
 
@@ -36,12 +36,12 @@ const projectSchema: Schema = new Schema<IProject>({
   _id: { type: Schema.Types.ObjectId, auto: true },
   email: { type: String },
   name: { type: String },
-  currency: {type: String},
+  currency: { type: String },
   partnerUrl: { type: String },
   crashliteWebsocket: { type: String },
   buslyWebsocket: { type: String },
   isActive: { type: Boolean },
-  rtp: { type: Number}
+  rtp: { type: Number },
 });
 
 const permissionSchema: Schema = new Schema<IParnterPermissions>({
@@ -129,7 +129,7 @@ const PartnerSchema: Schema = new Schema<IPartner>(
     gameWebsocket: { type: "String" },
     chatWebsocket: { type: "String" },
     projects: [projectSchema],
-    permissions: permissionSchema
+    permissions: permissionSchema,
   },
   {
     collection: "partners",

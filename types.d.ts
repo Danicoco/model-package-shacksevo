@@ -174,7 +174,7 @@ type IProject = {
   isActive: boolean;
   email: string;
   name: string;
-  currency: string;
+  currency?: string;
   partnerUrl: string;
   crashliteWebsocket?: string;
   buslyWebsocket?: string;
