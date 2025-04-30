@@ -74,5 +74,6 @@ const GameRoundSchema: Schema = new Schema<IGameRound>({
 });
 
 GameRoundSchema.set('timestamps', true);
+GameRoundSchema.index({ currency: 1, hasEnded: 1, betId: 1, partnerId: 1, playerId: 1 })
 
 export default model<IGameRound>('GameRounds', GameRoundSchema);

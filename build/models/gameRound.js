@@ -71,5 +71,6 @@ var GameRoundSchema = new mongoose_1.Schema({
     versionKey: false
 });
 GameRoundSchema.set('timestamps', true);
+GameRoundSchema.index({ currency: 1, hasEnded: 1, betId: 1, partnerId: 1, playerId: 1 });
 exports.default = (0, mongoose_1.model)('GameRounds', GameRoundSchema);
 //# sourceMappingURL=gameRound.js.map
