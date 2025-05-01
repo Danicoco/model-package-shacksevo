@@ -23,9 +23,9 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IBetPlaced } from '../../types';
-declare const BetPlacedModel: import("mongoose").Model<IBetPlaced, {}, {}, {}, import("mongoose").Document<unknown, {}, IBetPlaced> & Omit<IBetPlaced & Required<{
+import { IDashboard } from '../../types';
+declare const _default: import("mongoose").Model<IDashboard, {}, {}, {}, import("mongoose").Document<unknown, {}, IDashboard> & Omit<IDashboard & Required<{
     _id: string;
 }>, never>, any>;
-export default BetPlacedModel;
-//# sourceMappingURL=betPlaced.d.ts.map
+export default _default;
+//# sourceMappingURL=dashboard.d.ts.map

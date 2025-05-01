@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TornamentPlayers = exports.Customization = exports.ErrorMessage = exports.Notification = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Promotion = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Dealer = exports.Domain = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.Log = exports.APP = exports.Aggregator = exports.API = exports.Rtp = void 0;
+exports.TornamentPlayers = exports.Customization = exports.ErrorMessage = exports.Notification = exports.Transaction = exports.Leaderboard = exports.EveryMatrix = exports.SpinRecord = exports.Permission = exports.GameAccess = exports.Dashboard = exports.Promotion = exports.Tornament = exports.BetPlaced = exports.GameRound = exports.Feedback = exports.Partner = exports.Reward = exports.Wallet = exports.Dealer = exports.Domain = exports.Admin = exports.Role = exports.User = exports.Chat = exports.Game = exports.Log = exports.APP = exports.Aggregator = exports.API = exports.Rtp = void 0;
 var rtp_1 = __importDefault(require("./rtp"));
 exports.Rtp = rtp_1.default;
 var api_1 = __importDefault(require("./api"));
@@ -64,4 +64,6 @@ var customization_1 = __importDefault(require("./customization"));
 exports.Customization = customization_1.default;
 var dealer_1 = __importDefault(require("./dealer"));
 exports.Dealer = dealer_1.default;
+var dashboard_1 = __importDefault(require("./dashboard"));
+exports.Dashboard = dashboard_1.default;
 //# sourceMappingURL=index.js.map

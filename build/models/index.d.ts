@@ -28,5 +28,6 @@ import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
 import Customization from "./customization";
 import Dealer from "./dealer";
-export { Rtp, API, Aggregator, APP, Log, Game, Chat, User, Role, Admin, Domain, Dealer, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, Promotion, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, Notification, ErrorMessage, Customization, TornamentPlayers, };
+import Dashboard from "./dashboard";
+export { Rtp, API, Aggregator, APP, Log, Game, Chat, User, Role, Admin, Domain, Dealer, Wallet, Reward, Partner, Feedback, GameRound, BetPlaced, Tornament, Promotion, Dashboard, GameAccess, Permission, SpinRecord, EveryMatrix, Leaderboard, Transaction, Notification, ErrorMessage, Customization, TornamentPlayers, };
 //# sourceMappingURL=index.d.ts.map

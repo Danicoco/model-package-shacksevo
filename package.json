@@ -1,6 +1,6 @@
 {
   "name": "model-package-shacksevo",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "Models and its implementation",
   "main": "build/index.js",
   "author": "Aderemi Dare",
@@ -10,6 +10,7 @@
     "build": "tsc -p ."
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "express": "^4.17.2",
     "mongoose": "^7.0.3"
   },

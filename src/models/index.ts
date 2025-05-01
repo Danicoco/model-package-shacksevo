@@ -28,6 +28,7 @@ import Tornament from "./tornamentPlayers";
 import TornamentPlayers from "./tornamentPlayers";
 import Customization from "./customization";
 import Dealer from "./dealer";
+import Dashboard from "./dashboard";
 
 export {
   Rtp,
@@ -50,6 +51,7 @@ export {
   BetPlaced,
   Tornament,
   Promotion,
+  Dashboard,
   GameAccess,
   Permission,
   SpinRecord,

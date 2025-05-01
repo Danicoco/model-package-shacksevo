@@ -27,4 +27,5 @@ export { default as PermissionService } from "./PermissionService";
 export { default as TransactionService } from "./TransactionService";
 export { default as CustomizationService } from "./CustomizationService";
 export { default as TornamentPlayerService } from "./TornamentPlayerService";
+export { default as DashboardService } from "./DashboardService";
 //# sourceMappingURL=index.d.ts.map

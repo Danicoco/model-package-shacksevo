@@ -462,6 +462,15 @@ interface IAggregator extends DefaultAttributes {
   meta: Record<string, any>;
 }
 
+interface IDashboard extends DefaultAttributes {
+  value: number;
+  sidebetValue: number;
+  partnerId: string;
+  date: Date;
+  type: string | "revenue" | "cashout" | "count" | "game-won" | "game-lost"
+  gameType: string
+}
+
 type CatchErr = (message: string, code?: number, validations?: object) => Error;
 
 type AppError = Error & {

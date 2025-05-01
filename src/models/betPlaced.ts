@@ -1,5 +1,6 @@
 import { IBetPlaced } from '../../types';
 import { Schema, Types, model } from 'mongoose';
+import DashboardService from '../usability/DashboardService';
 
 const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
     result: {
@@ -54,5 +55,7 @@ const BetPlacedSchema: Schema = new Schema<IBetPlaced>({
 BetPlacedSchema.set('timestamps', true);
 BetPlacedSchema.index({ gameRoundId: 1, partnerId: 1, userId: 1 })
 
+const BetPlacedModel = model<IBetPlaced>('BetPlaceds', BetPlacedSchema);
+BetPlacedModel.watch([], { fullDocument: "updateLookup" }).on("change", async (changeEvent) => new DashboardService({}).logChanges(changeEvent));
 
-export default model<IBetPlaced>('BetPlaceds', BetPlacedSchema);
+export default BetPlacedModel
