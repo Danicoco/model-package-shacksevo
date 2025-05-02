@@ -28,4 +28,6 @@ export { default as TransactionService } from "./TransactionService";
 export { default as CustomizationService } from "./CustomizationService";
 export { default as TornamentPlayerService } from "./TornamentPlayerService";
 export { default as DashboardService } from "./DashboardService";
+export { default as DashboardModel } from "../models/dashboard";
+export { default as BetPlacedModel } from "../models/betPlaced";
 //# sourceMappingURL=index.d.ts.map

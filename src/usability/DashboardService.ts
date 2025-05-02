@@ -112,7 +112,7 @@ class DashboardService {
 
   public async logChanges(changeEvent: any) {
     const payload = changeEvent.fullDocument as IBetPlaced;
-    recordSummaryValue(payload);
+    await recordSummaryValue(payload);
   }
 }
 

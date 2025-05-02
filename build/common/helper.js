@@ -61,69 +61,95 @@ var DASHBOARD_TYPE = {
     GAMELOST: "game-lost",
 };
 var recordSummaryValue = function (payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var sidebetAmount, date, base, dashboards;
+    var sidebetAmount, date, base;
     var _a, _b, _c, _d;
     return __generator(this, function (_e) {
-        switch (_e.label) {
-            case 0:
-                sidebetAmount = ((_b = (_a = payload.selectedEventType[0]) === null || _a === void 0 ? void 0 : _a.sidebet) === null || _b === void 0 ? void 0 : _b.amount) ||
-                    ((_d = (_c = payload.selectedEventType[0]) === null || _c === void 0 ? void 0 : _c.sideBet) === null || _d === void 0 ? void 0 : _d.amount) ||
-                    0;
-                date = (0, date_fns_1.startOfDay)(new Date());
-                base = {
-                    date: date,
-                    gameType: payload.gameType,
-                    partnerId: String(payload.partnerId),
-                };
-                return [4 /*yield*/, new DashboardService_1.default(base).findAll()];
-            case 1:
-                dashboards = _e.sent();
-                dashboards.forEach(function (dashboard) { return __awaiter(void 0, void 0, void 0, function () {
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                if (!dashboard) return [3 /*break*/, 2];
-                                return [4 /*yield*/, Promise.all([
-                                        dashboard.type === DASHBOARD_TYPE.REVENUE
-                                            ? new DashboardService_1.default(base).updateOne({
-                                                value: dashboard.value + Number(payload.amountPlaced),
-                                                sidebetValue: dashboard.sidebetValue + Number(sidebetAmount),
-                                            })
-                                            : new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: payload.amountPlaced, sidebetValue: sidebetAmount, type: DASHBOARD_TYPE.REVENUE })),
-                                        dashboard.type === DASHBOARD_TYPE.CASHOUT
-                                            ? new DashboardService_1.default(base).updateOne({
-                                                value: dashboard.value + Number(payload.cashoutAmount),
-                                            })
-                                            : new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: payload.cashoutAmount, type: DASHBOARD_TYPE.CASHOUT })),
-                                        dashboard.type === DASHBOARD_TYPE.COUNT
-                                            ? new DashboardService_1.default(base).updateOne({
-                                                value: dashboard.value + 1,
-                                            })
-                                            : new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.COUNT })),
-                                        dashboard.type === DASHBOARD_TYPE.GAMELOST
-                                            ? new DashboardService_1.default(base).updateOne({
-                                                value: payload.result === "lost"
-                                                    ? dashboard.value + 1
-                                                    : dashboard.value,
-                                            })
-                                            : new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.GAMELOST })),
-                                        dashboard.type === DASHBOARD_TYPE.GAMEWON
-                                            ? new DashboardService_1.default(base).updateOne({
-                                                value: payload.result === "won"
-                                                    ? dashboard.value + 1
-                                                    : dashboard.value,
-                                            })
-                                            : new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.GAMEWON })),
-                                    ])];
-                            case 1:
-                                _a.sent();
-                                _a.label = 2;
-                            case 2: return [2 /*return*/];
-                        }
-                    });
-                }); });
-                return [2 /*return*/];
-        }
+        sidebetAmount = ((_b = (_a = payload.selectedEventType[0]) === null || _a === void 0 ? void 0 : _a.sidebet) === null || _b === void 0 ? void 0 : _b.amount) ||
+            ((_d = (_c = payload.selectedEventType[0]) === null || _c === void 0 ? void 0 : _c.sideBet) === null || _d === void 0 ? void 0 : _d.amount) ||
+            0;
+        date = (0, date_fns_1.startOfDay)(new Date());
+        base = {
+            date: date,
+            gameType: payload.gameType,
+            partnerId: String(payload.partnerId),
+        };
+        Object.values(DASHBOARD_TYPE).forEach(function (type) { return __awaiter(void 0, void 0, void 0, function () {
+            var dashboard;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, new DashboardService_1.default(base).findOne()];
+                    case 1:
+                        dashboard = _a.sent();
+                        if (!(type === DASHBOARD_TYPE.CASHOUT)) return [3 /*break*/, 5];
+                        if (!dashboard) return [3 /*break*/, 3];
+                        return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
+                                value: dashboard.value + Number(payload.cashoutAmount),
+                            })];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 5];
+                    case 3: return [4 /*yield*/, new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: payload.cashoutAmount, type: DASHBOARD_TYPE.CASHOUT }))];
+                    case 4:
+                        _a.sent();
+                        _a.label = 5;
+                    case 5:
+                        if (!(type === DASHBOARD_TYPE.COUNT)) return [3 /*break*/, 9];
+                        if (!dashboard) return [3 /*break*/, 7];
+                        return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
+                                value: dashboard.value + 1,
+                            })];
+                    case 6:
+                        _a.sent();
+                        return [3 /*break*/, 9];
+                    case 7: return [4 /*yield*/, new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.COUNT }))];
+                    case 8:
+                        _a.sent();
+                        _a.label = 9;
+                    case 9:
+                        if (!(type === DASHBOARD_TYPE.GAMELOST)) return [3 /*break*/, 13];
+                        if (!dashboard) return [3 /*break*/, 11];
+                        return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
+                                value: payload.result === "lost" ? dashboard.value + 1 : dashboard.value,
+                            })];
+                    case 10:
+                        _a.sent();
+                        return [3 /*break*/, 13];
+                    case 11: return [4 /*yield*/, new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.GAMELOST }))];
+                    case 12:
+                        _a.sent();
+                        _a.label = 13;
+                    case 13:
+                        if (!(type === DASHBOARD_TYPE.GAMEWON)) return [3 /*break*/, 17];
+                        if (!dashboard) return [3 /*break*/, 15];
+                        return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
+                                value: payload.result === "won" ? dashboard.value + 1 : dashboard.value,
+                            })];
+                    case 14:
+                        _a.sent();
+                        return [3 /*break*/, 17];
+                    case 15: return [4 /*yield*/, new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: 1, type: DASHBOARD_TYPE.GAMEWON }))];
+                    case 16:
+                        _a.sent();
+                        _a.label = 17;
+                    case 17:
+                        if (!(type === DASHBOARD_TYPE.REVENUE)) return [3 /*break*/, 21];
+                        if (!dashboard) return [3 /*break*/, 19];
+                        return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
+                                value: dashboard.value + Number(payload.amountPlaced),
+                                sidebetValue: dashboard.sidebetValue + Number(sidebetAmount),
+                            })];
+                    case 18:
+                        _a.sent();
+                        return [3 /*break*/, 21];
+                    case 19: return [4 /*yield*/, new DashboardService_1.default(base).create(__assign(__assign({}, base), { value: payload.amountPlaced, sidebetValue: sidebetAmount, type: DASHBOARD_TYPE.REVENUE }))];
+                    case 20:
+                        _a.sent();
+                        _a.label = 21;
+                    case 21: return [2 /*return*/];
+                }
+            });
+        }); });
+        return [2 /*return*/];
     });
 }); };
 exports.recordSummaryValue = recordSummaryValue;

@@ -194,9 +194,14 @@ var DashboardService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var payload;
             return __generator(this, function (_a) {
-                payload = changeEvent.fullDocument;
-                (0, helper_1.recordSummaryValue)(payload);
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        payload = changeEvent.fullDocument;
+                        return [4 /*yield*/, (0, helper_1.recordSummaryValue)(payload)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
             });
         });
     };
