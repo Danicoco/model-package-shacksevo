@@ -80,7 +80,7 @@ var recordSummaryValue = function (payload) { return __awaiter(void 0, void 0, v
                     case 0: return [4 /*yield*/, new DashboardService_1.default(base).findOne()];
                     case 1:
                         dashboard = _a.sent();
-                        if (!(type === DASHBOARD_TYPE.CASHOUT)) return [3 /*break*/, 5];
+                        if (!(type === DASHBOARD_TYPE.CASHOUT && payload.cashoutAmount)) return [3 /*break*/, 5];
                         if (!dashboard) return [3 /*break*/, 3];
                         return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
                                 value: dashboard.value + Number(payload.cashoutAmount),
@@ -119,7 +119,7 @@ var recordSummaryValue = function (payload) { return __awaiter(void 0, void 0, v
                         _a.sent();
                         _a.label = 13;
                     case 13:
-                        if (!(type === DASHBOARD_TYPE.GAMEWON)) return [3 /*break*/, 17];
+                        if (!(type === DASHBOARD_TYPE.GAMEWON && payload.result === "won")) return [3 /*break*/, 17];
                         if (!dashboard) return [3 /*break*/, 15];
                         return [4 /*yield*/, new DashboardService_1.default(base).updateOne({
                                 value: payload.result === "won" ? dashboard.value + 1 : dashboard.value,
